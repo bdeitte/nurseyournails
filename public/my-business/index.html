@@ -140,6 +140,25 @@
                           }
                           setBp();
                           window.addEventListener('resize', setBp);
+                          function initNav(){
+                            var btn = document.querySelector('.mobile-navigation.center-all');
+                            if (!btn) return;
+                            var icon = btn.querySelector('.mobile-btn');
+                            btn.addEventListener('click', function(e){
+                              e.stopPropagation();
+                              var open = b.classList.toggle('nav-open');
+                              if (icon) icon.classList.toggle('close', open);
+                            });
+                            document.addEventListener('click', function(e){
+                              if (!b.classList.contains('nav-open')) return;
+                              var nav = document.querySelector('nav.full-screen-navigation');
+                              if (nav && nav.contains(e.target) && !e.target.closest('a')) return;
+                              b.classList.remove('nav-open');
+                              if (icon) icon.classList.remove('close');
+                            });
+                          }
+                          if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initNav);
+                          else initNav();
                         })();
                         </script>
                         <div class="application">
