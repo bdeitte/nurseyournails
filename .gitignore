@@ -1,0 +1,5 @@
+node_modules/
+docs/superpowers/plans
+docs/superpowers/specs
+.worktrees/
+.DS_Store

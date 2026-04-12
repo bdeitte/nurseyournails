@@ -1,0 +1,16 @@
+{
+  "name": "nurseyournails",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "serve": "npx serve public",
+    "optimize": "node scripts/optimize-images.mjs"
+  },
+  "engines": {
+    "node": ">=20.18.1"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}
