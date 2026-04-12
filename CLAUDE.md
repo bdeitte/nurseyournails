@@ -38,3 +38,5 @@ JPEG/WebP re-encode at q80; PNG uses max zlib compression. Idempotent — safe t
 ## Making changes
 
 When making a set of changes, use chrome-devtools to take a snapshot before and after you make the changes to ensure nothing unepxected has changed.  Also use list_console_messages to ensure nothing unexpected is happening.
+
+Ensure all changes look reasonable at a mobile screen size.
