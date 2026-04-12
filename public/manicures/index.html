@@ -130,6 +130,11 @@
                         <script>
                         (function(){
                           var b = document.body;
+                          var icon = null;
+                          function closeNav(){
+                            b.classList.remove('nav-open');
+                            if (icon) icon.classList.remove('close');
+                          }
                           function setBp(){
                             var w = document.documentElement.clientWidth;
                             var c = b.className.replace(/ ?(tablet-break|mobile-break|screen-mobile|screen-tablet|screen-desktop)/g,'');
@@ -137,13 +142,14 @@
                             else if (w <= 1200) c += ' tablet-break screen-tablet';
                             else c += ' screen-desktop';
                             b.className = c;
+                            if (w > 767) closeNav();
                           }
                           setBp();
                           window.addEventListener('resize', setBp);
                           function initNav(){
                             var btn = document.querySelector('.mobile-navigation.center-all');
                             if (!btn) return;
-                            var icon = btn.querySelector('.mobile-btn');
+                            icon = btn.querySelector('.mobile-btn');
                             btn.addEventListener('click', function(e){
                               e.stopPropagation();
                               var open = b.classList.toggle('nav-open');
@@ -153,8 +159,7 @@
                               if (!b.classList.contains('nav-open')) return;
                               var nav = document.querySelector('nav.full-screen-navigation');
                               if (nav && nav.contains(e.target) && !e.target.closest('a')) return;
-                              b.classList.remove('nav-open');
-                              if (icon) icon.classList.remove('close');
+                              closeNav();
                             });
                           }
                           if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initNav);
