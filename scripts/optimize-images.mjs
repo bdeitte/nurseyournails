@@ -1,4 +1,4 @@
-import { readdir, readFile, writeFile } from 'node:fs/promises';
+import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
@@ -34,6 +34,67 @@ async function optimizeFile(filePath) {
   return saved;
 }
 
+const VARIANT_WIDTHS = [400, 800, 1200];
+const VARIANT_MIN_SOURCE_WIDTH = 400;
+
+async function generateVariants(imagesDir) {
+  const files = await readdir(imagesDir);
+  const manifest = {};
+
+  for (const name of files) {
+    const ext = path.extname(name).toLowerCase();
+    if (!['.jpg', '.jpeg', '.png'].includes(ext)) continue;
+    if (/-\d+\.webp$/.test(name)) continue;
+
+    const sourcePath = path.join(imagesDir, name);
+    const sourceStat = await stat(sourcePath);
+    const meta = await sharp(sourcePath).metadata();
+    if (!meta.width || meta.width < VARIANT_MIN_SOURCE_WIDTH) continue;
+
+    const baseHash = name.slice(0, -ext.length);
+    const variants = [];
+
+    for (const targetWidth of VARIANT_WIDTHS) {
+      if (targetWidth > meta.width) continue;
+      const outName = `${baseHash}-${targetWidth}.webp`;
+      const outPath = path.join(imagesDir, outName);
+
+      let shouldGenerate = true;
+      try {
+        const outStat = await stat(outPath);
+        if (outStat.mtimeMs >= sourceStat.mtimeMs) shouldGenerate = false;
+      } catch {
+        // missing — generate
+      }
+
+      if (shouldGenerate) {
+        await sharp(sourcePath)
+          .resize({ width: targetWidth, withoutEnlargement: true })
+          .webp({ quality: 80, effort: 4 })
+          .toFile(outPath);
+        console.log(`  variant ${outName}`);
+      }
+
+      variants.push({ width: targetWidth, path: `assets/images/${outName}` });
+    }
+
+    if (variants.length) {
+      manifest[baseHash] = {
+        source: `assets/images/${name}`,
+        sourceWidth: meta.width,
+        sourceHeight: meta.height,
+        variants,
+      };
+    }
+  }
+
+  await writeFile(
+    path.join(imagesDir, 'variants.json'),
+    JSON.stringify(manifest, null, 2) + '\n',
+  );
+  console.log(`Wrote variants.json (${Object.keys(manifest).length} entries)`);
+}
+
 async function main() {
   console.log(`Optimizing images in ${IMAGE_DIR}...`);
   let totalSaved = 0;
@@ -48,6 +109,9 @@ async function main() {
     }
   }
   console.log(`Total saved: ${(totalSaved / 1024).toFixed(0)}KB`);
+
+  console.log('Generating responsive WebP variants...');
+  await generateVariants(IMAGE_DIR);
 }
 
 main().catch((err) => {
