@@ -29,6 +29,9 @@ function buildPicture(wholeTag, prefix, filename) {
   const entry = MANIFEST[base];
   if (!entry) return wholeTag;
 
+  const largestVariant = Math.max(...entry.variants.map((v) => v.width));
+  if (largestVariant < entry.sourceWidth) return wholeTag;
+
   const srcset = entry.variants
     .map((v) => `${prefix || ''}${v.path} ${v.width}w`)
     .join(', ');
