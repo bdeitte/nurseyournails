@@ -3,3 +3,9 @@ docs/superpowers/plans
 docs/superpowers/specs
 .worktrees/
 .DS_Store
+
+# Local debugging/audit artifacts
+/*.png
+/lh-*.json
+/lighthouse-*.json
+/*.report.html
