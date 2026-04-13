@@ -6,6 +6,6 @@ docs/superpowers/specs
 
 # Local debugging/audit artifacts
 /*.png
-/lh-*.json
+/lh*.json
 /lighthouse-*.json
 /*.report.html
