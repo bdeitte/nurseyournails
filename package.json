@@ -5,12 +5,14 @@
   "private": true,
   "scripts": {
     "serve": "npx serve public",
-    "optimize": "node scripts/optimize-images.mjs"
+    "optimize": "node scripts/optimize-images.mjs",
+    "lighthouse": "lighthouse"
   },
   "engines": {
     "node": ">=20.18.1"
   },
   "devDependencies": {
+    "lighthouse": "^12.8.2",
     "sharp": "^0.34.5"
   }
 }

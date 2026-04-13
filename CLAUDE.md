@@ -8,9 +8,10 @@ Static marketing site for Nurse Your Nails (Middleton, WI), live at https://nurs
 
 ## Commands
 
-- `npm install` — installs `sharp` (only needed for image optimization)
+- `npm install` — installs `sharp` (image optimization) and `lighthouse` (audits)
 - `npm run serve` — serves `public/` locally via `npx serve`
 - `npm run optimize` — runs `scripts/optimize-images.mjs` over `public/assets/images/`
+- `npm run lighthouse -- <url> [--preset=desktop] [--only-categories=performance] [--output=json] [--output-path=...]` — runs Lighthouse audits against local or production. Example: `npm run lighthouse -- http://localhost:3000 --preset=desktop --output=json --output-path=./lh.json --quiet --chrome-flags='--headless'`. Output artifacts (`lh-*.json`, `*.report.html`) are gitignored at the repo root.
 
 There is no lint, test, or build command. Node >= 20.18.1.
 
