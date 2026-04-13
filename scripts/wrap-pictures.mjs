@@ -43,8 +43,9 @@ for (const rel of PAGES) {
   let wrapsInFile = 0;
 
   html = html.replace(IMG_RE, (match, prefix, filename, offset, full) => {
-    const before = full.slice(Math.max(0, offset - 12), offset);
-    if (before.includes('<picture')) return match;
+    const lastOpen = full.lastIndexOf('<picture', offset);
+    const lastClose = full.lastIndexOf('</picture>', offset);
+    if (lastOpen > lastClose) return match;
     if (filename.startsWith('f55b6d7ad9')) return match;
 
     const wrapped = buildPicture(match, prefix, filename);

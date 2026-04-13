@@ -38,12 +38,12 @@ const VARIANT_WIDTHS = [400, 800, 1200];
 const VARIANT_MIN_SOURCE_WIDTH = 400;
 
 async function generateVariants(imagesDir) {
-  const files = await readdir(imagesDir);
+  const files = (await readdir(imagesDir)).sort();
   const manifest = {};
 
   for (const name of files) {
     const ext = path.extname(name).toLowerCase();
-    if (!['.jpg', '.jpeg', '.png'].includes(ext)) continue;
+    if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) continue;
     if (/-\d+\.webp$/.test(name)) continue;
 
     const sourcePath = path.join(imagesDir, name);
