@@ -29,8 +29,9 @@ function buildPicture(wholeTag, prefix, filename) {
   const entry = MANIFEST[base];
   if (!entry) return wholeTag;
 
+  const sourceIsWebp = /\.webp$/i.test(filename);
   const largestVariant = Math.max(...entry.variants.map((v) => v.width));
-  if (largestVariant < entry.sourceWidth) return wholeTag;
+  if (sourceIsWebp && largestVariant < entry.sourceWidth) return wholeTag;
 
   const srcset = entry.variants
     .map((v) => `${prefix || ''}${v.path} ${v.width}w`)
