@@ -45,3 +45,111 @@
   }
 }
 .social-icon a{color:inherit!important}
+
+
+/* === Extracted from inline <style> block 2 (identical on all 10 pages) === */
+#our-locations{display:none !important;}#mobile-our-locations{display:none !important;}#memberships{display:none !important;}#mobile-memberships{display:none !important;}#packages{display:none !important;}#mobile-packages{display:none !important;}#daily-deals{display:none !important;}#mobile-daily-deals{display:none !important;}#classes{display:none !important;}#mobile-classes{display:none !important;}
+
+/* === Extracted from inline <style> block 3 (identical on all 10 pages) === */
+.navigation-folder:focus-within > ul { display: block !important; } @media (min-width: 768px) and (max-width: 1200px) { .full-screen-navigation { display: flex !important; } .mobile-navigation { display: none !important; } }
+
+/* === Extracted from inline <style> block 4 (identical on all 10 pages) === */
+/* Utility classes extracted from repeated inline styles */
+/* Social icon containers (facebook, instagram, booking) */
+.social-icon {
+  width: 1.8em;
+  height: 1.8em;
+  border-radius: 100%;
+  padding: 0.4em;
+  background: transparent;
+}
+/* Links within social icons */
+.social-icon a {
+  color: inherit;
+}
+/* Logo image in header */
+.logo-container img {
+  height: 128px;
+  padding: 12px;
+  z-index: 10;
+  pointer-events: none;
+}
+.mobile-navigation.logo-container img {
+  max-width: 100%;
+}
+/* Logo link wrapper */
+.logo-container > a {
+  display: block;
+  width: auto;
+}
+/* No flex grow utility */
+.no-grow {
+  flex-grow: 0;
+}
+/* Main content area minimum height */
+#divcontent {
+  min-height: calc(100vh - 100px);
+}
+/* Mobile hamburger menu button */
+.mobile-navigation.center-all {
+  cursor: pointer;
+  font-size: 30px;
+  margin: 0px;
+  width: 32px;
+  height: 32px;
+}
+/* Mobile menu icon size */
+.mobile-btn {
+  font-size: 28px;
+}
+/* Account container in header */
+.account-container {
+  padding-right: 8px;
+}
+/* Account controls spacing */
+.account-controls {
+  margin-bottom: 2px;
+}
+/* Photo gallery grid layout */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Photo gallery card base (background-image stays inline) */
+.gallery-grid .photo-card {
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+}
+/* Section buffer widths */
+.section-buffer {
+  width: calc(50% - var(--half-width));
+}
+/* Let the price-list services expand with the page instead of scrolling
+   inside a fixed-height container. The site builder injects per-section `vwb-hght-*`
+   rules with `height: <px> !important` plus `.v-section { overflow: hidden }`,
+   which clips the service list. Scope the override to sections that actually
+   contain the service list via :has() so other pages keep their sizing. */
+.v-section:has(.v-service-list),
+.v-section:has(.v-service-list) .v-col {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+.v-service-list {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
