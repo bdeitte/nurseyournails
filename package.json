@@ -9,7 +9,7 @@
     "lighthouse": "lighthouse"
   },
   "engines": {
-    "node": ">=20.18.1"
+    "node": ">=20.19.0"
   },
   "devDependencies": {
     "@eslint/css": "^1.1.0",
