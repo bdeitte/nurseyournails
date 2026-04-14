@@ -20,7 +20,7 @@ The only lint is `npm run lint:css` (CSS Baseline enforcement). There is no test
 
 **Static HTML, one directory per route.** Each page lives at `public/<slug>/index.html` and is served at `/<slug>/`. The home page is `public/index.html`, served at `/`. `public/sitemap.xml` lists the canonical public URLs the site wants indexed. Adding a new public page means creating `public/<slug>/index.html` and adding the URL to `sitemap.xml`.
 
-**Shared assets use content-hashed filenames.** CSS lives at `public/assets/css/<hash>.css` (currently a single file). Images live at `public/assets/images/<hash>.{jpg,jpeg,png,webp}`. When replacing an asset, update all HTML references — there is no asset pipeline to rewrite them.
+**Assets use descriptive nested paths.** CSS lives at `public/assets/css/site.css`. Images live under `public/assets/images/<page-folder>/<role>.{jpg,jpeg,png,webp}` — `shared/` for cross-page chrome (logo, favicon, social-share), and one folder per route (`home/`, `about-me/`, `foot-care/`, `gallery/`, `manicures/`, `my-business/`, `new-client-special/`, `products/`, `reviews/`) for page-owned images. Names are kebab-case and semantic (`hero`, `studio-interior`, `family-portrait`); generic gallery tiles are numbered (`gallery/01.webp`). Responsive variants live alongside their source as `<role>-400.webp` / `-800.webp` / `-1200.webp`. When replacing an asset, update all HTML references — there is no asset pipeline to rewrite them.
 
 **Treat pages as mostly hand-edited output** Small targeted edits are fine, but wholesale restructuring of a page's markup risks breaking builder-generated CSS selectors that reference IDs like `#vZa50e...`.
 
@@ -30,10 +30,10 @@ The only lint is `npm run lint:css` (CSS Baseline enforcement). There is no test
 
 `scripts/optimize-images.mjs` runs two passes over `public/assets/images/`:
 
-1. **In-place re-encode.** JPG/JPEG/PNG/WebP files ≥ 50KB are re-encoded only if the output saves ≥ 10%. JPEG/WebP at q80; PNG at max zlib. No resizing, no format change, no filename change.
-2. **Responsive WebP variants.** For each JPG/JPEG/PNG/WebP original ≥ 400px wide, writes `<hash>-400.webp`, `-800.webp`, and `-1200.webp` (where the original is wide enough). Updates `public/assets/images/variants.json` mapping each original to its variants. Only regenerates variants that are missing or older than the source, so the script stays idempotent.
+1. **In-place re-encode.** JPG/JPEG/PNG/WebP files ≥ 50KB are re-encoded only if the output saves ≥ 10%. JPEG/WebP at q80; PNG at max zlib. No resizing, no format change, no filename change. Recurses into the per-page subdirectories.
+2. **Responsive WebP variants.** For each JPG/JPEG/PNG/WebP original ≥ 400px wide, writes `<role>-400.webp`, `-800.webp`, and `-1200.webp` alongside the source under its page folder (where the original is wide enough). Updates `public/assets/images/variants.json` — keyed by relative path without extension (e.g. `"foot-care/spa-pedicure"`) — mapping each original to its variants. Only regenerates variants that are missing or older than the source, so the script stays idempotent.
 
-`scripts/wrap-pictures.mjs` wraps every `<img>` that references an asset in `variants.json` with `<picture>` + `<source type="image/webp" srcset="...">`. Idempotent: re-running detects already-wrapped images by scanning for the nearest unmatched `<picture>...</picture>` pair. Skips the site logo (`f55b6d7ad9*`) since both logo instances are hand-tuned in-place.
+`scripts/wrap-pictures.mjs` wraps every `<img>` that references an asset in `variants.json` with `<picture>` + `<source type="image/webp" srcset="...">`. Idempotent: re-running detects already-wrapped images by scanning for the nearest unmatched `<picture>...</picture>` pair. Skips the site logo (`shared/logo*`) since both logo instances are hand-tuned in-place.
 
 ## Making changes
 
