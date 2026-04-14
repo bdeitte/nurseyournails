@@ -2,6 +2,23 @@ import { readdir, readFile, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import sharp from 'sharp';
 
+async function walkImages(dir, baseDir) {
+  const entries = await readdir(dir, { withFileTypes: true });
+  const results = [];
+  for (const entry of entries) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...(await walkImages(full, baseDir)));
+    } else if (entry.isFile()) {
+      const ext = path.extname(entry.name).toLowerCase();
+      if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) continue;
+      if (/-\d+\.webp$/.test(entry.name)) continue;
+      results.push({ full, rel: path.relative(baseDir, full) });
+    }
+  }
+  return results;
+}
+
 const IMAGE_DIR = 'public/assets/images';
 const SIZE_THRESHOLD = 50 * 1024;
 const MIN_SAVINGS_RATIO = 0.10;
@@ -38,26 +55,24 @@ const VARIANT_WIDTHS = [400, 800, 1200];
 const VARIANT_MIN_SOURCE_WIDTH = 400;
 
 async function generateVariants(imagesDir) {
-  const files = (await readdir(imagesDir)).sort();
+  const sources = (await walkImages(imagesDir, imagesDir)).sort((a, b) =>
+    a.rel.localeCompare(b.rel),
+  );
   const manifest = {};
 
-  for (const name of files) {
-    const ext = path.extname(name).toLowerCase();
-    if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) continue;
-    if (/-\d+\.webp$/.test(name)) continue;
-
-    const sourcePath = path.join(imagesDir, name);
+  for (const { full: sourcePath, rel: relFromImages } of sources) {
+    const ext = path.extname(sourcePath).toLowerCase();
     const sourceStat = await stat(sourcePath);
     const meta = await sharp(sourcePath).metadata();
     if (!meta.width || meta.width < VARIANT_MIN_SOURCE_WIDTH) continue;
 
-    const baseHash = name.slice(0, -ext.length);
+    const relBase = relFromImages.slice(0, -ext.length); // e.g. "foot-care/hero"
     const variants = [];
 
     for (const targetWidth of VARIANT_WIDTHS) {
       if (targetWidth > meta.width) continue;
-      const outName = `${baseHash}-${targetWidth}.webp`;
-      const outPath = path.join(imagesDir, outName);
+      const outRel = `${relBase}-${targetWidth}.webp`;
+      const outPath = path.join(imagesDir, outRel);
 
       let shouldGenerate = true;
       try {
@@ -72,15 +87,15 @@ async function generateVariants(imagesDir) {
           .resize({ width: targetWidth, withoutEnlargement: true })
           .webp({ quality: 80, effort: 4 })
           .toFile(outPath);
-        console.log(`  variant ${outName}`);
+        console.log(`  variant ${outRel}`);
       }
 
-      variants.push({ width: targetWidth, path: `assets/images/${outName}` });
+      variants.push({ width: targetWidth, path: `assets/images/${outRel}` });
     }
 
     if (variants.length) {
-      manifest[baseHash] = {
-        source: `assets/images/${name}`,
+      manifest[relBase] = {
+        source: `assets/images/${relFromImages}`,
         sourceWidth: meta.width,
         sourceHeight: meta.height,
         variants,
@@ -98,14 +113,12 @@ async function generateVariants(imagesDir) {
 async function main() {
   console.log(`Optimizing images in ${IMAGE_DIR}...`);
   let totalSaved = 0;
-  const entries = await readdir(IMAGE_DIR, { withFileTypes: true });
-  for (const entry of entries) {
-    if (!entry.isFile()) continue;
-    const filePath = path.join(IMAGE_DIR, entry.name);
+  const sources = await walkImages(IMAGE_DIR, IMAGE_DIR);
+  for (const { full } of sources) {
     try {
-      totalSaved += await optimizeFile(filePath);
+      totalSaved += await optimizeFile(full);
     } catch (err) {
-      console.warn(`  WARN: Failed to optimize ${filePath}: ${err.message}`);
+      console.warn(`  WARN: Failed to optimize ${full}: ${err.message}`);
     }
   }
   console.log(`Total saved: ${(totalSaved / 1024).toFixed(0)}KB`);
