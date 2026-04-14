@@ -7,7 +7,9 @@
     "serve": "npx serve public",
     "optimize": "node scripts/optimize-images.mjs",
     "lighthouse": "lighthouse",
-    "lint:css": "eslint --cache --cache-location .eslintcache \"public/assets/css/**/*.css\""
+    "lint:css": "eslint --cache --cache-location .eslintcache \"public/assets/css/**/*.css\"",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
   },
   "engines": {
     "node": ">=20.19.0"
@@ -16,6 +18,7 @@
     "@eslint/css": "^1.1.0",
     "eslint": "^10.2.0",
     "lighthouse": "^12.8.2",
-    "sharp": "^0.34.5"
+    "sharp": "^0.34.5",
+    "wrangler": "^4.82.2"
   }
 }
