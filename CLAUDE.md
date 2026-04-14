@@ -12,8 +12,9 @@ Static marketing site for Nurse Your Nails (Middleton, WI), live at https://nurs
 - `npm run serve` — serves `public/` locally via `npx serve`
 - `npm run optimize` — runs `scripts/optimize-images.mjs` over `public/assets/images/`
 - `npm run lighthouse -- <url> [--preset=desktop] [--only-categories=performance] [--output=json] [--output-path=...]` — runs Lighthouse audits against local or production. Example: `npm run lighthouse -- http://localhost:3000 --preset=desktop --output=json --output-path=./lh.json --quiet --chrome-flags='--headless'`. Output artifacts (`lh-*.json`, `*.report.html`) are gitignored at the repo root.
+- `npm run lint:css` — runs ESLint with `@eslint/css` over `public/assets/css/**/*.css`. Enforces `css/use-baseline` at `available: "widely"`, so any CSS feature that is not in the widely-available Baseline is a lint error. Note: inline `<style>` blocks still left in HTML pages (per-page theme vars and per-page `vwb-*` builder classes) are NOT covered by this lint.
 
-There is no lint, test, or build command. Node >= 20.18.1.
+The only lint is `npm run lint:css` (CSS Baseline enforcement). There is no test or build command. Node >= 20.19.0.
 
 ## Architecture
 
@@ -39,5 +40,7 @@ There is no lint, test, or build command. Node >= 20.18.1.
 When making a set of changes, use chrome-devtools to take a snapshot before and after you make the changes to ensure nothing unepxected has changed.  Also use list_console_messages to ensure nothing unexpected is happening.
 
 Ensure all changes look reasonable at a mobile screen size.
+
+After any edit to a file under `public/assets/css/`, run `npm run lint:css` and ensure it exits clean. CSS changes that introduce non-Baseline (widely-available) features must be reverted or guarded with `@supports`.
 
 For significant changes, run lighthouse at the end and ensure all numbers are at 98 or above.
