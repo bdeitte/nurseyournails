@@ -50,7 +50,7 @@ for (const rel of PAGES) {
     const lastOpen = full.lastIndexOf('<picture', offset);
     const lastClose = full.lastIndexOf('</picture>', offset);
     if (lastOpen > lastClose) return match;
-    if (filename.startsWith('f55b6d7ad9')) return match;
+    if (filename.startsWith('shared/logo')) return match;
 
     const wrapped = buildPicture(match, prefix, filename);
     if (wrapped !== match) wrapsInFile++;
