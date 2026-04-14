@@ -12,6 +12,8 @@
     "node": ">=20.18.1"
   },
   "devDependencies": {
+    "@eslint/css": "^1.1.0",
+    "eslint": "^10.2.0",
     "lighthouse": "^12.8.2",
     "sharp": "^0.34.5"
   }
