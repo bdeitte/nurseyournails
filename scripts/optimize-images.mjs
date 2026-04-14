@@ -13,7 +13,8 @@ async function walkImages(dir, baseDir) {
       const ext = path.extname(entry.name).toLowerCase();
       if (!['.jpg', '.jpeg', '.png', '.webp'].includes(ext)) continue;
       if (/-\d+\.webp$/.test(entry.name)) continue;
-      results.push({ full, rel: path.relative(baseDir, full) });
+      const rel = path.relative(baseDir, full).split(path.sep).join('/');
+      results.push({ full, rel });
     }
   }
   return results;
