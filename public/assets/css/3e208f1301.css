@@ -141,12 +141,15 @@
    inside a fixed-height container. The site builder injects per-section `vwb-hght-*`
    rules with `height: <px> !important` plus `.v-section { overflow: hidden }`,
    which clips the service list. Scope the override to sections that actually
-   contain the service list via :has() so other pages keep their sizing. */
-.v-section:has(.v-service-list),
-.v-section:has(.v-service-list) .v-col {
-  height: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
+   contain the service list via :has() so other pages keep their sizing.
+   Wrapped in @supports selector(:has(*)) to satisfy css/use-baseline widely. */
+@supports selector(:has(*)) {
+  .v-section:has(.v-service-list),
+  .v-section:has(.v-service-list) .v-col {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
 }
 .v-service-list {
   height: auto !important;
