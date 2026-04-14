@@ -1,835 +1,797 @@
 {
-  "023db26f6f": {
-    "source": "assets/images/023db26f6f.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 720,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/023db26f6f-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/023db26f6f-800.webp"
-      }
-    ]
-  },
-  "0aaf84b332": {
-    "source": "assets/images/0aaf84b332.webp",
-    "sourceWidth": 1066,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/0aaf84b332-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/0aaf84b332-800.webp"
-      }
-    ]
-  },
-  "0da5acbb7e": {
-    "source": "assets/images/0da5acbb7e.jpg",
+  "about-me/family-portrait": {
+    "source": "assets/images/about-me/family-portrait.jpeg",
     "sourceWidth": 1600,
     "sourceHeight": 1066,
     "variants": [
       {
         "width": 400,
-        "path": "assets/images/0da5acbb7e-400.webp"
+        "path": "assets/images/about-me/family-portrait-400.webp"
       },
       {
         "width": 800,
-        "path": "assets/images/0da5acbb7e-800.webp"
+        "path": "assets/images/about-me/family-portrait-800.webp"
       },
       {
         "width": 1200,
-        "path": "assets/images/0da5acbb7e-1200.webp"
+        "path": "assets/images/about-me/family-portrait-1200.webp"
       }
     ]
   },
-  "0e81109e5c": {
-    "source": "assets/images/0e81109e5c.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1828,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/0e81109e5c-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/0e81109e5c-800.webp"
-      }
-    ]
-  },
-  "0f7bdf9dc6": {
-    "source": "assets/images/0f7bdf9dc6.png",
-    "sourceWidth": 1072,
-    "sourceHeight": 676,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/0f7bdf9dc6-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/0f7bdf9dc6-800.webp"
-      }
-    ]
-  },
-  "152de7b658": {
-    "source": "assets/images/152de7b658.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/152de7b658-400.webp"
-      }
-    ]
-  },
-  "223eb8b101": {
-    "source": "assets/images/223eb8b101.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1620,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/223eb8b101-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/223eb8b101-800.webp"
-      }
-    ]
-  },
-  "248770a8b8": {
-    "source": "assets/images/248770a8b8.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/248770a8b8-400.webp"
-      }
-    ]
-  },
-  "2b007a4962": {
-    "source": "assets/images/2b007a4962.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 799,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/2b007a4962-400.webp"
-      }
-    ]
-  },
-  "2caf406982": {
-    "source": "assets/images/2caf406982.png",
-    "sourceWidth": 1945,
-    "sourceHeight": 1296,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/2caf406982-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/2caf406982-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/2caf406982-1200.webp"
-      }
-    ]
-  },
-  "36e77c76db": {
-    "source": "assets/images/36e77c76db.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1363,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/36e77c76db-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/36e77c76db-800.webp"
-      }
-    ]
-  },
-  "37b86f02d5": {
-    "source": "assets/images/37b86f02d5.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1620,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/37b86f02d5-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/37b86f02d5-800.webp"
-      }
-    ]
-  },
-  "3f55166fbd": {
-    "source": "assets/images/3f55166fbd.jpg",
-    "sourceWidth": 1600,
-    "sourceHeight": 1204,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/3f55166fbd-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/3f55166fbd-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/3f55166fbd-1200.webp"
-      }
-    ]
-  },
-  "45f04e3311": {
-    "source": "assets/images/45f04e3311.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1440,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/45f04e3311-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/45f04e3311-800.webp"
-      }
-    ]
-  },
-  "4779d154bb": {
-    "source": "assets/images/4779d154bb.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/4779d154bb-400.webp"
-      }
-    ]
-  },
-  "5051e87026": {
-    "source": "assets/images/5051e87026.png",
-    "sourceWidth": 1176,
-    "sourceHeight": 880,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/5051e87026-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/5051e87026-800.webp"
-      }
-    ]
-  },
-  "62855b8790": {
-    "source": "assets/images/62855b8790.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1620,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/62855b8790-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/62855b8790-800.webp"
-      }
-    ]
-  },
-  "63a2e860f5": {
-    "source": "assets/images/63a2e860f5.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/63a2e860f5-400.webp"
-      }
-    ]
-  },
-  "64666aeb46": {
-    "source": "assets/images/64666aeb46.png",
-    "sourceWidth": 1086,
-    "sourceHeight": 658,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/64666aeb46-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/64666aeb46-800.webp"
-      }
-    ]
-  },
-  "69251ba2a0": {
-    "source": "assets/images/69251ba2a0.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/69251ba2a0-400.webp"
-      }
-    ]
-  },
-  "6b71f1e414": {
-    "source": "assets/images/6b71f1e414.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 533,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/6b71f1e414-400.webp"
-      }
-    ]
-  },
-  "6d62fa332f": {
-    "source": "assets/images/6d62fa332f.png",
-    "sourceWidth": 940,
-    "sourceHeight": 900,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/6d62fa332f-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/6d62fa332f-800.webp"
-      }
-    ]
-  },
-  "6db5123eb4": {
-    "source": "assets/images/6db5123eb4.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/6db5123eb4-400.webp"
-      }
-    ]
-  },
-  "6f068c5c4d": {
-    "source": "assets/images/6f068c5c4d.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1919,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/6f068c5c4d-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/6f068c5c4d-800.webp"
-      }
-    ]
-  },
-  "73e16d20e1": {
-    "source": "assets/images/73e16d20e1.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/73e16d20e1-400.webp"
-      }
-    ]
-  },
-  "7fdcc9f04b": {
-    "source": "assets/images/7fdcc9f04b.png",
-    "sourceWidth": 916,
-    "sourceHeight": 708,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/7fdcc9f04b-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/7fdcc9f04b-800.webp"
-      }
-    ]
-  },
-  "82272c6144": {
-    "source": "assets/images/82272c6144.png",
-    "sourceWidth": 1080,
-    "sourceHeight": 1350,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/82272c6144-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/82272c6144-800.webp"
-      }
-    ]
-  },
-  "840f6de944": {
-    "source": "assets/images/840f6de944.jpg",
+  "about-me/manicure-background": {
+    "source": "assets/images/about-me/manicure-background.jpg",
     "sourceWidth": 1080,
     "sourceHeight": 720,
     "variants": [
       {
         "width": 400,
-        "path": "assets/images/840f6de944-400.webp"
+        "path": "assets/images/about-me/manicure-background-400.webp"
       },
       {
         "width": 800,
-        "path": "assets/images/840f6de944-800.webp"
+        "path": "assets/images/about-me/manicure-background-800.webp"
       }
     ]
   },
-  "8a58132002": {
-    "source": "assets/images/8a58132002.jpg",
+  "foot-care/deep-exfoliation": {
+    "source": "assets/images/foot-care/deep-exfoliation.jpg",
     "sourceWidth": 1080,
     "sourceHeight": 1620,
     "variants": [
       {
         "width": 400,
-        "path": "assets/images/8a58132002-400.webp"
+        "path": "assets/images/foot-care/deep-exfoliation-400.webp"
       },
       {
         "width": 800,
-        "path": "assets/images/8a58132002-800.webp"
+        "path": "assets/images/foot-care/deep-exfoliation-800.webp"
       }
     ]
   },
-  "8e09253da4": {
-    "source": "assets/images/8e09253da4.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/8e09253da4-400.webp"
-      }
-    ]
-  },
-  "8eb28dd6a2": {
-    "source": "assets/images/8eb28dd6a2.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1620,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/8eb28dd6a2-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/8eb28dd6a2-800.webp"
-      }
-    ]
-  },
-  "91dc85305c": {
-    "source": "assets/images/91dc85305c.png",
-    "sourceWidth": 1945,
-    "sourceHeight": 1296,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/91dc85305c-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/91dc85305c-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/91dc85305c-1200.webp"
-      }
-    ]
-  },
-  "938d4fa1f0": {
-    "source": "assets/images/938d4fa1f0.png",
-    "sourceWidth": 1584,
-    "sourceHeight": 1945,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/938d4fa1f0-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/938d4fa1f0-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/938d4fa1f0-1200.webp"
-      }
-    ]
-  },
-  "99d61b97bb": {
-    "source": "assets/images/99d61b97bb.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 720,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/99d61b97bb-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/99d61b97bb-800.webp"
-      }
-    ]
-  },
-  "a171e2d221": {
-    "source": "assets/images/a171e2d221.jpeg",
-    "sourceWidth": 1600,
-    "sourceHeight": 1066,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/a171e2d221-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/a171e2d221-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/a171e2d221-1200.webp"
-      }
-    ]
-  },
-  "a4d371044a": {
-    "source": "assets/images/a4d371044a.png",
-    "sourceWidth": 1945,
-    "sourceHeight": 1296,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/a4d371044a-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/a4d371044a-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/a4d371044a-1200.webp"
-      }
-    ]
-  },
-  "a76f6b1e9a": {
-    "source": "assets/images/a76f6b1e9a.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/a76f6b1e9a-400.webp"
-      }
-    ]
-  },
-  "a85ee721a8": {
-    "source": "assets/images/a85ee721a8.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/a85ee721a8-400.webp"
-      }
-    ]
-  },
-  "aa383aa4a4": {
-    "source": "assets/images/aa383aa4a4.png",
-    "sourceWidth": 3072,
-    "sourceHeight": 4080,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/aa383aa4a4-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/aa383aa4a4-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/aa383aa4a4-1200.webp"
-      }
-    ]
-  },
-  "b1c64b1ccf": {
-    "source": "assets/images/b1c64b1ccf.png",
-    "sourceWidth": 438,
-    "sourceHeight": 182,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/b1c64b1ccf-400.webp"
-      }
-    ]
-  },
-  "bff8004f47": {
-    "source": "assets/images/bff8004f47.jpg",
-    "sourceWidth": 1600,
-    "sourceHeight": 1204,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/bff8004f47-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/bff8004f47-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/bff8004f47-1200.webp"
-      }
-    ]
-  },
-  "c2221621ad": {
-    "source": "assets/images/c2221621ad.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 511,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/c2221621ad-400.webp"
-      }
-    ]
-  },
-  "c45a9c121f": {
-    "source": "assets/images/c45a9c121f.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1350,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/c45a9c121f-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/c45a9c121f-800.webp"
-      }
-    ]
-  },
-  "c4cbb02326": {
-    "source": "assets/images/c4cbb02326.jpg",
-    "sourceWidth": 1080,
-    "sourceHeight": 1350,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/c4cbb02326-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/c4cbb02326-800.webp"
-      }
-    ]
-  },
-  "c4e709f758": {
-    "source": "assets/images/c4e709f758.png",
-    "sourceWidth": 534,
-    "sourceHeight": 108,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/c4e709f758-400.webp"
-      }
-    ]
-  },
-  "c574ea8283": {
-    "source": "assets/images/c574ea8283.jpg",
-    "sourceWidth": 1204,
-    "sourceHeight": 1600,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/c574ea8283-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/c574ea8283-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/c574ea8283-1200.webp"
-      }
-    ]
-  },
-  "d13e198a2f": {
-    "source": "assets/images/d13e198a2f.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 552,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/d13e198a2f-400.webp"
-      }
-    ]
-  },
-  "dbb7d4979d": {
-    "source": "assets/images/dbb7d4979d.jpg",
+  "foot-care/foot-care-pedicure": {
+    "source": "assets/images/foot-care/foot-care-pedicure.jpg",
     "sourceWidth": 1080,
     "sourceHeight": 717,
     "variants": [
       {
         "width": 400,
-        "path": "assets/images/dbb7d4979d-400.webp"
+        "path": "assets/images/foot-care/foot-care-pedicure-400.webp"
       },
       {
         "width": 800,
-        "path": "assets/images/dbb7d4979d-800.webp"
+        "path": "assets/images/foot-care/foot-care-pedicure-800.webp"
       }
     ]
   },
-  "df203d3dbb": {
-    "source": "assets/images/df203d3dbb.png",
-    "sourceWidth": 434,
-    "sourceHeight": 146,
+  "foot-care/foot-care": {
+    "source": "assets/images/foot-care/foot-care.png",
+    "sourceWidth": 1086,
+    "sourceHeight": 658,
     "variants": [
       {
         "width": 400,
-        "path": "assets/images/df203d3dbb-400.webp"
-      }
-    ]
-  },
-  "e23f643697": {
-    "source": "assets/images/e23f643697.png",
-    "sourceWidth": 640,
-    "sourceHeight": 640,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/e23f643697-400.webp"
-      }
-    ]
-  },
-  "e89610a8d0": {
-    "source": "assets/images/e89610a8d0.jpeg",
-    "sourceWidth": 3024,
-    "sourceHeight": 4032,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/e89610a8d0-400.webp"
+        "path": "assets/images/foot-care/foot-care-400.webp"
       },
       {
         "width": 800,
-        "path": "assets/images/e89610a8d0-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/e89610a8d0-1200.webp"
+        "path": "assets/images/foot-care/foot-care-800.webp"
       }
     ]
   },
-  "ec7db7fb9b": {
-    "source": "assets/images/ec7db7fb9b.jpg",
-    "sourceWidth": 1204,
-    "sourceHeight": 1600,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/ec7db7fb9b-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/ec7db7fb9b-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/ec7db7fb9b-1200.webp"
-      }
-    ]
-  },
-  "f231fac9b4": {
-    "source": "assets/images/f231fac9b4.png",
-    "sourceWidth": 1080,
-    "sourceHeight": 1350,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/f231fac9b4-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/f231fac9b4-800.webp"
-      }
-    ]
-  },
-  "f4e587af10": {
-    "source": "assets/images/f4e587af10.png",
-    "sourceWidth": 472,
-    "sourceHeight": 130,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/f4e587af10-400.webp"
-      }
-    ]
-  },
-  "f55b6d7ad9": {
-    "source": "assets/images/f55b6d7ad9.png",
-    "sourceWidth": 967,
-    "sourceHeight": 738,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/f55b6d7ad9-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/f55b6d7ad9-800.webp"
-      }
-    ]
-  },
-  "f6c3259186": {
-    "source": "assets/images/f6c3259186.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/f6c3259186-400.webp"
-      }
-    ]
-  },
-  "fbadd3deca": {
-    "source": "assets/images/fbadd3deca.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/fbadd3deca-400.webp"
-      }
-    ]
-  },
-  "fc5ea47877": {
-    "source": "assets/images/fc5ea47877.png",
+  "foot-care/mobile-pedicure": {
+    "source": "assets/images/foot-care/mobile-pedicure.png",
     "sourceWidth": 1062,
     "sourceHeight": 774,
     "variants": [
       {
         "width": 400,
-        "path": "assets/images/fc5ea47877-400.webp"
+        "path": "assets/images/foot-care/mobile-pedicure-400.webp"
       },
       {
         "width": 800,
-        "path": "assets/images/fc5ea47877-800.webp"
+        "path": "assets/images/foot-care/mobile-pedicure-800.webp"
+      }
+    ]
+  },
+  "foot-care/onyfix-treatment": {
+    "source": "assets/images/foot-care/onyfix-treatment.png",
+    "sourceWidth": 1176,
+    "sourceHeight": 880,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/foot-care/onyfix-treatment-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/foot-care/onyfix-treatment-800.webp"
+      }
+    ]
+  },
+  "foot-care/product-removal": {
+    "source": "assets/images/foot-care/product-removal.png",
+    "sourceWidth": 1072,
+    "sourceHeight": 676,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/foot-care/product-removal-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/foot-care/product-removal-800.webp"
+      }
+    ]
+  },
+  "foot-care/spa-natural-manicure": {
+    "source": "assets/images/foot-care/spa-natural-manicure.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1620,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/foot-care/spa-natural-manicure-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/foot-care/spa-natural-manicure-800.webp"
+      }
+    ]
+  },
+  "foot-care/spa-pedicure": {
+    "source": "assets/images/foot-care/spa-pedicure.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 720,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/foot-care/spa-pedicure-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/foot-care/spa-pedicure-800.webp"
+      }
+    ]
+  },
+  "gallery/01": {
+    "source": "assets/images/gallery/01.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/01-400.webp"
+      }
+    ]
+  },
+  "gallery/02": {
+    "source": "assets/images/gallery/02.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/02-400.webp"
+      }
+    ]
+  },
+  "gallery/03": {
+    "source": "assets/images/gallery/03.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 533,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/03-400.webp"
+      }
+    ]
+  },
+  "gallery/04": {
+    "source": "assets/images/gallery/04.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 511,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/04-400.webp"
+      }
+    ]
+  },
+  "gallery/05": {
+    "source": "assets/images/gallery/05.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 552,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/05-400.webp"
+      }
+    ]
+  },
+  "gallery/06": {
+    "source": "assets/images/gallery/06.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/06-400.webp"
+      }
+    ]
+  },
+  "gallery/07": {
+    "source": "assets/images/gallery/07.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 799,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/07-400.webp"
+      }
+    ]
+  },
+  "gallery/08": {
+    "source": "assets/images/gallery/08.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/08-400.webp"
+      }
+    ]
+  },
+  "gallery/09": {
+    "source": "assets/images/gallery/09.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/09-400.webp"
+      }
+    ]
+  },
+  "gallery/10": {
+    "source": "assets/images/gallery/10.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/10-400.webp"
+      }
+    ]
+  },
+  "gallery/11": {
+    "source": "assets/images/gallery/11.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/11-400.webp"
+      }
+    ]
+  },
+  "gallery/12": {
+    "source": "assets/images/gallery/12.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/12-400.webp"
+      }
+    ]
+  },
+  "gallery/13": {
+    "source": "assets/images/gallery/13.png",
+    "sourceWidth": 3072,
+    "sourceHeight": 4080,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/13-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/gallery/13-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/gallery/13-1200.webp"
+      }
+    ]
+  },
+  "gallery/14": {
+    "source": "assets/images/gallery/14.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/14-400.webp"
+      }
+    ]
+  },
+  "gallery/15": {
+    "source": "assets/images/gallery/15.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/15-400.webp"
+      }
+    ]
+  },
+  "gallery/16": {
+    "source": "assets/images/gallery/16.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/16-400.webp"
+      }
+    ]
+  },
+  "gallery/17": {
+    "source": "assets/images/gallery/17.png",
+    "sourceWidth": 1080,
+    "sourceHeight": 1350,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/17-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/gallery/17-800.webp"
+      }
+    ]
+  },
+  "home/ann-portrait": {
+    "source": "assets/images/home/ann-portrait.jpg",
+    "sourceWidth": 1600,
+    "sourceHeight": 1066,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/home/ann-portrait-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/home/ann-portrait-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/home/ann-portrait-1200.webp"
+      }
+    ]
+  },
+  "home/cfcn-logo": {
+    "source": "assets/images/home/cfcn-logo.png",
+    "sourceWidth": 1080,
+    "sourceHeight": 1350,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/home/cfcn-logo-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/home/cfcn-logo-800.webp"
+      }
+    ]
+  },
+  "home/gel-application": {
+    "source": "assets/images/home/gel-application.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1363,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/home/gel-application-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/home/gel-application-800.webp"
+      }
+    ]
+  },
+  "home/sanitation-mask": {
+    "source": "assets/images/home/sanitation-mask.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1620,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/home/sanitation-mask-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/home/sanitation-mask-800.webp"
+      }
+    ]
+  },
+  "home/soothing-spa": {
+    "source": "assets/images/home/soothing-spa.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 720,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/home/soothing-spa-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/home/soothing-spa-800.webp"
+      }
+    ]
+  },
+  "home/studio-interior": {
+    "source": "assets/images/home/studio-interior.jpg",
+    "sourceWidth": 1600,
+    "sourceHeight": 1204,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/home/studio-interior-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/home/studio-interior-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/home/studio-interior-1200.webp"
+      }
+    ]
+  },
+  "home/studio-pedicure": {
+    "source": "assets/images/home/studio-pedicure.jpg",
+    "sourceWidth": 1600,
+    "sourceHeight": 1204,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/home/studio-pedicure-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/home/studio-pedicure-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/home/studio-pedicure-1200.webp"
+      }
+    ]
+  },
+  "home/training-grad-cap": {
+    "source": "assets/images/home/training-grad-cap.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1620,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/home/training-grad-cap-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/home/training-grad-cap-800.webp"
+      }
+    ]
+  },
+  "manicures/deep-exfoliation": {
+    "source": "assets/images/manicures/deep-exfoliation.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1828,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/deep-exfoliation-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/deep-exfoliation-800.webp"
+      }
+    ]
+  },
+  "manicures/extensions": {
+    "source": "assets/images/manicures/extensions.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1919,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/extensions-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/extensions-800.webp"
+      }
+    ]
+  },
+  "manicures/gel-x-extensions": {
+    "source": "assets/images/manicures/gel-x-extensions.jpg",
+    "sourceWidth": 1204,
+    "sourceHeight": 1600,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/gel-x-extensions-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/gel-x-extensions-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/manicures/gel-x-extensions-1200.webp"
+      }
+    ]
+  },
+  "manicures/hero": {
+    "source": "assets/images/manicures/hero.png",
+    "sourceWidth": 1584,
+    "sourceHeight": 1945,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/hero-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/hero-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/manicures/hero-1200.webp"
+      }
+    ]
+  },
+  "manicures/mobile-manicure": {
+    "source": "assets/images/manicures/mobile-manicure.png",
+    "sourceWidth": 916,
+    "sourceHeight": 708,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/mobile-manicure-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/mobile-manicure-800.webp"
+      }
+    ]
+  },
+  "manicures/more-nail-art": {
+    "source": "assets/images/manicures/more-nail-art.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1350,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/more-nail-art-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/more-nail-art-800.webp"
+      }
+    ]
+  },
+  "manicures/product-removal": {
+    "source": "assets/images/manicures/product-removal.png",
+    "sourceWidth": 940,
+    "sourceHeight": 900,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/product-removal-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/product-removal-800.webp"
+      }
+    ]
+  },
+  "manicures/spa-manicure": {
+    "source": "assets/images/manicures/spa-manicure.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1350,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/spa-manicure-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/spa-manicure-800.webp"
+      }
+    ]
+  },
+  "manicures/spa-natural-manicure": {
+    "source": "assets/images/manicures/spa-natural-manicure.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1620,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/spa-natural-manicure-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/spa-natural-manicure-800.webp"
+      }
+    ]
+  },
+  "manicures/structured-gel-manicure": {
+    "source": "assets/images/manicures/structured-gel-manicure.jpg",
+    "sourceWidth": 1080,
+    "sourceHeight": 1440,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/structured-gel-manicure-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/manicures/structured-gel-manicure-800.webp"
+      }
+    ]
+  },
+  "manicures/structured-gel-rebalance": {
+    "source": "assets/images/manicures/structured-gel-rebalance.webp",
+    "sourceWidth": 602,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/manicures/structured-gel-rebalance-400.webp"
+      }
+    ]
+  },
+  "my-business/building-exterior": {
+    "source": "assets/images/my-business/building-exterior.jpg",
+    "sourceWidth": 1204,
+    "sourceHeight": 1600,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/my-business/building-exterior-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/my-business/building-exterior-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/my-business/building-exterior-1200.webp"
+      }
+    ]
+  },
+  "my-business/service-area-map": {
+    "source": "assets/images/my-business/service-area-map.png",
+    "sourceWidth": 640,
+    "sourceHeight": 640,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/my-business/service-area-map-400.webp"
+      }
+    ]
+  },
+  "new-client-special/hero": {
+    "source": "assets/images/new-client-special/hero.png",
+    "sourceWidth": 1945,
+    "sourceHeight": 1296,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/new-client-special/hero-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/new-client-special/hero-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/new-client-special/hero-1200.webp"
+      }
+    ]
+  },
+  "products/cirque-colors": {
+    "source": "assets/images/products/cirque-colors.png",
+    "sourceWidth": 534,
+    "sourceHeight": 108,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/products/cirque-colors-400.webp"
+      }
+    ]
+  },
+  "products/ericas-ata": {
+    "source": "assets/images/products/ericas-ata.png",
+    "sourceWidth": 472,
+    "sourceHeight": 130,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/products/ericas-ata-400.webp"
+      }
+    ]
+  },
+  "products/light-elegance": {
+    "source": "assets/images/products/light-elegance.png",
+    "sourceWidth": 438,
+    "sourceHeight": 182,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/products/light-elegance-400.webp"
+      }
+    ]
+  },
+  "products/onyfix": {
+    "source": "assets/images/products/onyfix.png",
+    "sourceWidth": 434,
+    "sourceHeight": 146,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/products/onyfix-400.webp"
+      }
+    ]
+  },
+  "reviews/reade-s-photo": {
+    "source": "assets/images/reviews/reade-s-photo.jpeg",
+    "sourceWidth": 3024,
+    "sourceHeight": 4032,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/reviews/reade-s-photo-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/reviews/reade-s-photo-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/reviews/reade-s-photo-1200.webp"
+      }
+    ]
+  },
+  "shared/logo": {
+    "source": "assets/images/shared/logo.png",
+    "sourceWidth": 967,
+    "sourceHeight": 738,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/shared/logo-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/shared/logo-800.webp"
+      }
+    ]
+  },
+  "shared/social-share": {
+    "source": "assets/images/shared/social-share.webp",
+    "sourceWidth": 1066,
+    "sourceHeight": 800,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/shared/social-share-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/shared/social-share-800.webp"
       }
     ]
   }
