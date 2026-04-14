@@ -7,7 +7,7 @@
     "serve": "npx serve public",
     "optimize": "node scripts/optimize-images.mjs",
     "lighthouse": "lighthouse",
-    "lint:css": "eslint --cache --cache-location .eslintcache 'public/assets/css/**/*.css'"
+    "lint:css": "eslint --cache --cache-location .eslintcache \"public/assets/css/**/*.css\""
   },
   "engines": {
     "node": ">=20.19.0"
