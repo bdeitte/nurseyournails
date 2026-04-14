@@ -5,8 +5,9 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const repoRoot = path.resolve(new URL('.', import.meta.url).pathname, '..');
+const repoRoot = path.resolve(fileURLToPath(new URL('..', import.meta.url)));
 const manifestPath = path.join(repoRoot, 'docs/superpowers/plans/asset-rename-manifest.md');
 const pages = [
   'public/index.html',
@@ -130,6 +131,7 @@ function main() {
   console.log(`Parsed ${map.size} hash -> newpath entries from manifest`);
 
   const errors = [];
+  const staged = [];
   let totalVar = 0;
   let totalSrc = 0;
   let totalStripped = 0;
@@ -138,7 +140,7 @@ function main() {
     const abs = path.join(repoRoot, rel);
     const orig = fs.readFileSync(abs, 'utf8');
     const { html, variantCount, sourceCount, strippedDecls } = rewrite(orig, map, errors, rel);
-    fs.writeFileSync(abs, html);
+    staged.push({ abs, html });
     totalVar += variantCount;
     totalSrc += sourceCount;
     totalStripped += strippedDecls;
@@ -146,9 +148,13 @@ function main() {
   }
 
   if (errors.length) {
-    console.error('\nERRORS:');
+    console.error('\nERRORS (no files written):');
     for (const e of errors) console.error('  ' + e);
     process.exit(1);
+  }
+
+  for (const { abs, html } of staged) {
+    fs.writeFileSync(abs, html);
   }
   console.log(`\nTotal: ${totalSrc} source, ${totalVar} variant, ${totalStripped} stripped decls`);
 }
