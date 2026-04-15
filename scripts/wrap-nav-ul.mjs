@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const PUBLIC = path.join(ROOT, 'public');
+const SRC = path.join(ROOT, 'src');
 
 const PAGES = [
   'index.html',
@@ -23,7 +23,7 @@ const NAV_OPEN_RE = /<nav class="full-screen-navigation[^"]*"[^>]*>/;
 
 let total = 0;
 for (const rel of PAGES) {
-  const file = path.join(PUBLIC, rel);
+  const file = path.join(SRC, rel);
   let html = await fs.readFile(file, 'utf8');
 
   const openMatch = html.match(NAV_OPEN_RE);
