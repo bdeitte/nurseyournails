@@ -22,11 +22,22 @@ const PAGES = [
   'reviews/index.html',
 ];
 
-const contentPaths = PAGES.map((p) => path.join(PUBLIC, p));
+async function readHtmlStripped(filePath) {
+  const html = await fs.readFile(filePath, 'utf8');
+  // Strip <style>...</style> blocks — PurgeCSS's default extractor would otherwise
+  // read selector tokens inside inline stylesheets as if they were markup.
+  const stripped = html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, '');
+  return { raw: stripped, extension: 'html' };
+}
+
+const content = await Promise.all(
+  PAGES.map((p) => readHtmlStripped(path.join(PUBLIC, p))),
+);
+
 const rawCss = await fs.readFile(CSS_FILE, 'utf8');
 
 const result = await new PurgeCSS().purge({
-  content: contentPaths,
+  content,
   css: [{ raw: rawCss }],
   rejected: true,
   safelist: {
