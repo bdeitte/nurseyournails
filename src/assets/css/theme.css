@@ -1,0 +1,42 @@
+:root {
+  /* Brand colors */
+  --color-black: #000000;
+  --color-navy: #1e184a;
+  --color-gray: #969696;
+  --color-slate: #59779d;
+  --color-gold: #cfa24a;
+  --color-gold-hover: #c0933b;
+  --color-gold-active: #bb8e36;
+  --color-white: #ffffff;
+  --color-gray-light: #d5d5d5;
+  --color-gray-medium: #868686;
+  --color-gray-dark: #464646;
+
+  /* Typography */
+  --font-heading: 'Archivo Narrow', sans-serif;
+  --font-body: 'Alata', sans-serif;
+  --fs-root: 16px;
+  --fs-h1: 2.6em;
+  --fs-h2: 2.2em;
+  --fs-h3: 1.4em;
+  --fs-h4: 1.3em;
+  --fs-lead: 1.1em;
+
+  /* Layout */
+  --page-width: 1200px;
+  --half-width: 600px;
+  --default-padding: 12px;
+
+  /* Spacing scale */
+  --space-xs: 4px;
+  --space-sm: 10px;
+  --space-md: 20px;
+  --space-lg: 30px;
+  --space-xl: 40px;
+  --space-2xl: 60px;
+  --space-3xl: 90px;
+
+  /* Breakpoints are used via convention in media queries, not as custom props
+     (CSS custom properties can't be used inside @media width expressions).
+     Canonical breakpoints: 1200px (tablet), 767px (mobile). */
+}
