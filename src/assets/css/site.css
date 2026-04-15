@@ -1924,7 +1924,7 @@ html body #divcontent .promo-container.s-other {
   width: 8px;
 }
 .nyn-ui-start-rating-container .review-bars .review-bar-row .review-bar {
-  background: var(--theme-color-5);
+  background: var(--color-gold);
   border-radius: 10px;
   height: 10px;
 }
@@ -2295,7 +2295,7 @@ input {
   text-align: right;
 }
 .title-pricing-row .vp-2 {
-  color: var(--theme-color-1) !important;
+  color: var(--color-black) !important;
 }
 @media (max-width: 767px) {
   .title-pricing-row {
