@@ -9,6 +9,7 @@ docs/superpowers/specs
 /lh*.json
 /lighthouse-*.json
 /*.report.html
+/css-audit-report.json
 .eslintcache
 
 # wrangler files
