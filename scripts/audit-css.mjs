@@ -35,11 +35,13 @@ const result = await new PurgeCSS().purge({
   },
 });
 
+if (!result?.length) {
+  throw new Error('PurgeCSS returned no results — check CSS_FILE and content paths');
+}
 const first = result[0];
 const report = {
   generatedAt: new Date().toISOString(),
   cssFile: path.relative(ROOT, CSS_FILE),
-  usedSelectorCount: (first.css.match(/[{,]/g) || []).length,
   rejectedSelectors: first.rejected || [],
   purgedCssLength: first.css.length,
   originalCssLength: rawCss.length,
