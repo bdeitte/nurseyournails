@@ -2,11 +2,10 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { execFile as execFileCb } from 'node:child_process';
-import { promisify } from 'node:util';
+import { bundle, browserslistToTargets } from 'lightningcss';
+import browserslist from 'browserslist';
 import { minify as minifyHtml } from 'html-minifier-terser';
 
-const execFile = promisify(execFileCb);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SRC = path.join(ROOT, 'src');
 const OUT = path.join(ROOT, 'public');
@@ -46,13 +45,12 @@ async function buildCss() {
   const srcCss = path.join(SRC, 'assets/css/site.css');
   const outCss = path.join(OUT, 'assets/css/site.css');
   await fs.mkdir(path.dirname(outCss), { recursive: true });
-  await execFile('npx', [
-    'lightningcss',
-    '--minify',
-    '--targets', '>= 0.25%',
-    '-o', outCss,
-    srcCss,
-  ]);
+  const { code } = bundle({
+    filename: srcCss,
+    minify: true,
+    targets: browserslistToTargets(browserslist('>= 0.25%')),
+  });
+  await fs.writeFile(outCss, code);
 }
 
 async function buildHtml() {
