@@ -6,7 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Static marketing site for Nurse Your Nails (Middleton, WI), live at https://nurseyournails.com. Deployed via Cloudflare Pages on push to `main`. Cloudflare serves `public/` as the deployed artifact; the project uses a local build step to generate `public/` from `src/`.
 
-**Source of truth is `src/`.** `src/` holds hand-edited, Prettier-formatted HTML and CSS with semantic identifiers. `public/` is the minified build output — still checked in so Cloudflare can serve it without running any build — but should never be edited by hand. Every change flows: edit `src/` → `npm run build` → commit both.
+**Source of truth is `src/` for HTML and CSS.** `src/` holds hand-edited, Prettier-formatted HTML and CSS with semantic identifiers. `public/` is the minified build output for HTML/CSS — still checked in so Cloudflare can serve it without running any build — and must never be hand-edited for those file types. Every HTML or CSS change flows: edit `src/` → `npm run build` → commit both.
+
+**Images are the exception.** The canonical image tree lives at `public/assets/images/` and is not duplicated into `src/`. `npm run build` never touches that tree; `npm run optimize` writes into it in place. When replacing an image, drop the new file into `public/assets/images/<page-folder>/` and update the `<img src>` references in `src/`.
 
 ## Commands
 
@@ -41,7 +43,7 @@ The only lint is `npm run lint:css` (CSS Baseline enforcement). There is no test
 
 ## Making changes
 
-Always edit `src/`, never `public/`. After any source change, run `npm run build` to regenerate `public/` and commit both directories together. The build step is deterministic — a rebuild with no source changes should produce zero diffs in `public/`.
+For HTML and CSS, always edit `src/`, never `public/`. After any source change, run `npm run build` to regenerate `public/` and commit both directories together. The build step is deterministic — a rebuild with no source changes should produce zero diffs in `public/`. Images are the exception: edit them under `public/assets/images/` (see Architecture above).
 
 When making a set of changes, use chrome-devtools to take a snapshot before and after you make the changes to ensure nothing unexpected has changed. Also use list_console_messages to ensure nothing unexpected is happening.
 
