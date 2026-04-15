@@ -13,7 +13,7 @@ Static marketing site for Nurse Your Nails (Middleton, WI), live at https://nurs
 1. Drop the new file into `public/assets/images/<page-folder>/`.
 2. Run `npm run optimize` to regenerate the `-400.webp`/`-800.webp`/`-1200.webp` responsive variants and refresh `public/assets/images/variants.json`. Skipping this leaves stale variants or a stale manifest.
 3. Update the `<img src>` references in `src/`.
-4. If the image is at a new path (not a replacement), run `node scripts/wrap-pictures.mjs` so the new `<img>` gets wrapped in `<picture>` + `<source srcset>` from the refreshed manifest.
+4. If the image change introduces a new `variants.json` entry or new responsive variants for an existing entry (e.g. a new path, or a replacement that is now ≥ 400px wide when the old source was not), run `node scripts/wrap-pictures.mjs` so the affected `<img>` gets wrapped in `<picture>` + `<source srcset>` from the refreshed manifest.
 5. Run `npm run build` to regenerate `public/` HTML/CSS and commit everything together.
 
 ## Commands
