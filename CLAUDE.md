@@ -8,7 +8,13 @@ Static marketing site for Nurse Your Nails (Middleton, WI), live at https://nurs
 
 **Source of truth is `src/` for HTML and CSS.** `src/` holds hand-edited, Prettier-formatted HTML and CSS with semantic identifiers. `public/` is the minified build output for HTML/CSS — still checked in so Cloudflare can serve it without running any build — and must never be hand-edited for those file types. Every HTML or CSS change flows: edit `src/` → `npm run build` → commit both.
 
-**Images are the exception.** The canonical image tree lives at `public/assets/images/` and is not duplicated into `src/`. `npm run build` never touches that tree; `npm run optimize` writes into it in place. When replacing an image, drop the new file into `public/assets/images/<page-folder>/` and update the `<img src>` references in `src/`.
+**Images are the exception.** The canonical image tree lives at `public/assets/images/` and is not duplicated into `src/`. `npm run build` never touches that tree; `npm run optimize` writes into it in place. When replacing or adding an image:
+
+1. Drop the new file into `public/assets/images/<page-folder>/`.
+2. Run `npm run optimize` to regenerate the `-400.webp`/`-800.webp`/`-1200.webp` responsive variants and refresh `public/assets/images/variants.json`. Skipping this leaves stale variants or a stale manifest.
+3. Update the `<img src>` references in `src/`.
+4. If the image is at a new path (not a replacement), run `node scripts/wrap-pictures.mjs` so the new `<img>` gets wrapped in `<picture>` + `<source srcset>` from the refreshed manifest.
+5. Run `npm run build` to regenerate `public/` HTML/CSS and commit everything together.
 
 ## Commands
 
