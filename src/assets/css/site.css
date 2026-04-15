@@ -1,6 +1,8 @@
-@import './theme.css';
-@import './base.css';
-@import './components.css';
-@import './utilities.css';
-@import './legacy.css';
-@import './photoswipe.css';
+@layer legacy, theme, base, components, utilities, photoswipe;
+
+@import './legacy.css' layer(legacy);
+@import './theme.css' layer(theme);
+@import './base.css' layer(base);
+@import './components.css' layer(components);
+@import './utilities.css' layer(utilities);
+@import './photoswipe.css' layer(photoswipe);
