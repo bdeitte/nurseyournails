@@ -4,9 +4,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const PUBLIC = path.join(ROOT, 'public');
+const SRC = path.join(ROOT, 'src');
+// variants.json lives under public/ because that's where optimize-images
+// writes it; the wrap step reads it but modifies src/ HTML so the next
+// build picks up the <picture> wrappers.
 const MANIFEST = JSON.parse(
-  await fs.readFile(path.join(PUBLIC, 'assets/images/variants.json'), 'utf8'),
+  await fs.readFile(path.join(ROOT, 'public/assets/images/variants.json'), 'utf8'),
 );
 
 const PAGES = [
@@ -42,7 +45,7 @@ function buildPicture(wholeTag, prefix, filename) {
 
 let totalWraps = 0;
 for (const rel of PAGES) {
-  const file = path.join(PUBLIC, rel);
+  const file = path.join(SRC, rel);
   let html = await fs.readFile(file, 'utf8');
   let wrapsInFile = 0;
 
