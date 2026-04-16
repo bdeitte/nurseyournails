@@ -4,9 +4,39 @@
    Single-purpose helper classes. Prefix `u-`. Use sparingly — prefer a
    semantic component class. Utilities are for genuine one-off layout
    tweaks that don't belong to any component.
-
-   The pilot (new-client-special) does not currently need any utilities;
-   its visual style fits cleanly into the `.hero` component and a couple
-   of page-scoped ID rules. Utilities will be added here as later page
-   migrations surface patterns that recur but don't form a component.
    ========================================================================= */
+
+/* Layout primitives — use sparingly. Prefer component classes. */
+.u-flex {
+  display: flex;
+}
+.u-flex-col {
+  flex-direction: column;
+}
+.u-items-center {
+  align-items: center;
+}
+.u-justify-center {
+  justify-content: center;
+}
+.u-gap-sm {
+  gap: var(--space-sm);
+}
+.u-gap-md {
+  gap: var(--space-md);
+}
+.u-gap-lg {
+  gap: var(--space-lg);
+}
+.u-text-center {
+  text-align: center;
+}
+.u-w-full {
+  width: 100%;
+}
+.u-pad-md {
+  padding: var(--space-md);
+}
+.u-pad-lg {
+  padding: var(--space-lg);
+}

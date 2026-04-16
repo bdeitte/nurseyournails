@@ -9,90 +9,61 @@
    ========================================================================= */
 
 /* -------------------------------------------------------------------------
-   Site-wide typography
-   ------------------------------------------------------------------------- */
-.v-site {
-  font-family: var(--font-body);
-  font-size: var(--fs-root);
-  background-color: var(--color-slate);
-  color: var(--color-navy);
-}
-
-.v-site h1,
-.v-site h2,
-.v-site h3,
-.v-site h4,
-.v-navigation-bar,
-.v-navigation-list li,
-.review-text-head {
-  font-family: var(--font-heading);
-}
-
-/* Body default link styling inside the site frame. */
-.v-site a:not(.no-a):not(.v-button):not(.dropdown-item),
-.v-link {
-  color: var(--color-black);
-  text-decoration: underline;
-}
-
-/* -------------------------------------------------------------------------
-   Buttons (color variants)
+   CTA button
    -------------------------------------------------------------------------
-   Base layout for .v-button lives in legacy.css. These rules add the
-   brand color variants so the new system owns button appearance.
+   New system button. Replaces the legacy `.v-button.primary/secondary/
+   tertiary` rules that the pilot originally carried. Use `.cta-button` +
+   a variant modifier; never style `.cta-button` directly without a modifier.
    ------------------------------------------------------------------------- */
-.v-button.primary,
-.v-button.secondary,
-.v-button.tertiary {
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border: 0;
   border-radius: 5px;
+  font-family: var(--font-heading);
+  font-size: 1em;
+  text-decoration: none;
+  cursor: pointer;
   transition:
     background-color 120ms ease,
     color 120ms ease;
 }
 
-.v-button.primary {
+.cta-button--primary {
   background-color: var(--color-gold);
   color: var(--color-navy);
 }
-.v-button.primary:hover,
-.v-button-hover.primary {
+.cta-button--primary:hover {
   background-color: var(--color-gold-hover);
-  color: var(--color-navy);
 }
-.v-button.primary:active,
-.v-button-active.primary {
+.cta-button--primary:active {
   background-color: var(--color-gold-active);
-  color: var(--color-navy);
 }
 
-.v-button.secondary {
+.cta-button--secondary {
   background-color: var(--color-gold);
   color: var(--color-black);
 }
-.v-button.secondary:hover,
-.v-button-hover.secondary {
+.cta-button--secondary:hover {
   background-color: var(--color-gold-hover);
   color: var(--color-black);
 }
-.v-button.secondary:active,
-.v-button-active.secondary {
+.cta-button--secondary:active {
   background-color: var(--color-gold-active);
   color: var(--color-black);
 }
 
-.v-button.tertiary {
+.cta-button--tertiary {
   background-color: var(--color-white);
   color: var(--color-navy);
 }
-.v-button.tertiary:hover,
-.v-button-hover.tertiary {
+.cta-button--tertiary:hover {
   background-color: #f0f0f0;
-  color: var(--color-navy);
 }
-.v-button.tertiary:active,
-.v-button-active.tertiary {
+.cta-button--tertiary:active {
   background-color: #ebebeb;
-  color: var(--color-navy);
 }
 
 .v-filled-star {
@@ -270,13 +241,25 @@
 /* -------------------------------------------------------------------------
    Hero
    -------------------------------------------------------------------------
-   A full-bleed section that holds a background image and an overlaid
-   content card. Used as the first visible block below the navigation on
-   most pages. Page-specific values (fixed height, image, card size) are
-   scoped to section IDs in the page-specific block below — the base
-   component stays layout-only so other pages can reuse it.
+   Reusable hero component. The defaults below describe a flex-row navy
+   hero with overlaid text. The pilot page (new-client-special) uses an
+   image-background variant (`.hero--fixed` + page-scoped background-image
+   and fixed height), so several of the defaults below are overridden in
+   the page-scoped block further down. That deviation is deliberate: the
+   pilot's visual baseline is an image-backed hero with a centered white
+   card overlay, which is a different layout pattern than the flex-row
+   default. Later pages that need the default layout can use `.hero` +
+   `.hero__content` directly without overrides.
    ------------------------------------------------------------------------- */
 .hero {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2xl) var(--space-3xl);
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  gap: var(--space-lg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -291,17 +274,43 @@
   }
 }
 
-.hero__card {
+.hero__content {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-white);
+  gap: var(--space-md);
 }
 
-.hero__title,
-.hero__lead {
+.hero__title {
+  color: var(--color-white);
+  font-size: var(--fs-h1);
   text-align: center;
+}
+
+.hero__lead {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .hero {
+    padding: var(--space-xl) var(--space-xl);
+  }
+  .hero__title {
+    font-size: var(--fs-h2);
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    flex-direction: column;
+    padding: var(--space-lg) var(--space-md);
+    gap: var(--space-md);
+  }
+  .hero__title {
+    font-size: 1.9em;
+  }
 }
 
 /* =========================================================================
@@ -312,29 +321,47 @@
    numbers easy to find.
    ========================================================================= */
 
-/* new-client-special: hero section */
+/* new-client-special: hero section. The pilot uses the image-background
+   hero variant, so the defaults from `.hero` above are reshaped here:
+   - Fixed 700px height + cover image replace the flex-row padding/gap
+     layout of the default hero.
+   - The content node (`.hero__content`) is re-centered as a white card
+     overlay instead of a left-aligned flex column.
+   Only values that differ from the component defaults live here. */
 #new-client-special-s02 {
   height: 700px;
+  padding: 0;
   background-image: url('../images/new-client-special/hero-1200.webp');
+  background-color: transparent;
+  gap: 0;
 }
 
 #new-client-special-s04 {
   width: 50%;
   height: 55%;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
 }
 
 #new-client-special-s05 {
   font-size: 3em;
+  color: var(--color-navy);
 }
 
 #new-client-special-s06 {
   width: 90%;
   font-size: 1.1em;
+  color: var(--color-navy);
 }
 
 @media (max-width: 1200px) {
   #new-client-special-s04 {
     width: 70%;
+  }
+  #new-client-special-s05 {
+    font-size: 3em;
   }
 }
 
