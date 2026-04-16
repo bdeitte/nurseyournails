@@ -66,6 +66,56 @@
   background-color: #ebebeb;
 }
 
+/* -------------------------------------------------------------------------
+   Legacy button variants
+   -------------------------------------------------------------------------
+   Shared footer/header markup still uses `.v-button.primary/secondary/
+   tertiary` on all 10 pages. These rules provide the branded colors until
+   each page's HTML migrates to `.cta-button`. Remove once legacy.css is
+   absorbed in Phase 3.
+   ------------------------------------------------------------------------- */
+.v-button.primary {
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+  border-radius: 5px;
+}
+.v-button.primary:hover {
+  background-color: var(--color-gold-hover);
+  color: var(--color-navy);
+}
+.v-button.primary:active {
+  background-color: var(--color-gold-active);
+  color: var(--color-navy);
+}
+
+.v-button.secondary {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  border-radius: 5px;
+}
+.v-button.secondary:hover {
+  background-color: var(--color-gold-hover);
+  color: var(--color-black);
+}
+.v-button.secondary:active {
+  background-color: var(--color-gold-active);
+  color: var(--color-black);
+}
+
+.v-button.tertiary {
+  background-color: var(--color-white);
+  color: var(--color-navy);
+  border-radius: 5px;
+}
+.v-button.tertiary:hover {
+  background-color: #f0f0f0;
+  color: var(--color-navy);
+}
+.v-button.tertiary:active {
+  background-color: #ebebeb;
+  color: var(--color-navy);
+}
+
 .v-filled-star {
   color: var(--color-gold);
 }
