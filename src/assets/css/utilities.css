@@ -1,0 +1,12 @@
+/* =========================================================================
+   Utilities
+   =========================================================================
+   Single-purpose helper classes. Prefix `u-`. Use sparingly — prefer a
+   semantic component class. Utilities are for genuine one-off layout
+   tweaks that don't belong to any component.
+
+   The pilot (new-client-special) does not currently need any utilities;
+   its visual style fits cleanly into the `.hero` component and a couple
+   of page-scoped ID rules. Utilities will be added here as later page
+   migrations surface patterns that recur but don't form a component.
+   ========================================================================= */

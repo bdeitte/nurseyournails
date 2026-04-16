@@ -1,0 +1,353 @@
+/* =========================================================================
+   Components
+   =========================================================================
+   Semantic building blocks for the new CSS system. Each component consumes
+   tokens from theme.css (colors, spacing, fonts) and layout primitives from
+   legacy.css where appropriate. Rules live in the `components` cascade
+   layer, so they beat same-selector rules in `legacy` automatically.
+   No !important. No specificity hacks.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   Site-wide typography
+   ------------------------------------------------------------------------- */
+.v-site {
+  font-family: var(--font-body);
+  font-size: var(--fs-root);
+  background-color: var(--color-slate);
+  color: var(--color-navy);
+}
+
+.v-site h1,
+.v-site h2,
+.v-site h3,
+.v-site h4,
+.v-navigation-bar,
+.v-navigation-list li,
+.review-text-head {
+  font-family: var(--font-heading);
+}
+
+/* Body default link styling inside the site frame. */
+.v-site a:not(.no-a):not(.v-button):not(.dropdown-item),
+.v-link {
+  color: var(--color-black);
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------
+   Buttons (color variants)
+   -------------------------------------------------------------------------
+   Base layout for .v-button lives in legacy.css. These rules add the
+   brand color variants so the new system owns button appearance.
+   ------------------------------------------------------------------------- */
+.v-button.primary,
+.v-button.secondary,
+.v-button.tertiary {
+  border-radius: 5px;
+  transition:
+    background-color 120ms ease,
+    color 120ms ease;
+}
+
+.v-button.primary {
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+}
+.v-button.primary:hover,
+.v-button-hover.primary {
+  background-color: var(--color-gold-hover);
+  color: var(--color-navy);
+}
+.v-button.primary:active,
+.v-button-active.primary {
+  background-color: var(--color-gold-active);
+  color: var(--color-navy);
+}
+
+.v-button.secondary {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+}
+.v-button.secondary:hover,
+.v-button-hover.secondary {
+  background-color: var(--color-gold-hover);
+  color: var(--color-black);
+}
+.v-button.secondary:active,
+.v-button-active.secondary {
+  background-color: var(--color-gold-active);
+  color: var(--color-black);
+}
+
+.v-button.tertiary {
+  background-color: var(--color-white);
+  color: var(--color-navy);
+}
+.v-button.tertiary:hover,
+.v-button-hover.tertiary {
+  background-color: #f0f0f0;
+  color: var(--color-navy);
+}
+.v-button.tertiary:active,
+.v-button-active.tertiary {
+  background-color: #ebebeb;
+  color: var(--color-navy);
+}
+
+.v-filled-star {
+  color: var(--color-gold);
+}
+
+/* -------------------------------------------------------------------------
+   Site header
+   -------------------------------------------------------------------------
+   Shared across all 10 pages. The outer wrapper is #page-wrapper and
+   receives the white background, base padding, and the navy link color
+   the site uses for its top bar. Responsive sizing comes from the
+   tablet/mobile body breakpoint classes set by the inline boot script.
+   ------------------------------------------------------------------------- */
+#page-wrapper {
+  background-color: var(--color-white);
+  color: var(--color-navy);
+  padding: 20px;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+
+.main-navigation ul li,
+.mobile-navigation-content,
+.pofile-drop {
+  background-color: var(--color-white);
+}
+
+.tablet-break #page-wrapper {
+  height: 119px;
+}
+
+.mobile-break #page-wrapper {
+  height: 112px;
+  padding: 10px;
+}
+
+@media (min-width: 1201px) {
+  .mobile-navigation,
+  .mobile-navigation-menu {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .account-controls {
+    right: 42px;
+    align-items: center;
+  }
+  .account-container {
+    align-items: center;
+  }
+  .account-controls .v-login {
+    display: none;
+  }
+  .full-screen-navigation {
+    display: none;
+  }
+  .cta-container {
+    display: block;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Site footer
+   -------------------------------------------------------------------------
+   Shared across all 10 pages. Targets the stable #shared-s02..s13 IDs so
+   the component works on every page without needing per-page class churn.
+   Layout matches the legacy inline style block exactly; anything that
+   differs here will show up as visual drift on the pilot page.
+   ------------------------------------------------------------------------- */
+#shared-s02 {
+  background-color: var(--color-black);
+  color: var(--color-gold);
+  mix-blend-mode: normal;
+  height: auto;
+}
+
+#shared-s03 {
+  background-color: var(--color-navy);
+  flex-direction: column;
+  gap: 24px;
+  padding: 30px 90px;
+}
+
+#shared-s04 {
+  padding: 0;
+  font-size: 1.3em;
+  text-align: center;
+  color: var(--color-gold);
+}
+
+#shared-s05 {
+  width: 228px;
+  height: 30px;
+  font-size: 1.4em;
+}
+
+#shared-s06,
+#shared-s10 {
+  flex-direction: row;
+  gap: 24px;
+  padding: 0;
+  width: 100%;
+}
+
+#shared-s07,
+#shared-s11 {
+  width: 111px;
+}
+
+#shared-s08 {
+  color: var(--color-navy);
+}
+
+#shared-s09 {
+  width: 200px;
+  color: var(--color-black);
+}
+
+#shared-s11 {
+  color: var(--color-navy);
+}
+
+#shared-s12 {
+  width: 194px;
+  color: var(--color-black);
+  background-color: var(--color-gold);
+}
+
+#shared-s13 {
+  width: 200px;
+  color: var(--color-black);
+  background-color: var(--color-gold);
+}
+
+@media (max-width: 1200px) {
+  .tablet-break #shared-s02 {
+    height: auto;
+  }
+  .tablet-break #shared-s03 {
+    flex-direction: column;
+    padding: 30px 40px;
+    gap: 30px;
+  }
+  .tablet-break #shared-s06,
+  .tablet-break #shared-s10 {
+    flex-direction: row;
+    width: 100%;
+  }
+  .tablet-break #shared-s11 {
+    color: var(--color-navy);
+  }
+}
+
+@media (max-width: 767px) {
+  .mobile-break #shared-s03 {
+    padding: 30px 20px;
+  }
+  .mobile-break #shared-s06,
+  .mobile-break #shared-s10 {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .mobile-break #shared-s09,
+  .mobile-break #shared-s12,
+  .mobile-break #shared-s13 {
+    width: 193px;
+  }
+  .mobile-break #shared-s11 {
+    height: 5px;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------
+   A full-bleed section that holds a background image and an overlaid
+   content card. Used as the first visible block below the navigation on
+   most pages. Page-specific values (fixed height, image, card size) are
+   scoped to section IDs in the page-specific block below — the base
+   component stays layout-only so other pages can reuse it.
+   ------------------------------------------------------------------------- */
+.hero {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* background-attachment: fixed is not in Baseline "widely available" (iOS
+   Safari has long ignored it). Guarded so the lint passes and non-supporting
+   browsers simply get a non-parallax hero. */
+@supports (background-attachment: fixed) {
+  .hero--fixed {
+    background-attachment: fixed;
+  }
+}
+
+.hero__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+}
+
+.hero__title,
+.hero__lead {
+  text-align: center;
+}
+
+/* =========================================================================
+   Page-scoped overrides
+   =========================================================================
+   Values that belong to a single section on a single page are scoped by
+   section ID. Keeps the component vocabulary small and the page-specific
+   numbers easy to find.
+   ========================================================================= */
+
+/* new-client-special: hero section */
+#new-client-special-s02 {
+  height: 700px;
+  background-image: url('../images/new-client-special/hero-1200.webp');
+}
+
+#new-client-special-s04 {
+  width: 50%;
+  height: 55%;
+}
+
+#new-client-special-s05 {
+  font-size: 3em;
+}
+
+#new-client-special-s06 {
+  width: 90%;
+  font-size: 1.1em;
+}
+
+@media (max-width: 1200px) {
+  #new-client-special-s04 {
+    width: 70%;
+  }
+}
+
+@media (max-width: 767px) {
+  #new-client-special-s03 {
+    padding: 48px;
+  }
+  #new-client-special-s04 {
+    width: 100%;
+    height: auto;
+    padding: 40px 25px;
+  }
+  #new-client-special-s05 {
+    font-size: 2em;
+  }
+}

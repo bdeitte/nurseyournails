@@ -1,0 +1,8 @@
+/* =========================================================================
+   Base element styles
+   =========================================================================
+   Element resets / defaults that augment what legacy.css already provides.
+   Intentionally empty for the pilot — legacy.css covers element defaults
+   for the pages still bound to it. Add rules here only when a concrete
+   need appears during migration.
+   ========================================================================= */
