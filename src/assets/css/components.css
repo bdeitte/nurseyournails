@@ -363,6 +363,126 @@
   }
 }
 
+/* -------------------------------------------------------------------------
+   Page title banner
+   -------------------------------------------------------------------------
+   Shared across 6 pages (about-me, gallery, my-business, price-list,
+   products, reviews). Navy background with a gold-bordered black accent
+   bar on the right side. Responsive: shrinks padding and font on tablet/
+   mobile, reduces the accent border width on mobile.
+   ------------------------------------------------------------------------- */
+.page-title-banner__row {
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+}
+
+.page-title-banner__content {
+  flex-direction: column;
+  width: 80%;
+  padding: 20px 20px 20px 120px;
+  background-color: var(--color-navy);
+}
+
+.page-title-banner__heading {
+  width: 100%;
+  text-align: left;
+  font-size: 2.4em;
+  color: var(--color-white);
+}
+
+.page-title-banner__accent {
+  flex-direction: row;
+  width: 20%;
+  height: 100%;
+  background-color: var(--color-black);
+  border-style: solid;
+  border-width: 0 0 0 40px;
+  border-color: var(--color-gold);
+}
+
+@media (max-width: 1200px) {
+  .page-title-banner__content {
+    padding: 20px 20px 20px 40px;
+  }
+  .page-title-banner__heading {
+    font-size: var(--fs-h2);
+  }
+}
+
+@media (max-width: 767px) {
+  .page-title-banner__row {
+    height: 75px;
+  }
+  .page-title-banner__content {
+    padding: var(--space-md);
+  }
+  .page-title-banner__heading {
+    font-size: 1.9em;
+  }
+  .page-title-banner__accent {
+    height: 100%;
+    border-style: solid;
+    border-width: 0 0 0 25px;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Split section
+   -------------------------------------------------------------------------
+   Two-column "media + text" layout that stacks vertically on mobile.
+   Used on my-business (image + description) and available for any page
+   that needs a side-by-side content split. The component is intentionally
+   generic: widths and colors are set by page-scoped overrides.
+   ------------------------------------------------------------------------- */
+.split-section {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-xs);
+}
+
+.split-section__media {
+  flex-shrink: 0;
+}
+
+.split-section__body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  .split-section {
+    flex-direction: column;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Bottom border section
+   -------------------------------------------------------------------------
+   Shared across 5 pages (about-me, gallery, my-business, price-list,
+   reviews). A section with a bottom border in slate and a column-layout
+   inner column. Targets stable #shared-s19/s20 IDs.
+   ------------------------------------------------------------------------- */
+#shared-s19 {
+  border-style: solid;
+  border-width: 0 0 35px 0;
+  border-color: var(--color-slate);
+}
+
+#shared-s20 {
+  flex-direction: column;
+  padding: var(--space-xl);
+  gap: 24px;
+}
+
+@media (max-width: 767px) {
+  .mobile-break #shared-s20 {
+    padding: var(--space-xl) var(--space-md);
+  }
+}
+
 /* =========================================================================
    Page-scoped overrides
    =========================================================================
@@ -381,7 +501,7 @@
 #new-client-special-s02 {
   height: 700px;
   padding: 0;
-  background-image: url('../images/new-client-special/hero-1200.webp');
+  background-image: url("../images/new-client-special/hero-1200.webp");
   background-color: transparent;
   gap: 0;
 }
@@ -426,5 +546,111 @@
   }
   #new-client-special-s05 {
     font-size: 2em;
+  }
+}
+
+/* about-me: family portrait section + bio card + bottom image.
+   The bio card is a white column container that sits at ~783px wide on
+   desktop, full-width on mobile, inside a section that uses
+   background-attachment: fixed (guarded for non-supporting browsers). */
+#about-me-s01 {
+  height: 373px;
+}
+
+#about-me-s02 {
+  gap: var(--space-xs);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+#about-me-s03 {
+  height: 289px;
+  width: 490px;
+}
+
+#about-me-s05 {
+  background-repeat: no-repeat;
+  flex-direction: row;
+}
+
+@supports (background-attachment: fixed) {
+  #about-me-s04,
+  #about-me-s05 {
+    background-attachment: fixed;
+  }
+}
+
+#about-me-s06 {
+  flex-direction: column;
+  width: 783px;
+  height: 100%;
+  background-color: var(--color-white);
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 70px 40px;
+  justify-content: flex-start;
+}
+
+#about-me-s07 {
+  color: var(--color-navy);
+}
+
+#about-me-s08 {
+  color: var(--color-navy);
+  height: 40px;
+}
+
+#about-me-s09 {
+  margin: var(--space-lg) 0 0 0;
+  width: 702px;
+  height: 88px;
+  font-size: var(--fs-h1);
+}
+
+#about-me-s09 .social-icon {
+  background: var(--color-slate);
+  color: var(--color-black);
+}
+
+#about-me-s10 {
+  width: 100%;
+  height: 938px;
+  font-size: var(--fs-h3);
+}
+
+#about-me-s13 {
+  gap: var(--space-xs);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+#about-me-s14 {
+  flex-direction: column;
+  width: 368px;
+  height: 100%;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding: 50px 40px;
+  justify-content: center;
+  gap: var(--space-lg);
+  background-image: url("../images/about-me/manicure-background.jpg");
+}
+
+@media (max-width: 767px) {
+  .mobile-break #about-me-s05 {
+    flex-direction: column;
+  }
+  .mobile-break #about-me-s06 {
+    width: 100%;
+    height: 2229px;
+  }
+  .mobile-break #about-me-s10 {
+    height: 100%;
+  }
+  .mobile-break #about-me-s14 {
+    width: 100%;
+    height: 200px;
   }
 }
