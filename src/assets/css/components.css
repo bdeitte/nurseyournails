@@ -654,3 +654,37 @@
     height: 200px;
   }
 }
+
+/* price-list: service list panel overrides.
+   The service list uses legacy `.v-service-list` / `.v-service-item`
+   classes from legacy.css. These page-scoped rules set the panel
+   background to white and text to navy. */
+#price-list-s01 .service-panel {
+  background: var(--color-white);
+  border-color: #5a789e00;
+}
+
+#price-list-s01 .b-panel-container {
+  padding: 8px;
+}
+
+#price-list-s01 .service-title {
+  color: var(--color-navy);
+}
+
+#price-list-s01 .service-description {
+  color: var(--color-navy);
+}
+
+#price-list-s01 .service-pricing {
+  color: var(--color-navy);
+}
+
+#price-list-s01 .s-other:not(.promo-container) {
+  color: var(--color-navy);
+}
+
+#price-list-s01 hr {
+  border-color: #5a789e00;
+  opacity: 0.4;
+}
