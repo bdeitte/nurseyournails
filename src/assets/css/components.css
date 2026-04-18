@@ -1134,6 +1134,28 @@
   }
 }
 
+/* reviews: review summary widget and review list. The review-bar
+   background uses gold to match the star rating theme. The review
+   percentage widget is constrained to 90% width on desktop. */
+#reviews-s01 {
+  width: 90%;
+}
+
+#reviews-s01 .review-bar {
+  background-color: var(--color-gold);
+}
+
+#reviews-s02 {
+  color: var(--color-navy);
+  background-color: var(--color-slate);
+}
+
+@media (max-width: 1200px) {
+  #reviews-s01 {
+    width: 100%;
+  }
+}
+
 /* gallery: gold background on the main content section. The shared
    #shared-s19/#shared-s20 rules default to slate; the gallery page
    uses a gold background instead. */
