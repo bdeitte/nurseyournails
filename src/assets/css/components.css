@@ -3544,3 +3544,8 @@ a.no-a {
     display: none;
   }
 }
+@media (max-width: 767px) {
+  .full-screen-navigation {
+    display: none;
+  }
+}
