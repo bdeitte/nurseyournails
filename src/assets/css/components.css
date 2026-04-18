@@ -1142,7 +1142,7 @@
    feature cards, a gallery preview strip, and a spacer section.
    ------------------------------------------------------------------------- */
 
-/* home-s01: hero image strip — flex column with tiny gap, centered */
+/* home-s02/s04/s06: hero column children — flex column with tiny gap, centered */
 #home-s02,
 #home-s04,
 #home-s06 {
@@ -1234,11 +1234,6 @@
   gap: 24px;
 }
 
-/* home-s15: welcome text block at bottom of right column */
-#home-s15 {
-  grid-area: 17/47/32/65;
-}
-
 /* home-s16: title container at top-left of grid */
 #home-s16 {
   grid-area: 7/1/33/19;
@@ -1257,7 +1252,7 @@
   padding: 0;
 }
 
-/* home-s18: spacer section (empty) */
+/* home-s19: spacer section column */
 #home-s19 {
   gap: var(--space-xs);
   justify-content: center;
@@ -1265,7 +1260,7 @@
   align-content: center;
 }
 
-/* home-s20: "Why Choose Me" section */
+/* home-s21: "Why Choose Me" section column */
 #home-s21 {
   padding: 48px;
 }
@@ -1358,16 +1353,14 @@
 }
 
 #home-s34 {
-  height: 100%;
   width: 329px;
 }
 
 #home-s49 {
-  height: 100%;
   width: 359px;
 }
 
-/* home-s50: gallery strip section */
+/* home-s51: gallery strip section column */
 #home-s51 {
   gap: var(--space-xs);
   justify-content: center;
@@ -1394,14 +1387,7 @@
     padding-bottom: 81.25%;
   }
   .tablet-break #home-s11 .inner-grid {
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: repeat(64, 1fr);
     grid-template-rows: repeat(52, 1fr);
-    row-gap: 0%;
-    column-gap: 0%;
   }
   #home-s12 {
     grid-area: 2/1/32/27;
@@ -1415,12 +1401,6 @@
     align-content: flex-start;
     align-items: flex-start;
     gap: var(--space-lg);
-  }
-  #home-s15 {
-    grid-area: 8/31/31/65;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
   }
   #home-s16 {
     grid-area: 35/1/53/65;
@@ -1539,14 +1519,6 @@
   #home-s49 {
     text-align: center;
     width: 94%;
-  }
-  .photo-card {
-    height: 120px;
-  }
-  @container (max-width: 767px) {
-    .photo-card {
-      height: 120px;
-    }
   }
 }
 
