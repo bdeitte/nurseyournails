@@ -639,8 +639,8 @@
    Photo grid
    -------------------------------------------------------------------------
    Three-column image grid used on the gallery page. Each item is a
-   background-image card with cover sizing. On mobile the grid collapses
-   to a single column.
+   background-image card with cover sizing. Collapses to 2 columns on
+   small tablets (768px) and 1 column on phones (480px).
    ------------------------------------------------------------------------- */
 .photo-grid {
   display: grid;
@@ -655,9 +655,15 @@
   height: 200px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
   .photo-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
   }
   .photo-grid__item {
     height: 120px;
