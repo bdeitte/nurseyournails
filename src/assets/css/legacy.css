@@ -2482,29 +2482,6 @@ code {
 .account-controls {
   margin-bottom: 2px;
 }
-/* Photo gallery grid layout */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  width: 100%;
-}
-@media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 480px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* Photo gallery card base (background-image stays inline) */
-.gallery-grid .photo-card {
-  background-size: cover;
-  background-position: center center;
-  height: 300px;
-}
 /* Section buffer widths */
 .section-buffer {
   width: calc(50% - var(--half-width));
