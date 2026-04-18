@@ -517,10 +517,10 @@
    -------------------------------------------------------------------------
    Vertical card used for business info panels (e.g. "Let's Connect",
    "Hours", "Location" on the my-business page). Column layout with a
-   centered heading and a small gap between children.
-   ------------------------------------------------------------------------- */
-.info-card {
-  display: flex;
+   centered heading and a small gap between children. Selector is combined
+   with `.v-container` to win specificity against the generic rule defined
+   later in this file. */
+.v-container.info-card {
   flex-direction: column;
   width: 30%;
   gap: var(--space-sm);
@@ -535,7 +535,7 @@
 }
 
 @media (max-width: 1200px) {
-  .info-card {
+  .v-container.info-card {
     width: 48%;
   }
   .info-card__heading {
@@ -544,7 +544,7 @@
 }
 
 @media (max-width: 767px) {
-  .info-card {
+  .v-container.info-card {
     width: 100%;
   }
 }
