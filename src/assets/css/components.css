@@ -565,6 +565,76 @@
   color: var(--color-gold);
 }
 
+/* -------------------------------------------------------------------------
+   Service card grid
+   -------------------------------------------------------------------------
+   Grid of service cards used on foot-care and manicures pages. Four cards
+   per row on desktop, two on tablet, one on mobile. Each card has a
+   fixed-height image, a centered heading, and a left-aligned description.
+   ------------------------------------------------------------------------- */
+.service-card-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-between;
+  gap: var(--space-xs);
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 24%;
+}
+
+.service-card__image {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.service-card__info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--space-md) 0 0 0;
+  gap: var(--space-sm);
+  height: 30%;
+}
+
+.service-card__title {
+  text-align: center;
+  width: 100%;
+}
+
+.service-card__desc {
+  text-align: left;
+}
+
+@media (max-width: 1200px) {
+  .service-card-grid {
+    padding: 0;
+    gap: 14px;
+  }
+  .service-card {
+    width: 49%;
+  }
+  .service-card__title {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 767px) {
+  .service-card-grid {
+    padding: 0;
+  }
+  .service-card {
+    width: 100%;
+  }
+}
+
 /* =========================================================================
    Page-scoped overrides
    =========================================================================
@@ -903,5 +973,30 @@
   }
   #my-business-s19 {
     margin: 0;
+  }
+}
+
+/* foot-care: two service-card-grid sections with white background.
+   Cards use the shared service-card component. Only page-specific
+   size overrides live here. */
+#foot-care-s02,
+#foot-care-s24 {
+  background-color: var(--color-white);
+  padding: var(--space-md);
+}
+
+#foot-care-s30 {
+  height: 100%;
+}
+
+#foot-care-s45 {
+  height: 168px;
+  width: 235px;
+}
+
+@media (max-width: 767px) {
+  .mobile-break #foot-care-s02,
+  .mobile-break #foot-care-s24 {
+    padding: 5px;
   }
 }
