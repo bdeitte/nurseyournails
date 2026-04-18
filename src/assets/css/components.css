@@ -2578,10 +2578,12 @@ a.no-a {
 .four .service-pricing {
   text-align: left;
 }
-.four .service-pricing,
 .one .service-pricing {
   align-items: flex-end;
   text-align: right;
+}
+.four .service-pricing {
+  align-items: flex-end;
 }
 .one .service-pricing,
 .three .service-pricing {
@@ -2984,7 +2986,7 @@ a.no-a {
   justify-content: flex-end;
   text-align: right;
 }
-.title-pricing-row .vp-2 {
+#price-list-s01 .title-pricing-row .vp-2 {
   color: var(--color-black);
 }
 @media (max-width: 767px) {
