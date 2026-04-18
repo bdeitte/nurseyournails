@@ -1,11 +1,761 @@
 /* =========================================================================
    Base element styles
    =========================================================================
-   Element resets / defaults that augment what legacy.css already provides.
+   Element resets and defaults. Contains everything that targets elements
+   (body, html, *, headings, links, etc.) rather than component classes.
+   Bootstrap variables and builder design-system variables live here as
+   :root blocks until they can be pruned.
    ========================================================================= */
 
+/* ---- Bootstrap :root variables ---------------------------------------- */
+:root {
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-black: #000;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-gray-100: #f8f9fa;
+  --bs-gray-200: #e9ecef;
+  --bs-gray-300: #dee2e6;
+  --bs-gray-400: #ced4da;
+  --bs-gray-500: #adb5bd;
+  --bs-gray-600: #6c757d;
+  --bs-gray-700: #495057;
+  --bs-gray-800: #343a40;
+  --bs-gray-900: #212529;
+  --bs-primary: #0d6efd;
+  --bs-secondary: #6c757d;
+  --bs-success: #198754;
+  --bs-info: #0dcaf0;
+  --bs-warning: #ffc107;
+  --bs-danger: #dc3545;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-primary-rgb: 13, 110, 253;
+  --bs-secondary-rgb: 108, 117, 125;
+  --bs-success-rgb: 25, 135, 84;
+  --bs-info-rgb: 13, 202, 240;
+  --bs-warning-rgb: 255, 193, 7;
+  --bs-danger-rgb: 220, 53, 69;
+  --bs-light-rgb: 248, 249, 250;
+  --bs-dark-rgb: 33, 37, 41;
+  --bs-primary-text-emphasis: #052c65;
+  --bs-secondary-text-emphasis: #2b2f32;
+  --bs-success-text-emphasis: #0a3622;
+  --bs-info-text-emphasis: #055160;
+  --bs-warning-text-emphasis: #664d03;
+  --bs-danger-text-emphasis: #58151c;
+  --bs-light-text-emphasis: #495057;
+  --bs-dark-text-emphasis: #495057;
+  --bs-primary-bg-subtle: #cfe2ff;
+  --bs-secondary-bg-subtle: #e2e3e5;
+  --bs-success-bg-subtle: #d1e7dd;
+  --bs-info-bg-subtle: #cff4fc;
+  --bs-warning-bg-subtle: #fff3cd;
+  --bs-danger-bg-subtle: #f8d7da;
+  --bs-light-bg-subtle: #fcfcfd;
+  --bs-dark-bg-subtle: #ced4da;
+  --bs-primary-border-subtle: #9ec5fe;
+  --bs-secondary-border-subtle: #c4c8cb;
+  --bs-success-border-subtle: #a3cfbb;
+  --bs-info-border-subtle: #9eeaf9;
+  --bs-warning-border-subtle: #ffe69c;
+  --bs-danger-border-subtle: #f1aeb5;
+  --bs-light-border-subtle: #e9ecef;
+  --bs-dark-border-subtle: #adb5bd;
+  --bs-white-rgb: 255, 255, 255;
+  --bs-black-rgb: 0, 0, 0;
+  --bs-font-sans-serif:
+    system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans",
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-monospace:
+    SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --bs-gradient: linear-gradient(180deg, #ffffff26, #fff0);
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-size: 1rem;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.5;
+  --bs-body-color: #212529;
+  --bs-body-color-rgb: 33, 37, 41;
+  --bs-body-bg: #fff;
+  --bs-body-bg-rgb: 255, 255, 255;
+  --bs-emphasis-color: #000;
+  --bs-emphasis-color-rgb: 0, 0, 0;
+  --bs-secondary-color: #212529bf;
+  --bs-secondary-color-rgb: 33, 37, 41;
+  --bs-secondary-bg: #e9ecef;
+  --bs-secondary-bg-rgb: 233, 236, 239;
+  --bs-tertiary-color: #21252980;
+  --bs-tertiary-color-rgb: 33, 37, 41;
+  --bs-tertiary-bg: #f8f9fa;
+  --bs-tertiary-bg-rgb: 248, 249, 250;
+  --bs-heading-color: inherit;
+  --bs-link-color: #0d6efd;
+  --bs-link-color-rgb: 13, 110, 253;
+  --bs-link-decoration: underline;
+  --bs-link-hover-color: #0a58ca;
+  --bs-link-hover-color-rgb: 10, 88, 202;
+  --bs-code-color: #d63384;
+  --bs-highlight-color: #212529;
+  --bs-highlight-bg: #fff3cd;
+  --bs-border-width: 1px;
+  --bs-border-style: solid;
+  --bs-border-color: #dee2e6;
+  --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+  --bs-border-radius: 0.375rem;
+  --bs-border-radius-sm: 0.25rem;
+  --bs-border-radius-lg: 0.5rem;
+  --bs-border-radius-xl: 1rem;
+  --bs-border-radius-xxl: 2rem;
+  --bs-border-radius-2xl: var(--bs-border-radius-xxl);
+  --bs-border-radius-pill: 50rem;
+  --bs-box-shadow: 0 0.5rem 1rem #00000026;
+  --bs-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --bs-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --bs-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  --bs-focus-ring-width: 0.25rem;
+  --bs-focus-ring-opacity: 0.25;
+  --bs-focus-ring-color: #0d6efd40;
+  --bs-form-valid-color: #198754;
+  --bs-form-valid-border-color: #198754;
+  --bs-form-invalid-color: #dc3545;
+  --bs-form-invalid-border-color: #dc3545;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ---- Bootstrap breakpoint variables ----------------------------------- */
+:root {
+  --bs-breakpoint-xs: 0;
+  --bs-breakpoint-sm: 576px;
+  --bs-breakpoint-md: 768px;
+  --bs-breakpoint-lg: 992px;
+  --bs-breakpoint-xl: 1200px;
+  --bs-breakpoint-xxl: 1400px;
+}
+
+/* ---- Builder design-system :root variables ---------------------------- */
+:root {
+  --global-font-family-proximanova: "proxima-nova", sans-serif;
+  --global-font-proximanova: "proxima-nova", sans-serif;
+  --global-radius-regular: 3px;
+  --global-radius-larger: 5px;
+  --global-radius-full: 100px;
+  --global-radius-input: 3px;
+  --global-radius-table: 5px;
+  --global-radius-button-default: 3px;
+  --global-radius-button-full: 100px;
+  --global-color-core-ink-lightest: #f8f8f8;
+  --global-color-core-ink-lighter: #e7e7e7;
+  --global-color-core-ink-light: #cdcdcd;
+  --global-color-core-ink-base: #9a9a9a;
+  --global-color-core-ink-dark: #6d6e6f;
+  --global-color-core-ink-darker: #333;
+  --global-color-core-white: #fff;
+  --global-color-core-black: #000;
+  --global-color-core-flamingo-default: #cc4744;
+  --global-color-core-flamingo-dark: #b43136;
+  --global-color-core-flamingo-darker: #942b28;
+  --global-color-core-alert-lighter: #fbefef;
+  --global-color-core-alert-light: #f5d9da;
+  --global-color-core-alert-default: #b42318;
+  --global-color-core-alert-warning: #ff9500;
+  --global-color-core-alert-yellow: #f6d645;
+  --global-color-core-green-default: #3e8438;
+  --global-color-core-green-dark: #3f6d3b;
+  --global-color-core-green-darker: #365c33;
+  --global-color-core-blue-lighter: #f4faff;
+  --global-color-core-blue-light: #e9f5ff;
+  --global-color-core-blue-default: #2479c7;
+  --global-color-core-blue-dark: #26639c;
+  --global-color-core-overlay-01: #26639c;
+  --global-sizing-1: 1px;
+  --global-sizing-2: 2px;
+  --global-sizing-4: 4px;
+  --global-sizing-8: 8px;
+  --global-sizing-12: 12px;
+  --global-sizing-16: 16px;
+  --global-sizing-20: 20px;
+  --global-sizing-24: 24px;
+  --global-sizing-28: 28px;
+  --global-sizing-32: 32px;
+  --global-sizing-36: 36px;
+  --global-sizing-40: 40px;
+  --global-sizing-44: 44px;
+  --global-sizing-48: 48px;
+  --global-sizing-56: 56px;
+  --global-sizing-64: 64px;
+  --global-sizing-72: 72px;
+  --global-sizing-80: 80px;
+  --global-sizing-96: 96px;
+  --global-sizing-120: 120px;
+  --global-sizing-160: 160px;
+  --global-sizing-240: 240px;
+  --global-sizing-320: 320px;
+  --global-sizing-auto: auto;
+  --global-sizing-none: 0px;
+  --global-spacing-1: 1px;
+  --global-spacing-2: 2px;
+  --global-spacing-4: 4px;
+  --global-spacing-8: 8px;
+  --global-spacing-12: 12px;
+  --global-spacing-16: 16px;
+  --global-spacing-20: 20px;
+  --global-spacing-24: 24px;
+  --global-spacing-28: 28px;
+  --global-spacing-32: 32px;
+  --global-spacing-36: 36px;
+  --global-spacing-40: 40px;
+  --global-spacing-48: 48px;
+  --global-spacing-56: 56px;
+  --global-spacing-64: 64px;
+  --global-spacing-72: 72px;
+  --global-spacing-80: 80px;
+  --global-spacing-96: 96px;
+  --global-spacing-120: 120px;
+  --global-spacing-160: 160px;
+  --global-spacing-240: 240px;
+  --global-spacing-320: 320px;
+  --global-spacing-auto: auto;
+  --global-spacing-none: 0px;
+  --global-border-width-default: 1px;
+  --global-border-width-strong: 2px;
+  --global-border-style-none: none;
+  --global-border-style-solid: solid;
+  --global-border-style-dashed: dashed;
+  --global-shadow-1: 0px 2px 10px 0px #0000001a;
+  --global-shadow-2: 0px 2px 20px 0px #00000026;
+  --global-shadow-3-web: 0px 8px 40px 0px #0003;
+  --global-shadow-3-mobile: 0px -8px 40px 0px #0003;
+  --global-font-spacing-none: 0;
+  --global-font-weight-regular: 400;
+  --global-font-weight-semibold: 600;
+  --global-font-size-12: 12px;
+  --global-font-size-16: 16px;
+  --global-font-size-18: 18px;
+  --global-font-size-20: 20px;
+  --global-font-size-24: 24px;
+  --global-font-size-32: 32px;
+  --global-font-height-16: 16px;
+  --global-font-height-20: 20px;
+  --global-font-height-24: 24px;
+  --global-font-height-28: 28px;
+  --global-font-height-36: 36px;
+  --global-font-decoration-none: none;
+  --global-font-decoration-underline: underline;
+  --global-font-decoration-strikethrough: line-through;
+  --global-paragraph-spacing-none: 0;
+  --global-opacity-none: 0%;
+  --global-opacity-10: 10%;
+  --global-opacity-15: 15%;
+  --global-opacity-20: 20%;
+  --global-opacity-25: 25%;
+  --global-opacity-50: 50%;
+  --color-text-neutral-default: var(--global-color-core-ink-darker);
+  --color-text-neutral-secondary: var(--global-color-core-ink-dark);
+  --color-text-neutral-weak: var(--global-color-core-ink-base);
+  --color-text-neutral-inverse: var(--global-color-core-white);
+  --color-text-alert-default: var(--global-color-core-alert-default);
+  --color-text-blue-default: var(--global-color-core-blue-default);
+  --color-text-blue-strong: var(--global-color-core-blue-dark);
+  --color-icon-neutral-default: var(--global-color-core-ink-darker);
+  --color-icon-neutral-secondary: var(--global-color-core-ink-dark);
+  --color-icon-neutral-weak: var(--global-color-core-ink-base);
+  --color-icon-neutral-inverse: var(--global-color-core-white);
+  --color-icon-alert-default: var(--global-color-core-alert-default);
+  --color-icon-blue-default: var(--global-color-core-blue-default);
+  --color-icon-blue-strong: var(--global-color-core-blue-dark);
+  --color-bkg-neutral-default: var(--global-color-core-white);
+  --color-bkg-neutral-medium: var(--global-color-core-ink-lightest);
+  --color-bkg-neutral-strong: var(--global-color-core-ink-darker);
+  --color-bkg-neutral-hover: var(--global-color-core-ink-lightest);
+  --color-bkg-neutral-pressed: var(--global-color-core-ink-lighter);
+  --color-bkg-theme-default: var(--global-color-core-flamingo-default);
+  --color-bkg-theme-hover: var(--global-color-core-flamingo-dark);
+  --color-bkg-theme-pressed: var(--global-color-core-flamingo-darker);
+  --color-bkg-green-default: var(--global-color-core-green-default);
+  --color-bkg-green-medium: var(--global-color-core-green-dark);
+  --color-bkg-green-hover: var(--global-color-core-green-dark);
+  --color-bkg-green-pressed: var(--global-color-core-green-darker);
+  --color-bkg-blue-default: var(--global-color-core-blue-default);
+  --color-bkg-blue-weak: var(--global-color-core-blue-lighter);
+  --color-bkg-blue-hover: var(--global-color-core-blue-lighter);
+  --color-bkg-blue-pressed: var(--global-color-core-blue-light);
+  --color-bkg-alert-default: var(--global-color-core-alert-default);
+  --color-bkg-alert-hover: var(--global-color-core-alert-lighter);
+  --color-bkg-alert-pressed: var(--global-color-core-alert-light);
+  --color-bkg-alert-yellow: var(--global-color-core-alert-yellow);
+  --color-bkg-alert-warning: var(--global-color-core-alert-warning);
+  --color-border-neutral-default: var(--global-color-core-ink-light);
+  --color-border-neutral-hover: var(--global-color-core-ink-base);
+  --color-border-theme-default: var(--global-color-core-flamingo-default);
+  --color-border-green-default: var(--global-color-core-green-default);
+  --color-border-alert-default: var(--global-color-core-alert-default);
+  --color-border-blue-default: var(--global-color-core-blue-default);
+  --web-display-large-font-family: var(--global-font-family-proximanova);
+  --web-display-large-font-weight: var(--global-font-weight-semibold);
+  --web-display-large-line-height: var(--global-font-height-36);
+  --web-display-large-font-size: var(--global-font-size-32);
+  --web-display-large-letter-spacing: 0%;
+  --web-display-large-text-decoration: none;
+  --web-display-large-text-transform: none;
+  --web-display-medium-strong-font-family: var(--global-font-family-proximanova);
+  --web-display-medium-strong-font-weight: var(--global-font-weight-semibold);
+  --web-display-medium-strong-line-height: var(--global-font-height-28);
+  --web-display-medium-strong-font-size: var(--global-font-size-24);
+  --web-display-medium-strong-letter-spacing: 0%;
+  --web-display-medium-strong-text-decoration: none;
+  --web-display-medium-strong-text-transform: none;
+  --web-display-medium-default-font-family: var(--global-font-family-proximanova);
+  --web-display-medium-default-font-weight: var(--global-font-weight-regular);
+  --web-display-medium-default-line-height: var(--global-font-height-28);
+  --web-display-medium-default-font-size: var(--global-font-size-24);
+  --web-display-medium-default-letter-spacing: 0%;
+  --web-display-medium-default-text-decoration: none;
+  --web-display-medium-default-text-transform: none;
+  --web-display-small-font-family: var(--global-font-family-proximanova);
+  --web-display-small-font-weight: var(--global-font-weight-semibold);
+  --web-display-small-line-height: var(--global-font-height-24);
+  --web-display-small-font-size: var(--global-font-size-20);
+  --web-display-small-letter-spacing: 0%;
+  --web-display-small-text-decoration: none;
+  --web-display-small-text-transform: none;
+  --web-button-font-family: var(--global-font-family-proximanova);
+  --web-button-font-weight: var(--global-font-weight-regular);
+  --web-button-line-height: var(--global-font-height-20);
+  --web-button-font-size: var(--global-font-size-16);
+  --web-button-letter-spacing: 0%;
+  --web-button-text-decoration: none;
+  --web-button-text-transform: none;
+  --web-subheading-font-family: var(--global-font-family-proximanova);
+  --web-subheading-font-weight: var(--global-font-weight-semibold);
+  --web-subheading-line-height: var(--global-font-height-20);
+  --web-subheading-font-size: var(--global-font-size-16);
+  --web-subheading-letter-spacing: 0%;
+  --web-subheading-text-decoration: none;
+  --web-subheading-text-transform: none;
+  --web-body-font-family: var(--global-font-family-proximanova);
+  --web-body-font-weight: var(--global-font-weight-regular);
+  --web-body-line-height: var(--global-font-height-20);
+  --web-body-font-size: var(--global-font-size-16);
+  --web-body-letter-spacing: 0%;
+  --web-body-text-decoration: none;
+  --web-body-text-transform: none;
+  --web-caption-strong-font-family: var(--global-font-family-proximanova);
+  --web-caption-strong-font-weight: var(--global-font-weight-semibold);
+  --web-caption-strong-line-height: var(--global-font-height-16);
+  --web-caption-strong-font-size: var(--global-font-size-12);
+  --web-caption-strong-letter-spacing: 0%;
+  --web-caption-strong-text-decoration: none;
+  --web-caption-strong-text-transform: none;
+  --web-caption-font-family: var(--global-font-family-proximanova);
+  --web-caption-font-weight: var(--global-font-weight-regular);
+  --web-caption-line-height: var(--global-font-height-16);
+  --web-caption-font-size: var(--global-font-size-12);
+  --web-caption-letter-spacing: 0%;
+  --web-caption-text-decoration: none;
+  --web-caption-text-transform: none;
+  --mobile-display-large-font-family: var(--global-font-family-proximanova);
+  --mobile-display-large-font-weight: var(--global-font-weight-semibold);
+  --mobile-display-large-line-height: var(--global-font-height-36);
+  --mobile-display-large-font-size: var(--global-font-size-32);
+  --mobile-display-large-letter-spacing: 0%;
+  --mobile-display-large-text-decoration: none;
+  --mobile-display-large-text-transform: none;
+  --mobile-display-medium-strong-font-family: var(--global-font-family-proximanova);
+  --mobile-display-medium-strong-font-weight: var(--global-font-weight-semibold);
+  --mobile-display-medium-strong-line-height: var(--global-font-height-28);
+  --mobile-display-medium-strong-font-size: var(--global-font-size-24);
+  --mobile-display-medium-strong-letter-spacing: 0%;
+  --mobile-display-medium-strong-text-decoration: none;
+  --mobile-display-medium-strong-text-transform: none;
+  --mobile-display-medium-default-font-family: var(--global-font-family-proximanova);
+  --mobile-display-medium-default-font-weight: var(--global-font-weight-regular);
+  --mobile-display-medium-default-line-height: var(--global-font-height-28);
+  --mobile-display-medium-default-font-size: var(--global-font-size-24);
+  --mobile-display-medium-default-letter-spacing: 0%;
+  --mobile-display-medium-default-text-decoration: none;
+  --mobile-display-medium-default-text-transform: none;
+  --mobile-display-small-font-family: var(--global-font-family-proximanova);
+  --mobile-display-small-font-weight: var(--global-font-weight-semibold);
+  --mobile-display-small-line-height: var(--global-font-height-24);
+  --mobile-display-small-font-size: var(--global-font-size-20);
+  --mobile-display-small-letter-spacing: 0%;
+  --mobile-display-small-text-decoration: none;
+  --mobile-display-small-text-transform: none;
+  --mobile-button-font-family: var(--global-font-family-proximanova);
+  --mobile-button-font-weight: var(--global-font-weight-regular);
+  --mobile-button-line-height: var(--global-font-height-20);
+  --mobile-button-font-size: var(--global-font-size-20);
+  --mobile-button-letter-spacing: 0%;
+  --mobile-button-text-decoration: none;
+  --mobile-button-text-transform: none;
+  --mobile-subheading-font-family: var(--global-font-family-proximanova);
+  --mobile-subheading-font-weight: var(--global-font-weight-semibold);
+  --mobile-subheading-line-height: var(--global-font-height-20);
+  --mobile-subheading-font-size: var(--global-font-size-16);
+  --mobile-subheading-letter-spacing: 0%;
+  --mobile-subheading-text-decoration: none;
+  --mobile-subheading-text-transform: none;
+  --mobile-body-font-family: var(--global-font-family-proximanova);
+  --mobile-body-font-weight: var(--global-font-weight-regular);
+  --mobile-body-line-height: var(--global-font-height-20);
+  --mobile-body-font-size: var(--global-font-size-16);
+  --mobile-body-letter-spacing: 0%;
+  --mobile-body-text-decoration: none;
+  --mobile-body-text-transform: none;
+  --mobile-caption-strong-font-family: var(--global-font-family-proximanova);
+  --mobile-caption-strong-font-weight: var(--global-font-weight-semibold);
+  --mobile-caption-strong-line-height: var(--global-font-height-16);
+  --mobile-caption-strong-font-size: var(--global-font-size-12);
+  --mobile-caption-strong-letter-spacing: 0%;
+  --mobile-caption-strong-text-decoration: none;
+  --mobile-caption-strong-text-transform: none;
+  --mobile-caption-font-family: var(--global-font-family-proximanova);
+  --mobile-caption-font-weight: var(--global-font-weight-regular);
+  --mobile-caption-line-height: var(--global-font-height-16);
+  --mobile-caption-font-size: var(--global-font-size-12);
+  --mobile-caption-letter-spacing: 0%;
+  --mobile-caption-text-decoration: none;
+  --mobile-caption-text-transform: none;
+}
+
+/* ---- Editor / section variables --------------------------------------- */
+:root {
+  --editor-transparent: #3e843877;
+  --editor-primary: #3e8438;
+  --editor-hover: #3f6d3b;
+  --section-default-height: 450px;
+  --outline-primary: #3e8438;
+  --outline-hover: #3f6d3b;
+  --default-animation-duration: 0.5s;
+  --default-animation-delay: 0.2s;
+}
+
+/* ---- Universal box-sizing + rendering --------------------------------- */
+*,
+:after,
+:before {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- html / body ------------------------------------------------------ */
 html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: #fff;
+  background-color: var(--bs-body-bg);
+  color: #333;
+  color: var(--color-text-neutral-default);
+  font-family: proxima-nova, sans-serif;
+  font-family: var(--web-body-font-family);
+  font-size: 16px;
+  font-size: var(--web-body-font-size);
+  font-weight: 400;
+  font-weight: var(--web-body-font-weight);
+  letter-spacing: 0;
+  letter-spacing: var(--web-body-letter-spacing);
+  line-height: 1.5;
+  line-height: var(--bs-body-line-height);
+  text-align: var(--bs-body-text-align);
+  text-decoration: none;
+  -webkit-text-decoration: var(--web-body-text-decoration);
+  text-decoration: var(--web-body-text-decoration);
+  text-transform: none;
+  text-transform: var(--web-body-text-transform);
+}
+
+/* ---- Headings --------------------------------------------------------- */
+.h1,
+.h2,
+.h3,
+.h4,
+h1,
+h2,
+h3,
+h4 {
+  color: inherit;
+  color: var(--bs-heading-color);
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  margin-top: 0;
+}
+.h1,
+h1 {
+  font-size: calc(1.375rem + 1.5vw);
+}
+@media (min-width: 1200px) {
+  .h1,
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+.h2,
+h2 {
+  font-size: calc(1.325rem + 0.9vw);
+}
+@media (min-width: 1200px) {
+  .h2,
+  h2 {
+    font-size: 2rem;
+  }
+}
+.h3,
+h3 {
+  font-size: calc(1.3rem + 0.6vw);
+}
+@media (min-width: 1200px) {
+  .h3,
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+.h4,
+h4 {
+  font-size: calc(1.275rem + 0.3vw);
+}
+@media (min-width: 1200px) {
+  .h4,
+  h4 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ---- Text elements ---------------------------------------------------- */
+p {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+address {
+  font-style: normal;
+  line-height: inherit;
+  margin-bottom: 1rem;
+}
+ul {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+ul ul {
+  margin-bottom: 0;
+}
+strong {
+  font-weight: bolder;
+}
+.small,
+small {
+  font-size: 0.875em;
+}
+
+/* ---- Links ------------------------------------------------------------ */
+a {
+  color: #0366d6;
+  text-decoration: none;
+}
+a:hover {
+  --bs-link-color-rgb: var(--bs-link-hover-color-rgb);
+}
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---- Code ------------------------------------------------------------- */
+code {
+  font-family:
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    Liberation Mono,
+    Courier New,
+    monospace;
+  font-family: var(--bs-font-monospace);
+  word-wrap: break-word;
+  color: #e01a76;
+  font-size: 0.875em;
+}
+a > code {
+  color: inherit;
+}
+
+/* ---- Media ------------------------------------------------------------ */
+img,
+svg {
+  vertical-align: middle;
+}
+
+/* ---- Tables ----------------------------------------------------------- */
+table {
+  border-collapse: collapse;
+  caption-side: bottom;
+}
+tbody,
+td,
+tr {
+  border: 0 solid;
+  border-color: inherit;
+}
+
+/* ---- Forms ------------------------------------------------------------ */
+button {
+  border-radius: 0;
+}
+button:focus:not(:focus-visible) {
+  outline: 0;
+}
+button,
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+button,
+select {
+  text-transform: none;
+}
+[role="button"] {
+  cursor: pointer;
+}
+select {
+  word-wrap: normal;
+}
+select:disabled {
+  opacity: 1;
+}
+[type="button"],
+button {
+  -webkit-appearance: button;
+}
+[type="button"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+input {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+input:focus,
+select:focus {
+  box-shadow: none;
+  outline: 0;
+}
+select:-moz-focusring {
+  color: #0000;
+  text-shadow: 0 0 0 #333;
+}
+
+/* ---- Pseudo-element resets -------------------------------------------- */
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-year-field {
+  padding: 0;
+}
+::-webkit-inner-spin-button {
+  height: auto;
+}
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+::file-selector-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+::-ms-clear {
+  display: none;
+}
+
+/* ---- Hidden attribute ------------------------------------------------- */
+[hidden] {
+  display: none;
+}
+
+/* ---- Scrollbar -------------------------------------------------------- */
+::-webkit-scrollbar {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  width: 7px;
+}
+::-webkit-scrollbar:horizontal {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  height: 7px;
+}
+@media (max-width: 462px) {
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+}
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #7d7e7e;
+  border-radius: 10px;
+  position: relative;
+  z-index: 999;
+}
+body:not(.ipadandroid) ::-webkit-scrollbar {
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  width: 7px;
+}
+body:not(.ipadandroid) ::-webkit-scrollbar-thumb {
+  background-color: #7d7e7e;
+  border-radius: 10px;
+}
+body:not(.ipadandroid) ::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* ---- picture element -------------------------------------------------- */
+picture {
+  display: contents;
+}
+picture > source {
+  display: none;
 }
