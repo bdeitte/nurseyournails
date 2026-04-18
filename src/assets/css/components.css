@@ -1209,8 +1209,8 @@
 /* home-s13: portrait image in grid */
 #home-s13 {
   grid-area: 1/22/31/45;
-  height: 240px;
-  width: 240px;
+  width: 100%;
+  height: 100%;
   border-radius: 500px 500px 0 0;
 }
 
@@ -2291,8 +2291,9 @@ v-heading {
   gap: 1em;
 }
 .hours-table,
-.v-business-social-links a {
+#shared-s03 .v-business-social-links a {
   color: inherit;
+  text-decoration: none;
 }
 
 /* ---- Hours table ------------------------------------------------------ */
