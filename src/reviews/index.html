@@ -340,45 +340,59 @@
               ></div>
             </div>
           </div>
+          <div class="hierarchy v-section" id="reviews-s01">
+            <div class="hierarchy v-col reviews-widget-col" id="reviews-s02">
+              <div id="reviews-loading" class="reviews-loading" role="status" aria-live="polite">
+                <div class="reviews-loading__spinner" aria-hidden="true"></div>
+                <p class="reviews-loading__text">Loading reviews…</p>
+              </div>
+              <div
+                class="vagaro"
+                style="width: 250px; padding: 0; border: 0; margin: 0 auto; text-align: center"
+              >
+                <a href="https://www.vagaro.com/pro/">Powered by Vagaro</a>&nbsp;<a
+                  href="https://www.vagaro.com/pro/salon-software"
+                  >Salon Software</a
+                >,&nbsp;<a href="https://www.vagaro.com/pro/spa-software">Spa Software</a
+                >&nbsp;&amp;&nbsp;<a href="https://www.vagaro.com/pro/fitness-software"
+                  >Fitness Software</a
+                >
+                <script
+                  type="text/javascript"
+                  src="https://www.vagaro.com//resources/WidgetEmbeddedLoader/OZqqC3WrEJ4cT3qpV3avV34mC2PeFJ4mC30m9cyUeJUtjP0dDxkJEvwRapWUep2sERAJDXwS4pcUbfY?v=lL4xUKOEEZMv2NH56SMzZTMXYi3NT4Lew1FE4nf2vNu#"
+                ></script>
+              </div>
+            </div>
+          </div>
         </div>
-        <div
-          id="frameTitle"
-          class="embedded-widget-title"
-          style="
-            font-size: 23px;
-            color: #333;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 24px;
-            padding: 18px 10px 8px;
-            text-align: center;
-            box-sizing: border-box;
-          "
-        >
-          Book Now
-        </div>
-        <div
-          class="vagaro"
-          style="width: 250px; padding: 0; border: 0; margin: 0 auto; text-align: center"
-        >
-          <style>
-            .vagaro a {
-              font-size: 14px;
-              color: #aaa;
-              text-decoration: none;
+        <script>
+          (function () {
+            var col = document.getElementById("reviews-s02");
+            var loading = document.getElementById("reviews-loading");
+            if (!col || !loading) return;
+            function check() {
+              var c = col.querySelector(".vagaro-container");
+              if (c && c.getBoundingClientRect().height > 100) {
+                loading.style.display = "none";
+                obs.disconnect();
+                return true;
+              }
+              return false;
             }
-          </style>
-          <a href="https://www.vagaro.com/pro/">Powered by Vagaro</a>&nbsp;<a
-            href="https://www.vagaro.com/pro/salon-software"
-            >Salon Software</a
-          >,&nbsp;<a href="https://www.vagaro.com/pro/spa-software">Spa Software</a
-          >&nbsp;&amp;&nbsp;<a href="https://www.vagaro.com/pro/fitness-software"
-            >Fitness Software</a
-          >
-          <script
-            type="text/javascript"
-            src="https://www.vagaro.com//resources/WidgetEmbeddedLoader/OZqqC3WrEJ4cT3qpV3avV34mC2PeFJ4mC30m9cyUeJUtjP0dDxkJEvwRapWUep2sERAJDXwS4pcUbfY?v=lL4xUKOEEZMv2NH56SMzZTMXYi3NT4Lew1FE4nf2vNu#"
-          ></script>
-        </div>
+            var obs = new MutationObserver(check);
+            obs.observe(col, {
+              childList: true,
+              subtree: true,
+              attributes: true,
+              attributeFilter: ["style", "class"],
+            });
+            check();
+            setTimeout(function () {
+              obs.disconnect();
+              loading.style.display = "none";
+            }, 15000);
+          })();
+        </script>
       </main>
       <span id="allow-list" style="display: none; visibility: hidden"
         >{ "bookNow":true, "class":false, "services":true, "products":false, "deals":false,
