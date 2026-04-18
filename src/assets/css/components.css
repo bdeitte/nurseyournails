@@ -1134,6 +1134,422 @@
   }
 }
 
+/* -------------------------------------------------------------------------
+   Home page
+   -------------------------------------------------------------------------
+   The home page has: a hero strip with images + Book Now, an intro grid
+   section with portrait + welcome text, a "Why Choose Me" section with
+   feature cards, a gallery preview strip, and a spacer section.
+   ------------------------------------------------------------------------- */
+
+/* home-s01: hero image strip — flex column with tiny gap, centered */
+#home-s02,
+#home-s04,
+#home-s06 {
+  gap: var(--space-xs);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+/* hero images: 240×240 fixed on desktop */
+#home-s03,
+#home-s07 {
+  height: 240px;
+  width: 240px;
+}
+
+/* home-s04: Book Now button row height on mobile */
+@media (max-width: 767px) {
+  #home-s03 {
+    height: 243px;
+  }
+  #home-s04 {
+    height: 56px;
+  }
+}
+
+/* home-s08: intro section — white bg, auto height */
+#home-s08 {
+  height: auto;
+  background-color: var(--color-white);
+}
+
+/* home-s09: intro column with padding, row layout */
+#home-s09 {
+  padding: 48px;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+/* home-s10: inner container row full-width */
+#home-s10 {
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+}
+
+/* home-s11: grid section — handled via grid-container/inner-grid rules */
+#home-s11 .grid-container {
+  padding-bottom: 50%;
+}
+#home-s11 .inner-grid {
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(64, 1fr);
+  grid-template-rows: repeat(32, 1fr);
+  row-gap: 0%;
+  column-gap: 0%;
+}
+
+/* home-s12: navy arch background overlay */
+#home-s12 {
+  grid-area: 2/21/32/44;
+  flex-direction: column;
+  border-radius: 500px 500px 0 0;
+  opacity: 0.25;
+  background-color: var(--color-navy);
+}
+
+/* home-s13: portrait image in grid */
+#home-s13 {
+  grid-area: 1/22/31/45;
+  height: 240px;
+  width: 240px;
+  border-radius: 500px 500px 0 0;
+}
+
+/* home-s14: welcome text container */
+#home-s14 {
+  grid-area: 1/47/33/65;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+  padding: 0;
+  gap: 24px;
+}
+
+/* home-s15: welcome text block at bottom of right column */
+#home-s15 {
+  grid-area: 17/47/32/65;
+}
+
+/* home-s16: title container at top-left of grid */
+#home-s16 {
+  grid-area: 7/1/33/19;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+/* home-s17: business name heading */
+#home-s17 {
+  grid-area: 20/2/33/19;
+  text-align: right;
+  font-size: 1.6em;
+  padding: 0;
+}
+
+/* home-s18: spacer section (empty) */
+#home-s19 {
+  gap: var(--space-xs);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+/* home-s20: "Why Choose Me" section */
+#home-s21 {
+  padding: 48px;
+}
+
+#home-s22 {
+  text-align: center;
+  width: 75%;
+}
+
+/* home-s23: feature cards container */
+#home-s23 {
+  flex-direction: column;
+  width: 85%;
+  padding: 48px;
+  gap: 24px;
+}
+
+/* home-s24: intro text block (fixed height on desktop) */
+#home-s24 {
+  width: 698px;
+  color: var(--color-white);
+  text-align: center;
+  height: 114px;
+  font-size: var(--fs-h3);
+}
+
+/* home-s25..s45: feature card rows — circular image + text */
+#home-s25,
+#home-s30,
+#home-s35,
+#home-s40,
+#home-s45 {
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  border-radius: 500px;
+  padding: 0;
+  gap: 24px;
+  background-color: var(--color-gray);
+}
+
+/* Feature card images — circular clip */
+#home-s26,
+#home-s31,
+#home-s36,
+#home-s41 {
+  height: 240px;
+  width: 240px;
+  clip-path: circle(50% at 50% 50%);
+}
+
+/* CFCN logo — smaller default size */
+#home-s46 {
+  height: 229px;
+  width: 229px;
+  clip-path: circle(50% at 50% 50%);
+}
+
+/* Feature card text containers */
+#home-s27,
+#home-s32,
+#home-s37,
+#home-s42,
+#home-s47 {
+  flex-direction: column;
+  width: 66%;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 20px 20px 20px 0;
+}
+
+/* Feature card headings */
+#home-s28,
+#home-s33,
+#home-s38,
+#home-s43,
+#home-s48 {
+  color: var(--color-black);
+}
+
+/* Feature card description text widths */
+#home-s29,
+#home-s39,
+#home-s44 {
+  width: 359px;
+}
+
+#home-s34 {
+  height: 100%;
+  width: 329px;
+}
+
+#home-s49 {
+  height: 100%;
+  width: 359px;
+}
+
+/* home-s50: gallery strip section */
+#home-s51 {
+  gap: var(--space-xs);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+/* Photo card heights */
+.photo-card {
+  height: 200px;
+}
+
+/* home-s53: bottom spacer */
+#home-s53 {
+  height: 59px;
+}
+
+/* ---- Home page tablet overrides ---- */
+@media (max-width: 1200px) {
+  #home-s09 {
+    padding: 48px 30px;
+  }
+  .tablet-break #home-s11 .grid-container {
+    padding-bottom: 81.25%;
+  }
+  .tablet-break #home-s11 .inner-grid {
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(64, 1fr);
+    grid-template-rows: repeat(52, 1fr);
+    row-gap: 0%;
+    column-gap: 0%;
+  }
+  #home-s12 {
+    grid-area: 2/1/32/27;
+  }
+  #home-s13 {
+    grid-area: 1/2/31/28;
+  }
+  #home-s14 {
+    grid-area: 35/1/53/65;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+  #home-s15 {
+    grid-area: 8/31/31/65;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  #home-s16 {
+    grid-area: 35/1/53/65;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+  }
+  #home-s17 {
+    text-align: left;
+  }
+  #home-s23 {
+    width: 100%;
+    padding: var(--space-md);
+    justify-content: space-between;
+  }
+  #home-s24 {
+    height: 155px;
+    width: 60%;
+  }
+  #home-s27,
+  #home-s32,
+  #home-s37,
+  #home-s42,
+  #home-s47 {
+    width: 60%;
+  }
+}
+
+/* ---- Home page mobile overrides ---- */
+@media (max-width: 767px) {
+  #home-s09 {
+    padding: 40px 20px 20px 20px;
+  }
+  .mobile-break #home-s11 .grid-container {
+    padding-bottom: 220%;
+  }
+  .mobile-break #home-s11 .inner-grid {
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(54, 1fr);
+  }
+  #home-s12 {
+    grid-area: 15/1/43/24;
+  }
+  #home-s13 {
+    grid-area: 12/2/42/25;
+  }
+  #home-s14 {
+    grid-area: 45/1/54/25;
+    flex-direction: column;
+  }
+  #home-s16 {
+    grid-area: 1/1/10/25;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+  #home-s17 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+  #home-s21 {
+    padding: 40px 10px;
+  }
+  #home-s23 {
+    flex-direction: column;
+    gap: 24px;
+  }
+  #home-s24 {
+    height: 242px;
+    width: 300px;
+  }
+  #home-s25,
+  #home-s30,
+  #home-s35,
+  #home-s40,
+  #home-s45 {
+    flex-direction: column;
+    width: 300px;
+    gap: var(--space-xl);
+  }
+  #home-s26,
+  #home-s31,
+  #home-s36,
+  #home-s41 {
+    height: 300px;
+    width: 300px;
+  }
+  #home-s46 {
+    height: 300px;
+    width: 300px;
+  }
+  #home-s27,
+  #home-s32,
+  #home-s37,
+  #home-s42,
+  #home-s47 {
+    width: 100%;
+    margin: 0 20px 40px 20px;
+    padding: var(--space-md);
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+  #home-s28,
+  #home-s33,
+  #home-s38,
+  #home-s43,
+  #home-s48 {
+    text-align: center;
+    width: 100%;
+  }
+  #home-s29,
+  #home-s34,
+  #home-s39,
+  #home-s44,
+  #home-s49 {
+    text-align: center;
+    width: 94%;
+  }
+  .photo-card {
+    height: 120px;
+  }
+  @container (max-width: 767px) {
+    .photo-card {
+      height: 120px;
+    }
+  }
+}
+
 /* reviews: review summary widget and review list. The review-bar
    background uses gold to match the star rating theme. The review
    percentage widget is constrained to 90% width on desktop. */
