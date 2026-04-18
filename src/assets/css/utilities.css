@@ -40,3 +40,6 @@
 .u-pad-lg {
   padding: var(--space-lg);
 }
+.u-bg-gold {
+  background-color: var(--color-gold);
+}
