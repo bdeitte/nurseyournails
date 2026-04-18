@@ -1555,8 +1555,7 @@
    heading + description on the right. Stacks vertically on mobile.
    White background with rounded corners and a shadow.
    ------------------------------------------------------------------------- */
-.product-card {
-  display: flex;
+.v-container.product-card {
   flex-direction: row;
   background-color: var(--color-white);
   border-radius: 16px;
@@ -1593,8 +1592,7 @@
   object-fit: contain;
 }
 
-.product-card__body {
-  display: flex;
+.v-container.product-card__body {
   flex-direction: column;
   justify-content: center;
   align-content: flex-start;
@@ -1614,17 +1612,17 @@
 }
 
 @media (max-width: 1200px) {
-  .product-card {
+  .v-container.product-card {
     width: 680px;
     padding: var(--space-md);
   }
-  .product-card__body {
+  .v-container.product-card__body {
     width: 450px;
   }
 }
 
 @media (max-width: 767px) {
-  .product-card {
+  .v-container.product-card {
     flex-direction: column;
     width: auto;
     padding: var(--space-md);
@@ -1632,7 +1630,7 @@
   .product-card__logo {
     width: 100%;
   }
-  .product-card__body {
+  .v-container.product-card__body {
     width: auto;
     height: auto;
   }
