@@ -1537,6 +1537,16 @@
   width: 100%;
 }
 
+/* Vagaro's loader sizes the embedded widget to ~447px regardless of
+   wrapper width. Force the container, inner .vagaro-iframe wrapper, and
+   the iframe itself to fill the column up to 900px. */
+#reviews-s02 .vagaro-container.vagaro-embedded-widget,
+#reviews-s02 .vagaro-container .vagaro-iframe,
+#reviews-s02 .vagaro-container .vagaro-iframe iframe {
+  width: 100%;
+  max-width: 900px;
+}
+
 .reviews-loading {
   align-items: center;
   color: var(--color-navy);
