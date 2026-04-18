@@ -393,14 +393,16 @@
    bar on the right side. Responsive: shrinks padding and font on tablet/
    mobile, reduces the accent border width on mobile.
    ------------------------------------------------------------------------- */
-.page-title-banner__row {
+/* Selectors are combined with `.v-col` / `.v-container` to win specificity
+   against the generic component rules defined later in this file. */
+.v-col.page-title-banner__row {
   flex-direction: row;
   justify-content: center;
   align-content: flex-start;
   align-items: flex-start;
 }
 
-.page-title-banner__content {
+.v-container.page-title-banner__content {
   flex-direction: column;
   width: 80%;
   padding: 20px 20px 20px 120px;
@@ -414,7 +416,7 @@
   color: var(--color-white);
 }
 
-.page-title-banner__accent {
+.v-container.page-title-banner__accent {
   flex-direction: row;
   width: 20%;
   height: 100%;
@@ -425,7 +427,7 @@
 }
 
 @media (max-width: 1200px) {
-  .page-title-banner__content {
+  .v-container.page-title-banner__content {
     padding: 20px 20px 20px 40px;
   }
   .page-title-banner__heading {
@@ -434,16 +436,16 @@
 }
 
 @media (max-width: 767px) {
-  .page-title-banner__row {
+  .v-col.page-title-banner__row {
     height: 75px;
   }
-  .page-title-banner__content {
+  .v-container.page-title-banner__content {
     padding: var(--space-md);
   }
   .page-title-banner__heading {
     font-size: 1.9em;
   }
-  .page-title-banner__accent {
+  .v-container.page-title-banner__accent {
     height: 100%;
     border-style: solid;
     border-width: 0 0 0 25px;
@@ -643,7 +645,7 @@
 .photo-grid__item {
   background-size: cover;
   background-position: center center;
-  height: 200px;
+  height: 300px;
 }
 
 @media (max-width: 768px) {
