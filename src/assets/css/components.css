@@ -506,6 +506,10 @@
   gap: 24px;
 }
 
+.info-card-container {
+  background-color: var(--color-white);
+}
+
 @media (max-width: 767px) {
   .mobile-break #shared-s20 {
     padding: var(--space-xl) var(--space-md);
