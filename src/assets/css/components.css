@@ -519,6 +519,52 @@
   }
 }
 
+/* -------------------------------------------------------------------------
+   Info card
+   -------------------------------------------------------------------------
+   Vertical card used for business info panels (e.g. "Let's Connect",
+   "Hours", "Location" on the my-business page). Column layout with a
+   centered heading and a small gap between children.
+   ------------------------------------------------------------------------- */
+.info-card {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  gap: var(--space-sm);
+  padding: 0;
+}
+
+.info-card__heading {
+  width: 100%;
+  text-align: center;
+  font-size: 1.8em;
+  color: var(--color-navy-dark);
+}
+
+@media (max-width: 1200px) {
+  .info-card {
+    width: 48%;
+  }
+  .info-card__heading {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 767px) {
+  .info-card {
+    width: 100%;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   Page-title-banner heading modifier: gold
+   -------------------------------------------------------------------------
+   Some pages use a gold heading instead of the default white.
+   ------------------------------------------------------------------------- */
+.page-title-banner__heading--gold {
+  color: var(--color-gold);
+}
+
 /* =========================================================================
    Page-scoped overrides
    =========================================================================
@@ -725,55 +771,6 @@
   opacity: 0.4;
 }
 
-/* -------------------------------------------------------------------------
-   Info card
-   -------------------------------------------------------------------------
-   Vertical card used for business info panels (e.g. "Let's Connect",
-   "Hours", "Location" on the my-business page). Column layout with a
-   centered heading and a small gap between children.
-   ------------------------------------------------------------------------- */
-.info-card {
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  gap: var(--space-sm);
-  padding: 0;
-}
-
-.info-card__heading {
-  width: 100%;
-  text-align: center;
-  font-size: 1.8em;
-  color: #0c063a;
-}
-
-@media (max-width: 1200px) {
-  .info-card {
-    width: 48%;
-  }
-  .info-card__heading {
-    font-size: 1.5em;
-  }
-}
-
-@media (max-width: 767px) {
-  .info-card {
-    width: 100%;
-  }
-  .info-card__heading {
-    text-align: center;
-  }
-}
-
-/* -------------------------------------------------------------------------
-   Page-title-banner heading modifier: gold
-   -------------------------------------------------------------------------
-   Some pages use a gold heading instead of the default white.
-   ------------------------------------------------------------------------- */
-.page-title-banner__heading--gold {
-  color: var(--color-gold);
-}
-
 /* my-business: main content section. Contains the split image+text
    and the facility info grid below it. */
 #my-business-s01 {
@@ -822,7 +819,7 @@
   align-content: flex-start;
   align-items: flex-start;
   margin: 15px 0 0 0;
-  color: #0c063a;
+  color: var(--color-navy-dark);
 }
 
 #my-business-s11 {
@@ -835,11 +832,11 @@
 
 #my-business-s13 {
   background-color: var(--color-gold);
-  color: #0c063a;
+  color: var(--color-navy-dark);
 }
 
 #my-business-s14 {
-  color: #0c063a;
+  color: var(--color-navy-dark);
 }
 
 #my-business-s15 {
@@ -849,7 +846,7 @@
 }
 
 #my-business-s18 {
-  color: #0c063a;
+  color: var(--color-navy-dark);
 }
 
 /* my-business: location card — full width on tablet with top margin. */
