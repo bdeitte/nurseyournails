@@ -1162,3 +1162,134 @@
 #gallery-s01 {
   background-color: var(--color-gold);
 }
+
+/* -------------------------------------------------------------------------
+   Product card
+   -------------------------------------------------------------------------
+   Horizontal card used on the products page. Logo image on the left,
+   heading + description on the right. Stacks vertically on mobile.
+   White background with rounded corners and a shadow.
+   ------------------------------------------------------------------------- */
+.product-card {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--color-white);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px 6px #00000044;
+  gap: 24px;
+  padding: var(--space-lg);
+  margin: 16px;
+  width: 847px;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+.product-card__logo {
+  display: flex;
+  flex-direction: row;
+  width: 160px;
+  height: 160px;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.product-card__logo a {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+
+.product-card__logo-img {
+  max-width: 100%;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.product-card__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: flex-start;
+  padding: 0;
+  border-radius: 4px;
+  gap: 25px;
+  width: 560px;
+}
+
+.product-card__title {
+  max-width: 100%;
+}
+
+.product-card__desc {
+  color: var(--color-black);
+  height: auto;
+}
+
+@media (max-width: 1200px) {
+  .product-card {
+    width: 680px;
+    padding: var(--space-md);
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+  .product-card__body {
+    width: 450px;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-card {
+    flex-direction: column;
+    width: auto;
+    padding: var(--space-md);
+  }
+  .product-card__logo {
+    width: 100%;
+  }
+  .product-card__body {
+    width: auto;
+    height: auto;
+  }
+}
+
+/* products: main content section with gray background containing
+   product cards. */
+#products-s01 {
+  height: 1782px;
+  margin: 16px;
+}
+
+#products-s02 {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: var(--color-gray);
+  padding: 48px;
+}
+
+@media (max-width: 1200px) {
+  #products-s01 {
+    height: auto;
+    margin: 16px;
+  }
+  #products-s02 {
+    gap: 24px;
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 767px) {
+  #products-s01 {
+    height: auto;
+  }
+  #products-s02 {
+    background-image: none;
+    background-color: var(--color-gray);
+    padding: var(--space-md);
+  }
+}
