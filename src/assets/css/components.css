@@ -1030,6 +1030,104 @@
   }
 }
 
+/* manicures: three service-card-grid sections with white background.
+   Cards use the shared service-card component. Only page-specific
+   size overrides live here. */
+#manicures-s02,
+#manicures-s24,
+#manicures-s47 {
+  background-color: var(--color-white);
+  padding: var(--space-md);
+}
+
+#manicures-s02 {
+  height: 671px;
+}
+
+#manicures-s35 {
+  height: 100%;
+}
+
+#manicures-s45 {
+  flex-direction: row;
+  height: 247px;
+  width: 250px;
+}
+
+#manicures-s46 {
+  width: 226px;
+  height: 224px;
+}
+
+#manicures-s56 {
+  height: 323px;
+}
+
+#manicures-s57 {
+  height: 36px;
+}
+
+#manicures-s61 {
+  height: 323px;
+}
+
+#manicures-s62 {
+  height: 59px;
+}
+
+#manicures-s63 {
+  height: 233px;
+}
+
+#manicures-s65 {
+  height: 295px;
+}
+
+#manicures-s68 {
+  height: 22px;
+}
+
+@media (max-width: 1200px) {
+  #manicures-s02 {
+    height: 1112px;
+  }
+  #manicures-s50 {
+    height: 304px;
+  }
+  #manicures-s55 {
+    height: 306px;
+  }
+  #manicures-s60 {
+    height: 334px;
+  }
+  #manicures-s65 {
+    height: 304px;
+  }
+}
+
+@media (max-width: 767px) {
+  #manicures-s02,
+  #manicures-s24,
+  #manicures-s47 {
+    padding: 5px;
+  }
+  #manicures-s02 {
+    height: auto;
+  }
+  #manicures-s55 {
+    height: 350px;
+  }
+  #manicures-s60 {
+    height: 330px;
+  }
+  #manicures-s62 {
+    height: 54px;
+  }
+  #manicures-s63 {
+    height: 237px;
+  }
+}
+
 /* gallery: gold background on the main content section. The shared
    #shared-s19/#shared-s20 rules default to slate; the gallery page
    uses a gold background instead. */
