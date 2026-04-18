@@ -121,6 +121,37 @@
 }
 
 /* -------------------------------------------------------------------------
+   Site theme defaults
+   -------------------------------------------------------------------------
+   Every page's inline <style> block supplied these .v-site rules (body font,
+   heading font, background, text color, link styling). Migrated pages no
+   longer have inline blocks, so these provide the same values from the
+   components layer. Unmigrated pages' inline blocks (unlayered) override
+   these automatically.
+   ------------------------------------------------------------------------- */
+.v-site {
+  background-color: var(--color-slate);
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  font-size: var(--fs-root);
+}
+
+.v-site a:not(.no-a):not(.v-button):not(.dropdown-item),
+.v-link {
+  color: var(--color-black);
+  text-decoration: underline;
+}
+
+.v-site h1,
+.v-site h2,
+.v-site h3,
+.v-site h4,
+.review-text-head .v-navigation-list li,
+.v-navigation-bar {
+  font-family: var(--font-heading);
+}
+
+/* -------------------------------------------------------------------------
    Site header
    -------------------------------------------------------------------------
    Shared across all 10 pages. The outer wrapper is #page-wrapper and
@@ -469,6 +500,11 @@
   border-style: solid;
   border-width: 0 0 35px 0;
   border-color: var(--color-slate);
+  background-color: var(--color-slate);
+}
+
+#shared-s19.bottom-border--gold {
+  border-color: var(--color-gold);
 }
 
 #shared-s20 {
