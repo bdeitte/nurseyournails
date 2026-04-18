@@ -2293,21 +2293,6 @@ input {
   word-wrap: break-word;
   margin-bottom: 0;
 }
-.review-sorting .dropdown + .dropdown {
-  margin-left: 10px;
-}
-.review-sorting .dropdown .v-button {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-.review-sorting .dropdown .v-button svg:first-child {
-  margin-right: 6px;
-}
-.review-sorting.gap-small .review-filter-section .dropdown {
-  width: inherit;
-}
 .dropdown-item {
   cursor: pointer;
   padding: 10px;
