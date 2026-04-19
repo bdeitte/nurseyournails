@@ -693,27 +693,28 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
    small tablets (768px) and 1 column on phones (480px).
    ------------------------------------------------------------------------- */
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
+  column-count: 3;
+  column-gap: var(--space-md);
   width: 100%;
 }
 
 .photo-grid__item {
   background-size: cover;
   background-position: center center;
-  aspect-ratio: 1 / 1;
+  width: 100%;
+  margin-bottom: var(--space-md);
+  break-inside: avoid;
 }
 
 @media (max-width: 768px) {
   .photo-grid {
-    grid-template-columns: repeat(2, 1fr);
+    column-count: 2;
   }
 }
 
 @media (max-width: 480px) {
   .photo-grid {
-    grid-template-columns: 1fr;
+    column-count: 1;
   }
 }
 
