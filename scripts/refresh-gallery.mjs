@@ -213,26 +213,30 @@ async function rewriteHomePreview(total) {
 async function main() {
   console.log('refresh-gallery: starting');
   const tmpDir = await downloadDriveFolder();
-  const entries = await readdir(tmpDir, { recursive: true, withFileTypes: true });
-  const files = entries
-    .filter((e) => e.isFile())
-    .map((e) => path.join(e.parentPath ?? tmpDir, e.name));
-  const images = filterImages(files);
-  if (images.length === 0) die('no image files found in Drive folder');
-  if (images.length < 4) die(`need at least 4 images, got ${images.length}`);
-  const assignments = assignSlots(images);
-  console.log(`refresh-gallery: assigned ${assignments.length} slots`);
-  for (const { slot, src } of assignments) {
-    console.log(`  ${String(slot).padStart(2, '0')} <- ${path.basename(src)}`);
+  try {
+    const entries = await readdir(tmpDir, { recursive: true, withFileTypes: true });
+    const files = entries
+      .filter((e) => e.isFile())
+      .map((e) => path.join(e.parentPath ?? tmpDir, e.name));
+    const images = filterImages(files);
+    if (images.length === 0) die('no image files found in Drive folder');
+    if (images.length < 4) die(`need at least 4 images, got ${images.length}`);
+    const assignments = assignSlots(images);
+    console.log(`refresh-gallery: assigned ${assignments.length} slots`);
+    for (const { slot, src } of assignments) {
+      console.log(`  ${String(slot).padStart(2, '0')} <- ${path.basename(src)}`);
+    }
+    await clearGalleryDir();
+    await writeAssignments(assignments);
+    await rewriteGalleryPage(assignments);
+    await rewriteHomePreview(assignments.length);
+    console.log('refresh-gallery: running optimize');
+    run('npm', ['run', 'optimize']);
+    console.log('refresh-gallery: running wrap-pictures');
+    run('node', ['scripts/wrap-pictures.mjs']);
+  } finally {
+    await rm(tmpDir, { recursive: true, force: true });
   }
-  await clearGalleryDir();
-  await writeAssignments(assignments);
-  await rewriteGalleryPage(assignments);
-  await rewriteHomePreview(assignments.length);
-  console.log('refresh-gallery: running optimize');
-  run('npm', ['run', 'optimize']);
-  console.log('refresh-gallery: running wrap-pictures');
-  run('node', ['scripts/wrap-pictures.mjs']);
 }
 
 main().catch((err) => die(err.stack || String(err)));
