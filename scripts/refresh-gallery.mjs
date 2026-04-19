@@ -21,9 +21,30 @@ function run(cmd, args, opts = {}) {
   if (res.status !== 0) die(`${cmd} ${args.join(' ')} exited with ${res.status}`);
 }
 
+function ensureGdownAvailable() {
+  const res = spawnSync('pipx', ['--version'], { stdio: 'ignore' });
+  if (res.status !== 0) {
+    die('pipx not found. Install with: brew install pipx && pipx ensurepath');
+  }
+}
+
+async function downloadDriveFolder() {
+  ensureGdownAvailable();
+  const dest = await mkdtemp(path.join(tmpdir(), 'refresh-gallery-'));
+  console.log(`refresh-gallery: downloading to ${dest}`);
+  run('pipx', ['run', 'gdown', '--folder', DRIVE_URL, '-O', dest]);
+  return dest;
+}
+
 async function main() {
   console.log('refresh-gallery: starting');
-  // Steps filled in by later tasks.
+  const tmpDir = await downloadDriveFolder();
+  const entries = await readdir(tmpDir, { recursive: true, withFileTypes: true });
+  const files = entries
+    .filter((e) => e.isFile())
+    .map((e) => path.join(e.parentPath ?? tmpDir, e.name));
+  console.log(`refresh-gallery: downloaded ${files.length} file(s)`);
+  for (const f of files) console.log(`  ${path.relative(tmpDir, f)}`);
 }
 
 main().catch((err) => die(err.stack || String(err)));
