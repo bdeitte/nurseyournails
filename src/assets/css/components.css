@@ -226,6 +226,8 @@
   font-size: 1.3em;
   text-align: center;
   color: var(--color-gold);
+  position: relative;
+  width: 100%;
 }
 
 #shared-s05 {
@@ -308,47 +310,40 @@
   .mobile-break #shared-s11 {
     height: 5px;
   }
-  .mobile-break #shared-s04 {
-    position: relative;
-    width: 100%;
-  }
 }
 
-/* Footer mobile hamburger. Mirrors the header hamburger but sits beside
-   the business name in the footer. When it opens the nav, the
-   `.nav-from-footer` body class repositions the menu as a bottom sheet
-   so it rises upward from the trigger instead of dropping down. */
+/* Footer hamburger. Mirrors the header hamburger but sits beside
+   the business name in the footer. Shown at every breakpoint so the
+   persistent bottom-of-page nav trigger is always reachable. When it
+   opens the nav, the `.nav-from-footer` body class repositions the menu
+   as a bottom sheet so it rises upward from the trigger instead of
+   dropping down. */
 .footer-mobile-nav {
-  display: none;
+  background: transparent;
+  border: 0;
+  color: var(--color-gold);
+  cursor: pointer;
+  display: flex;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
-
-@media (max-width: 767px) {
-  .footer-mobile-nav {
-    background: transparent;
-    border: 0;
-    color: var(--color-gold);
-    cursor: pointer;
-    display: flex;
-    padding: 0;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  body.nav-open.nav-from-footer #page-wrapper {
-    z-index: 20;
-  }
-  body.nav-open.nav-from-footer nav.full-screen-navigation {
-    position: fixed;
-    top: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    max-height: 70vh;
-    overflow-y: auto;
-    flex-wrap: nowrap;
-    border-top: 2px solid var(--color-gold);
-  }
+body.nav-open.nav-from-footer #page-wrapper {
+  z-index: 20;
+}
+body.nav-open.nav-from-footer nav.full-screen-navigation {
+  display: flex;
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+  flex-wrap: nowrap;
+  border-top: 2px solid var(--color-gold);
 }
 
 /* -------------------------------------------------------------------------
@@ -3232,7 +3227,41 @@ a.no-a {
   }
 }
 
-/* ---- Mobile hamburger dropdown ---------------------------------------- */
+/* ---- Hamburger dropdown / bottom sheet -------------------------------- */
+/* Shared layout for the menu when opened via the header (mobile-only) or
+   the footer hamburger (all widths). Scoped to `body.nav-open` so it only
+   applies while the sheet is active. */
+body.nav-open nav.full-screen-navigation {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 16px 20px;
+  background: #fff;
+  overflow-y: auto;
+  gap: 0;
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+body.nav-open nav.full-screen-navigation li {
+  list-style: none;
+  width: 100%;
+  display: block;
+}
+body.nav-open nav.full-screen-navigation .navigation-folder > ul {
+  display: block;
+  position: static;
+  padding-left: 20px;
+  width: 100%;
+}
+body.nav-open nav.full-screen-navigation a,
+body.nav-open nav.full-screen-navigation span.navigation-item {
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  text-align: left;
+}
+/* Header hamburger dropdown (mobile-only: drops down from header). */
 @media (max-width: 767px) {
   body.nav-open nav.full-screen-navigation {
     display: flex;
@@ -3242,34 +3271,6 @@ a.no-a {
     right: 0;
     height: auto;
     max-height: calc(100vh - 100px);
-    overflow-y: auto;
-    background: #fff;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    padding: 16px 20px;
-    z-index: 1000;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    gap: 0;
-    text-align: left;
-  }
-  body.nav-open nav.full-screen-navigation li {
-    list-style: none;
-    width: 100%;
-    display: block;
-  }
-  body.nav-open nav.full-screen-navigation .navigation-folder > ul {
-    display: block;
-    position: static;
-    padding-left: 20px;
-    width: 100%;
-  }
-  body.nav-open nav.full-screen-navigation a,
-  body.nav-open nav.full-screen-navigation span.navigation-item {
-    display: block;
-    padding: 10px 0;
-    text-decoration: none;
-    text-align: left;
   }
 }
 
@@ -3370,6 +3371,9 @@ a.no-a {
   }
   .mobile-navigation {
     display: none;
+  }
+  .footer-mobile-nav.mobile-navigation {
+    display: flex;
   }
 }
 
@@ -3614,6 +3618,9 @@ a.no-a {
   .mobile-navigation,
   .mobile-navigation-menu {
     display: none;
+  }
+  .footer-mobile-nav.mobile-navigation {
+    display: flex;
   }
 }
 @media (max-width: 767px) {
