@@ -1198,7 +1198,7 @@
 
 /* home-s11: grid section — handled via grid-container/inner-grid rules */
 #home-s11 .grid-container {
-  padding-bottom: 50%;
+  padding-bottom: 38%;
 }
 #home-s11 .inner-grid {
   top: 0%;
@@ -1389,7 +1389,7 @@
     padding: 48px 30px;
   }
   .tablet-break #home-s11 .grid-container {
-    padding-bottom: 81.25%;
+    padding-bottom: 50%;
   }
   .tablet-break #home-s11 .inner-grid {
     grid-template-rows: repeat(52, 1fr);
