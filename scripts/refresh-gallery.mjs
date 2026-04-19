@@ -240,6 +240,9 @@ async function main() {
     run('npm', ['run', 'optimize']);
     console.log('refresh-gallery: running wrap-pictures');
     run('node', ['scripts/wrap-pictures.mjs']);
+    console.log('refresh-gallery: running build');
+    run('npm', ['run', 'build']);
+    console.log('refresh-gallery: done');
   } finally {
     await rm(tmpDir, { recursive: true, force: true });
   }
