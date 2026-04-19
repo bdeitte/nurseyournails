@@ -700,11 +700,9 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 }
 
 .photo-grid__item {
-  background-size: contain;
+  background-size: cover;
   background-position: center center;
-  background-repeat: no-repeat;
-  background-color: var(--color-gold);
-  height: 300px;
+  aspect-ratio: 1 / 1;
 }
 
 @media (max-width: 768px) {
@@ -716,9 +714,6 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 @media (max-width: 480px) {
   .photo-grid {
     grid-template-columns: 1fr;
-  }
-  .photo-grid__item {
-    height: 120px;
   }
 }
 
