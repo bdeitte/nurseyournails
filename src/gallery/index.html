@@ -149,7 +149,7 @@
           else if (w <= 1200) c += " tablet-break screen-tablet";
           else c += " screen-desktop";
           b.className = c;
-          if (w > 767) closeNav();
+          if (w > 767 && !b.classList.contains("nav-from-footer")) closeNav();
         }
         setBp();
         window.addEventListener("resize", setBp);
