@@ -1386,17 +1386,11 @@
 
 /* Feature card description text widths */
 #home-s29,
+#home-s34,
 #home-s39,
-#home-s44 {
-  width: 359px;
-}
-
-#home-s34 {
-  width: 329px;
-}
-
+#home-s44,
 #home-s49 {
-  width: 359px;
+  width: 100%;
 }
 
 /* home-s51: gallery strip section column */
