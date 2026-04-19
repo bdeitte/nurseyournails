@@ -149,14 +149,15 @@ function renderGalleryTiles(assignments, manifest, indent) {
     const entry = manifest[`gallery/${nn}`];
     const w = entry?.sourceWidth;
     const h = entry?.sourceHeight;
+    const styleLines = [`${pad}      background-image: url(&quot;${url}&quot;);`];
+    if (w && h) styleLines.push(`${pad}      aspect-ratio: ${w} / ${h};`);
     lines.push(
       `${pad}  <div`,
       `${pad}    class="photo-grid__item"`,
       `${pad}    role="img"`,
       `${pad}    aria-label="Nurse Your Nails gallery photo ${slot}"`,
       `${pad}    style="`,
-      `${pad}      background-image: url(&quot;${url}&quot;);`,
-      `${pad}      aspect-ratio: ${w} / ${h};`,
+      ...styleLines,
       `${pad}    "`,
       `${pad}  ></div>`,
     );

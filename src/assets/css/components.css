@@ -702,6 +702,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   background-size: cover;
   background-position: center center;
   width: 100%;
+  aspect-ratio: 1 / 1;
   margin-bottom: var(--space-md);
   break-inside: avoid;
 }
