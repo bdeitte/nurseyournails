@@ -70,6 +70,23 @@ function assignSlots(imageFiles) {
   return [...numbered, ...appended];
 }
 
+async function clearGalleryDir() {
+  const dir = path.join(REPO_ROOT, GALLERY_DIR);
+  const names = await readdir(dir);
+  for (const name of names) {
+    await rm(path.join(dir, name), { force: true });
+  }
+}
+
+async function writeAssignments(assignments) {
+  const dir = path.join(REPO_ROOT, GALLERY_DIR);
+  for (const { slot, src } of assignments) {
+    const out = path.join(dir, `${String(slot).padStart(2, '0')}.webp`);
+    await sharp(src).webp({ quality: 80 }).toFile(out);
+    console.log(`  wrote ${path.relative(REPO_ROOT, out)}`);
+  }
+}
+
 async function main() {
   console.log('refresh-gallery: starting');
   const tmpDir = await downloadDriveFolder();
@@ -85,6 +102,8 @@ async function main() {
   for (const { slot, src } of assignments) {
     console.log(`  ${String(slot).padStart(2, '0')} <- ${path.basename(src)}`);
   }
+  await clearGalleryDir();
+  await writeAssignments(assignments);
 }
 
 main().catch((err) => die(err.stack || String(err)));
