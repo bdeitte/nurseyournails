@@ -280,7 +280,17 @@ async function main() {
     console.log('refresh-gallery: running build');
     run('npm', ['run', 'build']);
     console.log('refresh-gallery: committing');
-    run('git', ['commit', '-am', 'Update gallery']);
+    run('git', [
+      'add',
+      '--',
+      'public/assets/images/gallery',
+      'public/assets/images/variants.json',
+      'src/gallery/index.html',
+      'src/index.html',
+      'public/gallery/index.html',
+      'public/index.html',
+    ]);
+    run('git', ['commit', '-m', 'Update gallery']);
     console.log('refresh-gallery: done');
   } finally {
     await rm(tmpDir, { recursive: true, force: true });
