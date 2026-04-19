@@ -279,6 +279,8 @@ async function main() {
     run('node', ['scripts/wrap-pictures.mjs']);
     console.log('refresh-gallery: running build');
     run('npm', ['run', 'build']);
+    console.log('refresh-gallery: committing');
+    run('git', ['commit', '-am', 'Update gallery']);
     console.log('refresh-gallery: done');
   } finally {
     await rm(tmpDir, { recursive: true, force: true });

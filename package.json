@@ -9,6 +9,7 @@
     "format": "prettier --write \"src/**/*.{html,css}\"",
     "optimize": "node scripts/optimize-images.mjs",
     "refresh-gallery": "node scripts/refresh-gallery.mjs",
+    "refresh": "npm run lint && npm run format && npm run refresh-gallery",
     "lighthouse": "lighthouse",
     "lint": "eslint --cache --cache-location .eslintcache \"src/assets/css/**/*.css\"",
     "deploy": "wrangler deploy",

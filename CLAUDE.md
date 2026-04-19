@@ -25,7 +25,8 @@ Static marketing site for Nurse Your Nails (Middleton, WI), live at https://nurs
 - `npm run optimize` — runs `scripts/optimize-images.mjs` over `public/assets/images/`
 - `npm run lighthouse -- <url> [--preset=desktop] [--only-categories=performance] [--output=json] [--output-path=...]` — runs Lighthouse audits against local or production. Example: `npm run lighthouse -- http://localhost:3000 --preset=desktop --output=json --output-path=./lh.json --quiet --chrome-flags='--headless'`. Output artifacts (`lh-*.json`, `*.report.html`) are gitignored at the repo root.
 - `npm run lint` — runs ESLint with `@eslint/css` over `src/assets/css/**/*.css`. Enforces `css/use-baseline` at `available: "widely"`, so any CSS feature that is not in the widely-available Baseline is a lint error.
-- `npm run refresh-gallery` — runs `scripts/refresh-gallery.mjs`, which downloads a fresh image set from the shared Google Drive folder, atomically swaps it into `public/assets/images/gallery/`, and rewrites the gallery page tile block and home-page preview to match. Chains `npm run optimize`, `node scripts/wrap-pictures.mjs`, and `npm run build`. Requires `pipx` on PATH (for `gdown`). Install with `brew install pipx && pipx ensurepath`.
+- `npm run refresh-gallery` — runs `scripts/refresh-gallery.mjs`, which downloads a fresh image set from the shared Google Drive folder, atomically swaps it into `public/assets/images/gallery/`, and rewrites the gallery page tile block and home-page preview to match. Chains `npm run optimize`, `node scripts/wrap-pictures.mjs`, `npm run build`, and finishes with `git commit -am 'Update gallery'`. Requires `pipx` on PATH (for `gdown`). Install with `brew install pipx && pipx ensurepath`.
+- `npm run refresh` — runs `npm run lint`, `npm run format`, then `npm run refresh-gallery`.
 
 The only lint is `npm run lint` (CSS Baseline enforcement). There is no test command. Node >= 20.19.0.
 
