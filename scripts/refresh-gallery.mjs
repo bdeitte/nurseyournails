@@ -87,6 +87,59 @@ async function writeAssignments(assignments) {
   }
 }
 
+function replaceBetweenSentinels(source, startTag, endTag, replacement, filePath) {
+  const startIdx = source.indexOf(startTag);
+  const endIdx = source.indexOf(endTag);
+  if (startIdx === -1 || endIdx === -1 || endIdx < startIdx) {
+    die(`sentinels ${startTag}/${endTag} not found or malformed in ${filePath}`);
+  }
+  const before = source.slice(0, startIdx + startTag.length);
+  const after = source.slice(endIdx);
+  return `${before}\n${replacement}\n${' '.repeat(indentOf(source, startIdx))}${after}`;
+}
+
+function indentOf(source, idx) {
+  let i = idx - 1;
+  while (i >= 0 && source[i] !== '\n') i--;
+  let n = 0;
+  for (let j = i + 1; j < idx; j++) {
+    if (source[j] === ' ') n++;
+    else break;
+  }
+  return n;
+}
+
+function renderGalleryTiles(assignments, indent) {
+  const pad = ' '.repeat(indent);
+  const lines = [`${pad}<div class="photo-grid">`];
+  for (const { slot } of assignments) {
+    const nn = String(slot).padStart(2, '0');
+    lines.push(
+      `${pad}  <div`,
+      `${pad}    class="photo-grid__item"`,
+      `${pad}    role="img"`,
+      `${pad}    aria-label="Nurse Your Nails gallery photo ${slot}"`,
+      `${pad}    style="background-image: url(&quot;../assets/images/gallery/${nn}.webp&quot;)"`,
+      `${pad}  ></div>`,
+    );
+  }
+  lines.push(`${pad}</div>`);
+  return lines.join('\n');
+}
+
+async function rewriteGalleryPage(assignments) {
+  const file = path.join(REPO_ROOT, 'src/gallery/index.html');
+  const src = await readFile(file, 'utf8');
+  const start = '<!-- gallery:tiles:start -->';
+  const end = '<!-- gallery:tiles:end -->';
+  const startIdx = src.indexOf(start);
+  if (startIdx === -1) die(`${start} not found in ${file} — add sentinels first`);
+  const indent = indentOf(src, startIdx);
+  const rendered = renderGalleryTiles(assignments, indent + 2);
+  const next = replaceBetweenSentinels(src, start, end, rendered, file);
+  await writeFile(file, next);
+}
+
 async function main() {
   console.log('refresh-gallery: starting');
   const tmpDir = await downloadDriveFolder();
@@ -104,6 +157,7 @@ async function main() {
   }
   await clearGalleryDir();
   await writeAssignments(assignments);
+  await rewriteGalleryPage(assignments);
   console.log('refresh-gallery: running optimize');
   run('npm', ['run', 'optimize']);
   console.log('refresh-gallery: running wrap-pictures');
