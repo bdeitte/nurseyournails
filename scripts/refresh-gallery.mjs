@@ -129,10 +129,13 @@ async function loadVariantsManifest() {
 function pickVariantPath(slot, manifest, targetWidth) {
   const nn = String(slot).padStart(2, '0');
   const entry = manifest[`gallery/${nn}`];
-  const fallback = `assets/images/gallery/${nn}.webp`;
-  if (!entry || !entry.variants || entry.variants.length === 0) return fallback;
-  const eligible = entry.variants.filter((v) => v.width <= targetWidth);
-  const pool = eligible.length ? eligible : entry.variants;
+  if (!entry) return `assets/images/gallery/${nn}.webp`;
+  const candidates = [
+    { width: entry.sourceWidth, path: entry.source },
+    ...(entry.variants || []),
+  ];
+  const eligible = candidates.filter((c) => c.width <= targetWidth);
+  const pool = eligible.length ? eligible : candidates;
   const best = pool.reduce((a, b) => (a.width >= b.width ? a : b));
   return best.path;
 }
