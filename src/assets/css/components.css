@@ -1408,13 +1408,13 @@
     gap: var(--space-lg);
   }
   #home-s16 {
-    grid-area: 35/1/53/65;
-    justify-content: flex-start;
-    align-content: flex-start;
-    align-items: flex-start;
+    grid-area: 1/29/32/65;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
   }
   #home-s17 {
-    text-align: left;
+    text-align: center;
   }
   #home-s23 {
     width: 100%;
