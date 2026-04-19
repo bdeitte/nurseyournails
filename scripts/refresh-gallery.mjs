@@ -239,8 +239,14 @@ async function main() {
     }
     const stageDir = path.join(REPO_ROOT, 'public/assets/images/gallery-new');
     await rm(stageDir, { recursive: true, force: true });
-    await writeAssignments(assignments, stageDir);
-    await swapStagedIntoGallery(stageDir);
+    let swapped = false;
+    try {
+      await writeAssignments(assignments, stageDir);
+      await swapStagedIntoGallery(stageDir);
+      swapped = true;
+    } finally {
+      if (!swapped) await rm(stageDir, { recursive: true, force: true });
+    }
     await rewriteGalleryPage(assignments);
     await rewriteHomePreview(assignments);
     console.log('refresh-gallery: running optimize');
