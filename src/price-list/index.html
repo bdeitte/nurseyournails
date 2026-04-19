@@ -156,6 +156,19 @@
         function initNav() {
           var btns = document.querySelectorAll(".mobile-navigation.center-all");
           if (!btns.length) return;
+          var nav = document.querySelector("nav.full-screen-navigation");
+          if (nav && !nav.querySelector(".nav-close-btn")) {
+            var cb = document.createElement("button");
+            cb.type = "button";
+            cb.className = "nav-close-btn";
+            cb.setAttribute("aria-label", "Close menu");
+            cb.textContent = "\u00D7";
+            cb.addEventListener("click", function (e) {
+              e.stopPropagation();
+              closeNav();
+            });
+            nav.prepend(cb);
+          }
           btns.forEach(function (btn) {
             var icon = btn.querySelector(".mobile-btn");
             if (icon) icons.push(icon);

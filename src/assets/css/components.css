@@ -3235,13 +3235,33 @@ body.nav-open nav.full-screen-navigation {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
-  padding: 16px 20px;
+  padding: 48px 20px 16px;
   background: #fff;
   overflow-y: auto;
   gap: 0;
   text-align: left;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   z-index: 1000;
+}
+/* Close button injected by the nav-init script. Hidden while the menu
+   is closed (the whole nav is display:none then) and positioned in the
+   top-right corner of the sheet while it is open. */
+.nav-close-btn {
+  display: none;
+}
+body.nav-open nav.full-screen-navigation .nav-close-btn {
+  display: block;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  background: transparent;
+  border: 0;
+  color: var(--color-navy);
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 4px 8px;
+  z-index: 2;
 }
 body.nav-open nav.full-screen-navigation li {
   list-style: none;
