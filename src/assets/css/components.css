@@ -496,6 +496,14 @@
   background-color: var(--color-slate);
 }
 
+#shared-s19.bottom-border--empty {
+  min-height: 0;
+}
+
+#shared-s19.bottom-border--empty #shared-s20 {
+  display: none;
+}
+
 #shared-s19.bottom-border--gold {
   border-color: var(--color-gold);
 }
@@ -807,27 +815,7 @@
 
 #about-me-s10 {
   width: 100%;
-  height: 938px;
   font-size: var(--fs-h3);
-}
-
-#about-me-s13 {
-  gap: var(--space-xs);
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-#about-me-s14 {
-  flex-direction: column;
-  width: 368px;
-  height: 100%;
-  align-items: flex-start;
-  align-content: flex-start;
-  padding: 50px 40px;
-  justify-content: center;
-  gap: var(--space-lg);
-  background-image: url("../images/about-me/manicure-background.jpg");
 }
 
 @media (max-width: 767px) {
@@ -836,14 +824,6 @@
   }
   .mobile-break #about-me-s06 {
     width: 100%;
-    height: 2229px;
-  }
-  .mobile-break #about-me-s10 {
-    height: 100%;
-  }
-  .mobile-break #about-me-s14 {
-    width: 100%;
-    height: 200px;
   }
 }
 
