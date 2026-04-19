@@ -145,7 +145,7 @@ async function rewriteGalleryPage(assignments) {
   await writeFile(file, next);
 }
 
-function renderHomePreview(total, indent) {
+function renderHomePreview(assignments, indent) {
   const pad = ' '.repeat(indent);
   const imgTile = (n, flex) => {
     const nn = String(n).padStart(2, '0');
@@ -165,11 +165,12 @@ function renderHomePreview(total, indent) {
     ].join('\n');
   };
 
-  const more = total - 3;
+  const more = assignments.length - 3;
+  const [a, b, c, d] = assignments.map((x) => x.slot);
   const overlayTile = `${pad}<div
 ${pad}  class="photo-card"
 ${pad}  style="
-${pad}    background-image: url(&quot;assets/images/gallery/04.webp&quot;);
+${pad}    background-image: url(&quot;assets/images/gallery/${String(d).padStart(2, '0')}.webp&quot;);
 ${pad}    background-size: cover;
 ${pad}    background-position: center center;
 ${pad}    flex: 0.66 1 0%;
@@ -199,10 +200,10 @@ ${pad}    </div></a
 ${pad}  >
 ${pad}</div>`;
 
-  return [imgTile(1, '1'), imgTile(2, '1'), imgTile(3, '1'), overlayTile].join('\n');
+  return [imgTile(a, '1'), imgTile(b, '1'), imgTile(c, '1'), overlayTile].join('\n');
 }
 
-async function rewriteHomePreview(total) {
+async function rewriteHomePreview(assignments) {
   const file = path.join(REPO_ROOT, 'src/index.html');
   const src = await readFile(file, 'utf8');
   const start = '<!-- gallery:home-preview:start -->';
@@ -210,7 +211,7 @@ async function rewriteHomePreview(total) {
   const startIdx = src.indexOf(start);
   if (startIdx === -1) die(`${start} not found in ${file} — add sentinels first`);
   const indent = indentOf(src, startIdx);
-  const rendered = renderHomePreview(total, indent);
+  const rendered = renderHomePreview(assignments, indent);
   const next = replaceBetweenSentinels(src, start, end, rendered, file);
   await writeFile(file, next);
 }
@@ -235,7 +236,7 @@ async function main() {
     await writeAssignments(assignments, stageDir);
     await swapStagedIntoGallery(stageDir);
     await rewriteGalleryPage(assignments);
-    await rewriteHomePreview(assignments.length);
+    await rewriteHomePreview(assignments);
     console.log('refresh-gallery: running optimize');
     run('npm', ['run', 'optimize']);
     console.log('refresh-gallery: running wrap-pictures');
