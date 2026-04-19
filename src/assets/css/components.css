@@ -308,6 +308,45 @@
   .mobile-break #shared-s11 {
     height: 5px;
   }
+  .mobile-break #shared-s04 {
+    position: relative;
+    width: 100%;
+  }
+}
+
+/* Footer mobile hamburger. Mirrors the header hamburger but sits beside
+   the business name in the footer. When it opens the nav, the
+   `.nav-from-footer` body class repositions the menu as a bottom sheet
+   so it rises upward from the trigger instead of dropping down. */
+.footer-mobile-nav {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .footer-mobile-nav {
+    background: transparent;
+    border: 0;
+    color: var(--color-gold);
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  body.nav-open.nav-from-footer #page-wrapper {
+    z-index: 20;
+  }
+  body.nav-open.nav-from-footer nav.full-screen-navigation {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 70vh;
+    border-top: 2px solid var(--color-gold);
+  }
 }
 
 /* -------------------------------------------------------------------------
@@ -1520,6 +1559,17 @@
   #home-s49 {
     text-align: center;
     width: 94%;
+  }
+  #home-s50 {
+    min-height: 0;
+  }
+  #home-s53 {
+    min-height: 0;
+    height: 24px;
+  }
+  #home-s52 .photo-card {
+    flex: 1 1 0% !important;
+    height: 120px !important;
   }
 }
 

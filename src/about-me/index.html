@@ -139,10 +139,12 @@
     <script>
       (function () {
         var b = document.body;
-        var icon = null;
+        var icons = [];
         function closeNav() {
-          b.classList.remove("nav-open");
-          if (icon) icon.classList.remove("close");
+          b.classList.remove("nav-open", "nav-from-footer");
+          icons.forEach(function (i) {
+            i.classList.remove("close");
+          });
         }
         function setBp() {
           var w = document.documentElement.clientWidth;
@@ -159,13 +161,21 @@
         setBp();
         window.addEventListener("resize", setBp);
         function initNav() {
-          var btn = document.querySelector(".mobile-navigation.center-all");
-          if (!btn) return;
-          icon = btn.querySelector(".mobile-btn");
-          btn.addEventListener("click", function (e) {
-            e.stopPropagation();
-            var open = b.classList.toggle("nav-open");
-            if (icon) icon.classList.toggle("close", open);
+          var btns = document.querySelectorAll(".mobile-navigation.center-all");
+          if (!btns.length) return;
+          btns.forEach(function (btn) {
+            var icon = btn.querySelector(".mobile-btn");
+            if (icon) icons.push(icon);
+            btn.addEventListener("click", function (e) {
+              e.stopPropagation();
+              var fromFooter = btn.dataset.direction === "up";
+              var open = !b.classList.contains("nav-open");
+              b.classList.toggle("nav-open", open);
+              b.classList.toggle("nav-from-footer", open && fromFooter);
+              icons.forEach(function (i) {
+                i.classList.toggle("close", open);
+              });
+            });
           });
           document.addEventListener("click", function (e) {
             if (!b.classList.contains("nav-open")) return;
@@ -551,6 +561,51 @@
               class="hierarchy vb-control businssname max-100 desktop-color vb-control"
             >
               <p class="vp-1 w-full name-text sub-inherit-color">Nurse Your Nails</p>
+              <button
+                type="button"
+                class="footer-mobile-nav mobile-navigation center-all"
+                data-direction="up"
+                aria-label="Open menu"
+              >
+                <div class="mobile-btn">
+                  <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 512 512"
+                height="1em"
+              >
+                <path
+                  d="M0 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32z"
+                ></path>
+              </svg>
+                  </div>
+                  <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 512 512"
+                height="1em"
+              >
+                <path
+                  d="M0 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32z"
+                ></path>
+              </svg>
+                  </div>
+                  <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 512 512"
+                height="1em"
+              >
+                <path
+                  d="M0 256c0-17.7 14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32z"
+                ></path>
+              </svg>
+                  </div>
+                </div>
+              </button>
             </div>
             <div
               id="shared-s05"
