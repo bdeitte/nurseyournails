@@ -8,6 +8,7 @@
     "build": "node scripts/build.mjs",
     "format": "prettier --write \"src/**/*.{html,css}\"",
     "optimize": "node scripts/optimize-images.mjs",
+    "refresh-gallery": "node scripts/refresh-gallery.mjs",
     "lighthouse": "lighthouse",
     "lint:css": "eslint --cache --cache-location .eslintcache \"src/assets/css/**/*.css\"",
     "deploy": "wrangler deploy",
