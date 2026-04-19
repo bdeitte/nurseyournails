@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { spawnSync } from 'node:child_process';
-import { copyFile, mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readdir, readFile, rename, rm, stat, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -71,15 +71,21 @@ function assignSlots(imageFiles) {
 
 async function swapStagedIntoGallery(stageDir) {
   const galleryDir = path.join(REPO_ROOT, GALLERY_DIR);
-  const existing = await readdir(galleryDir);
-  for (const name of existing) {
-    await rm(path.join(galleryDir, name), { force: true });
+  const parent = path.dirname(galleryDir);
+  const oldDir = path.join(parent, 'gallery-old');
+  await rm(oldDir, { recursive: true, force: true });
+  await rename(galleryDir, oldDir);
+  try {
+    await rename(stageDir, galleryDir);
+  } catch (err) {
+    // Roll back: move the original gallery back into place.
+    await rename(oldDir, galleryDir);
+    throw err;
   }
-  const staged = await readdir(stageDir);
+  await rm(oldDir, { recursive: true, force: true });
+  const staged = await readdir(galleryDir);
   for (const name of staged) {
-    const dest = path.join(galleryDir, name);
-    await copyFile(path.join(stageDir, name), dest);
-    console.log(`  wrote ${path.relative(REPO_ROOT, dest)}`);
+    console.log(`  wrote ${path.relative(REPO_ROOT, path.join(galleryDir, name))}`);
   }
 }
 
@@ -231,7 +237,8 @@ async function main() {
     for (const { slot, src } of assignments) {
       console.log(`  ${String(slot).padStart(2, '0')} <- ${path.basename(src)}`);
     }
-    const stageDir = path.join(tmpDir, '_staged');
+    const stageDir = path.join(REPO_ROOT, 'public/assets/images/gallery-new');
+    await rm(stageDir, { recursive: true, force: true });
     await writeAssignments(assignments, stageDir);
     await swapStagedIntoGallery(stageDir);
     await rewriteGalleryPage(assignments);
