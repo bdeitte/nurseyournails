@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { spawnSync } from 'node:child_process';
-import { mkdtemp, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
@@ -70,20 +70,25 @@ function assignSlots(imageFiles) {
   return [...numbered, ...appended];
 }
 
-async function clearGalleryDir() {
-  const dir = path.join(REPO_ROOT, GALLERY_DIR);
-  const names = await readdir(dir);
-  for (const name of names) {
-    await rm(path.join(dir, name), { force: true });
+async function swapStagedIntoGallery(stageDir) {
+  const galleryDir = path.join(REPO_ROOT, GALLERY_DIR);
+  const existing = await readdir(galleryDir);
+  for (const name of existing) {
+    await rm(path.join(galleryDir, name), { force: true });
+  }
+  const staged = await readdir(stageDir);
+  for (const name of staged) {
+    const dest = path.join(galleryDir, name);
+    await copyFile(path.join(stageDir, name), dest);
+    console.log(`  wrote ${path.relative(REPO_ROOT, dest)}`);
   }
 }
 
-async function writeAssignments(assignments) {
-  const dir = path.join(REPO_ROOT, GALLERY_DIR);
+async function writeAssignments(assignments, destDir) {
+  await mkdir(destDir, { recursive: true });
   for (const { slot, src } of assignments) {
-    const out = path.join(dir, `${String(slot).padStart(2, '0')}.webp`);
+    const out = path.join(destDir, `${String(slot).padStart(2, '0')}.webp`);
     await sharp(src).webp({ quality: 80 }).toFile(out);
-    console.log(`  wrote ${path.relative(REPO_ROOT, out)}`);
   }
 }
 
@@ -226,8 +231,9 @@ async function main() {
     for (const { slot, src } of assignments) {
       console.log(`  ${String(slot).padStart(2, '0')} <- ${path.basename(src)}`);
     }
-    await clearGalleryDir();
-    await writeAssignments(assignments);
+    const stageDir = path.join(tmpDir, '_staged');
+    await writeAssignments(assignments, stageDir);
+    await swapStagedIntoGallery(stageDir);
     await rewriteGalleryPage(assignments);
     await rewriteHomePreview(assignments.length);
     console.log('refresh-gallery: running optimize');
