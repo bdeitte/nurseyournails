@@ -27,12 +27,10 @@ function ensureGdownAvailable() {
   }
 }
 
-async function downloadDriveFolder() {
+async function downloadDriveFolder(dest) {
   ensureGdownAvailable();
-  const dest = await mkdtemp(path.join(tmpdir(), 'refresh-gallery-'));
   console.log(`refresh-gallery: downloading to ${dest}`);
   run('pipx', ['run', 'gdown', '--folder', DRIVE_URL, '-O', dest]);
-  return dest;
 }
 
 function filterImages(files) {
@@ -93,7 +91,10 @@ async function writeAssignments(assignments, destDir) {
   await mkdir(destDir, { recursive: true });
   for (const { slot, src } of assignments) {
     const out = path.join(destDir, `${String(slot).padStart(2, '0')}.webp`);
-    await sharp(src).webp({ quality: 80 }).toFile(out);
+    await sharp(src)
+      .resize({ width: 1600, withoutEnlargement: true })
+      .webp({ quality: 80 })
+      .toFile(out);
   }
 }
 
@@ -223,8 +224,9 @@ async function rewriteHomePreview(assignments) {
 
 async function main() {
   console.log('refresh-gallery: starting');
-  const tmpDir = await downloadDriveFolder();
+  const tmpDir = await mkdtemp(path.join(tmpdir(), 'refresh-gallery-'));
   try {
+    await downloadDriveFolder(tmpDir);
     const entries = await readdir(tmpDir, { recursive: true, withFileTypes: true });
     const files = entries
       .filter((e) => e.isFile())

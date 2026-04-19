@@ -166,8 +166,8 @@
   },
   "gallery/03": {
     "source": "assets/images/gallery/03.webp",
-    "sourceWidth": 4080,
-    "sourceHeight": 3072,
+    "sourceWidth": 1600,
+    "sourceHeight": 1205,
     "variants": [
       {
         "width": 400,
@@ -185,8 +185,8 @@
   },
   "gallery/04": {
     "source": "assets/images/gallery/04.webp",
-    "sourceWidth": 4080,
-    "sourceHeight": 3072,
+    "sourceWidth": 1600,
+    "sourceHeight": 1205,
     "variants": [
       {
         "width": 400,
@@ -204,8 +204,8 @@
   },
   "gallery/05": {
     "source": "assets/images/gallery/05.webp",
-    "sourceWidth": 4080,
-    "sourceHeight": 3072,
+    "sourceWidth": 1600,
+    "sourceHeight": 1205,
     "variants": [
       {
         "width": 400,
@@ -223,8 +223,8 @@
   },
   "gallery/06": {
     "source": "assets/images/gallery/06.webp",
-    "sourceWidth": 3072,
-    "sourceHeight": 4080,
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
     "variants": [
       {
         "width": 400,
@@ -242,8 +242,8 @@
   },
   "gallery/07": {
     "source": "assets/images/gallery/07.webp",
-    "sourceWidth": 3072,
-    "sourceHeight": 4080,
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
     "variants": [
       {
         "width": 400,
@@ -261,8 +261,8 @@
   },
   "gallery/08": {
     "source": "assets/images/gallery/08.webp",
-    "sourceWidth": 3072,
-    "sourceHeight": 4080,
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
     "variants": [
       {
         "width": 400,
@@ -280,8 +280,8 @@
   },
   "gallery/09": {
     "source": "assets/images/gallery/09.webp",
-    "sourceWidth": 3072,
-    "sourceHeight": 4080,
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
     "variants": [
       {
         "width": 400,
@@ -299,8 +299,8 @@
   },
   "gallery/10": {
     "source": "assets/images/gallery/10.webp",
-    "sourceWidth": 3072,
-    "sourceHeight": 4080,
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
     "variants": [
       {
         "width": 400,
@@ -318,8 +318,8 @@
   },
   "gallery/11": {
     "source": "assets/images/gallery/11.webp",
-    "sourceWidth": 3072,
-    "sourceHeight": 4080,
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
     "variants": [
       {
         "width": 400,
@@ -337,8 +337,8 @@
   },
   "gallery/12": {
     "source": "assets/images/gallery/12.webp",
-    "sourceWidth": 3072,
-    "sourceHeight": 4080,
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
     "variants": [
       {
         "width": 400,
