@@ -436,6 +436,9 @@
 }
 
 @media (max-width: 767px) {
+  #shared-s14 {
+    min-height: 0;
+  }
   .v-col.page-title-banner__row {
     height: 75px;
   }
@@ -767,6 +770,16 @@
 #about-me-s03 {
   height: 289px;
   width: 490px;
+}
+
+@media (max-width: 767px) {
+  #about-me-s01 {
+    height: auto;
+  }
+  #about-me-s03 {
+    height: auto;
+    width: 100%;
+  }
 }
 
 #about-me-s05 {
