@@ -10,7 +10,7 @@
     "optimize": "node scripts/optimize-images.mjs",
     "refresh-gallery": "node scripts/refresh-gallery.mjs",
     "lighthouse": "lighthouse",
-    "lint:css": "eslint --cache --cache-location .eslintcache \"src/assets/css/**/*.css\"",
+    "lint": "eslint --cache --cache-location .eslintcache \"src/assets/css/**/*.css\"",
     "deploy": "wrangler deploy",
     "preview": "wrangler dev"
   },

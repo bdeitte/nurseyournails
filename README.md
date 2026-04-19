@@ -19,7 +19,7 @@ npm install         # install build and tooling dependencies
 npm run build       # regenerate public/ from src/
 npm run serve       # serve public/ on a local port
 npm run format      # Prettier over src/**/*.{html,css}
-npm run lint:css    # ESLint CSS Baseline check on src/assets/css/
+npm run lint        # ESLint CSS Baseline check on src/assets/css/
 npm run refresh-gallery # Update gallery images and HTML for it
 ```
 
