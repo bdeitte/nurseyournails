@@ -104,6 +104,10 @@ async function main() {
   }
   await clearGalleryDir();
   await writeAssignments(assignments);
+  console.log('refresh-gallery: running optimize');
+  run('npm', ['run', 'optimize']);
+  console.log('refresh-gallery: running wrap-pictures');
+  run('node', ['scripts/wrap-pictures.mjs']);
 }
 
 main().catch((err) => die(err.stack || String(err)));
