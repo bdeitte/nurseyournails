@@ -120,17 +120,34 @@ function indentOf(source, idx) {
   return n;
 }
 
-function renderGalleryTiles(assignments, indent) {
+async function loadVariantsManifest() {
+  const file = path.join(REPO_ROOT, 'public/assets/images/variants.json');
+  const raw = await readFile(file, 'utf8');
+  return JSON.parse(raw);
+}
+
+function pickVariantPath(slot, manifest, targetWidth) {
+  const nn = String(slot).padStart(2, '0');
+  const entry = manifest[`gallery/${nn}`];
+  const fallback = `assets/images/gallery/${nn}.webp`;
+  if (!entry || !entry.variants || entry.variants.length === 0) return fallback;
+  const eligible = entry.variants.filter((v) => v.width <= targetWidth);
+  const pool = eligible.length ? eligible : entry.variants;
+  const best = pool.reduce((a, b) => (a.width >= b.width ? a : b));
+  return best.path;
+}
+
+function renderGalleryTiles(assignments, manifest, indent) {
   const pad = ' '.repeat(indent);
   const lines = [`${pad}<div class="photo-grid">`];
   for (const { slot } of assignments) {
-    const nn = String(slot).padStart(2, '0');
+    const url = '../' + pickVariantPath(slot, manifest, 800);
     lines.push(
       `${pad}  <div`,
       `${pad}    class="photo-grid__item"`,
       `${pad}    role="img"`,
       `${pad}    aria-label="Nurse Your Nails gallery photo ${slot}"`,
-      `${pad}    style="background-image: url(&quot;../assets/images/gallery/${nn}.webp&quot;)"`,
+      `${pad}    style="background-image: url(&quot;${url}&quot;)"`,
       `${pad}  ></div>`,
     );
   }
@@ -138,7 +155,7 @@ function renderGalleryTiles(assignments, indent) {
   return lines.join('\n');
 }
 
-async function rewriteGalleryPage(assignments) {
+async function rewriteGalleryPage(assignments, manifest) {
   const file = path.join(REPO_ROOT, 'src/gallery/index.html');
   const src = await readFile(file, 'utf8');
   const start = '<!-- gallery:tiles:start -->';
@@ -146,22 +163,22 @@ async function rewriteGalleryPage(assignments) {
   const startIdx = src.indexOf(start);
   if (startIdx === -1) die(`${start} not found in ${file} — add sentinels first`);
   const indent = indentOf(src, startIdx);
-  const rendered = renderGalleryTiles(assignments, indent + 2);
+  const rendered = renderGalleryTiles(assignments, manifest, indent + 2);
   const next = replaceBetweenSentinels(src, start, end, rendered, file);
   await writeFile(file, next);
 }
 
-function renderHomePreview(assignments, indent) {
+function renderHomePreview(assignments, manifest, indent) {
   const pad = ' '.repeat(indent);
   const imgTile = (n, flex) => {
-    const nn = String(n).padStart(2, '0');
+    const url = pickVariantPath(n, manifest, 800);
     return [
       `${pad}<div`,
       `${pad}  class="photo-card card-images h-full"`,
       `${pad}  role="img"`,
       `${pad}  aria-label="Nurse Your Nails gallery photo ${n}"`,
       `${pad}  style="`,
-      `${pad}    background-image: url(&quot;assets/images/gallery/${nn}.webp&quot;);`,
+      `${pad}    background-image: url(&quot;${url}&quot;);`,
       `${pad}    background-size: cover;`,
       `${pad}    background-position: center center;`,
       `${pad}    flex: ${flex} 1 0%;`,
@@ -173,10 +190,11 @@ function renderHomePreview(assignments, indent) {
 
   const more = assignments.length - 3;
   const [a, b, c, d] = assignments.map((x) => x.slot);
+  const overlayUrl = pickVariantPath(d, manifest, 800);
   const overlayTile = `${pad}<div
 ${pad}  class="photo-card"
 ${pad}  style="
-${pad}    background-image: url(&quot;assets/images/gallery/${String(d).padStart(2, '0')}.webp&quot;);
+${pad}    background-image: url(&quot;${overlayUrl}&quot;);
 ${pad}    background-size: cover;
 ${pad}    background-position: center center;
 ${pad}    flex: 0.66 1 0%;
@@ -209,7 +227,7 @@ ${pad}</div>`;
   return [imgTile(a, '1'), imgTile(b, '1'), imgTile(c, '1'), overlayTile].join('\n');
 }
 
-async function rewriteHomePreview(assignments) {
+async function rewriteHomePreview(assignments, manifest) {
   const file = path.join(REPO_ROOT, 'src/index.html');
   const src = await readFile(file, 'utf8');
   const start = '<!-- gallery:home-preview:start -->';
@@ -217,7 +235,7 @@ async function rewriteHomePreview(assignments) {
   const startIdx = src.indexOf(start);
   if (startIdx === -1) die(`${start} not found in ${file} — add sentinels first`);
   const indent = indentOf(src, startIdx);
-  const rendered = renderHomePreview(assignments, indent);
+  const rendered = renderHomePreview(assignments, manifest, indent);
   const next = replaceBetweenSentinels(src, start, end, rendered, file);
   await writeFile(file, next);
 }
@@ -249,10 +267,11 @@ async function main() {
     } finally {
       if (!swapped) await rm(stageDir, { recursive: true, force: true });
     }
-    await rewriteGalleryPage(assignments);
-    await rewriteHomePreview(assignments);
     console.log('refresh-gallery: running optimize');
     run('npm', ['run', 'optimize']);
+    const manifest = await loadVariantsManifest();
+    await rewriteGalleryPage(assignments, manifest);
+    await rewriteHomePreview(assignments, manifest);
     console.log('refresh-gallery: running wrap-pictures');
     run('node', ['scripts/wrap-pictures.mjs']);
     console.log('refresh-gallery: running build');
