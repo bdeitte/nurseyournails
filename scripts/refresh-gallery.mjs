@@ -140,6 +140,76 @@ async function rewriteGalleryPage(assignments) {
   await writeFile(file, next);
 }
 
+function renderHomePreview(total, indent) {
+  const pad = ' '.repeat(indent);
+  const imgTile = (n, flex) => {
+    const nn = String(n).padStart(2, '0');
+    return [
+      `${pad}<div`,
+      `${pad}  class="photo-card card-images h-full"`,
+      `${pad}  role="img"`,
+      `${pad}  aria-label="Nurse Your Nails gallery photo ${n}"`,
+      `${pad}  style="`,
+      `${pad}    background-image: url(&quot;assets/images/gallery/${nn}.webp&quot;);`,
+      `${pad}    background-size: cover;`,
+      `${pad}    background-position: center center;`,
+      `${pad}    flex: ${flex} 1 0%;`,
+      `${pad}    height: 200px;`,
+      `${pad}  "`,
+      `${pad}></div>`,
+    ].join('\n');
+  };
+
+  const more = total - 3;
+  const overlayTile = `${pad}<div
+${pad}  class="photo-card"
+${pad}  style="
+${pad}    background-image: url(&quot;assets/images/gallery/04.webp&quot;);
+${pad}    background-size: cover;
+${pad}    background-position: center center;
+${pad}    flex: 0.66 1 0%;
+${pad}    height: 200px;
+${pad}    position: relative;
+${pad}    cursor: pointer;
+${pad}  "
+${pad}>
+${pad}  <a href="gallery/" style="display: block; width: 100%; height: 100%"
+${pad}    ><div
+${pad}      style="
+${pad}        background: rgba(0, 0, 0, 0.4);
+${pad}        color: white;
+${pad}        position: absolute;
+${pad}        top: 0;
+${pad}        left: 0;
+${pad}        width: 100%;
+${pad}        height: 100%;
+${pad}        display: flex;
+${pad}        align-items: center;
+${pad}        justify-content: center;
+${pad}        text-align: center;
+${pad}      "
+${pad}    >
+${pad}      + ${more} more
+${pad}    </div></a
+${pad}  >
+${pad}</div>`;
+
+  return [imgTile(1, '1'), imgTile(2, '1'), imgTile(3, '1'), overlayTile].join('\n');
+}
+
+async function rewriteHomePreview(total) {
+  const file = path.join(REPO_ROOT, 'src/index.html');
+  const src = await readFile(file, 'utf8');
+  const start = '<!-- gallery:home-preview:start -->';
+  const end = '<!-- gallery:home-preview:end -->';
+  const startIdx = src.indexOf(start);
+  if (startIdx === -1) die(`${start} not found in ${file} — add sentinels first`);
+  const indent = indentOf(src, startIdx);
+  const rendered = renderHomePreview(total, indent);
+  const next = replaceBetweenSentinels(src, start, end, rendered, file);
+  await writeFile(file, next);
+}
+
 async function main() {
   console.log('refresh-gallery: starting');
   const tmpDir = await downloadDriveFolder();
@@ -158,6 +228,7 @@ async function main() {
   await clearGalleryDir();
   await writeAssignments(assignments);
   await rewriteGalleryPage(assignments);
+  await rewriteHomePreview(assignments.length);
   console.log('refresh-gallery: running optimize');
   run('npm', ['run', 'optimize']);
   console.log('refresh-gallery: running wrap-pictures');
