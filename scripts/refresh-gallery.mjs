@@ -12,8 +12,7 @@ const IMAGE_EXTS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.heic']);
 const REPO_ROOT = process.cwd();
 
 function die(msg) {
-  console.error(`refresh-gallery: ${msg}`);
-  process.exit(1);
+  throw new Error(msg);
 }
 
 function run(cmd, args, opts = {}) {
@@ -249,4 +248,7 @@ async function main() {
   }
 }
 
-main().catch((err) => die(err.stack || String(err)));
+main().catch((err) => {
+  console.error(`refresh-gallery: ${err.message || String(err)}`);
+  process.exit(1);
+});
