@@ -700,8 +700,10 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 }
 
 .photo-grid__item {
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
+  background-repeat: no-repeat;
+  background-color: var(--color-gold);
   height: 300px;
 }
 
