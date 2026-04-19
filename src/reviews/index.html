@@ -162,7 +162,10 @@
             btn.addEventListener("click", function (e) {
               e.stopPropagation();
               var fromFooter = btn.dataset.direction === "up";
-              var open = !b.classList.contains("nav-open");
+              var isOpen = b.classList.contains("nav-open");
+              var wasFromFooter = b.classList.contains("nav-from-footer");
+              var sameTrigger = isOpen && wasFromFooter === fromFooter;
+              var open = !sameTrigger;
               b.classList.toggle("nav-open", open);
               b.classList.toggle("nav-from-footer", open && fromFooter);
               icons.forEach(function (i) {
