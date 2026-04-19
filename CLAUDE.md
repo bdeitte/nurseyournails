@@ -25,6 +25,7 @@ Static marketing site for Nurse Your Nails (Middleton, WI), live at https://nurs
 - `npm run optimize` — runs `scripts/optimize-images.mjs` over `public/assets/images/`
 - `npm run lighthouse -- <url> [--preset=desktop] [--only-categories=performance] [--output=json] [--output-path=...]` — runs Lighthouse audits against local or production. Example: `npm run lighthouse -- http://localhost:3000 --preset=desktop --output=json --output-path=./lh.json --quiet --chrome-flags='--headless'`. Output artifacts (`lh-*.json`, `*.report.html`) are gitignored at the repo root.
 - `npm run lint:css` — runs ESLint with `@eslint/css` over `src/assets/css/**/*.css`. Enforces `css/use-baseline` at `available: "widely"`, so any CSS feature that is not in the widely-available Baseline is a lint error.
+- `npm run refresh-gallery` — runs `scripts/refresh-gallery.mjs`, which downloads a fresh image set from the shared Google Drive folder, atomically swaps it into `public/assets/images/gallery/`, and rewrites the gallery page tile block and home-page preview to match. Chains `npm run optimize`, `node scripts/wrap-pictures.mjs`, and `npm run build`. Requires `pipx` on PATH (for `gdown`). Install with `brew install pipx && pipx ensurepath`.
 
 The only lint is `npm run lint:css` (CSS Baseline enforcement). There is no test command. Node >= 20.19.0.
 
@@ -48,6 +49,14 @@ The only lint is `npm run lint:css` (CSS Baseline enforcement). There is no test
 2. **Responsive WebP variants.** For each JPG/JPEG/PNG/WebP original ≥ 400px wide, writes `<role>-400.webp`, `-800.webp`, and `-1200.webp` alongside the source under its page folder (where the original is wide enough). Updates `public/assets/images/variants.json` — keyed by relative path without extension (e.g. `"foot-care/spa-pedicure"`) — mapping each original to its variants. Only regenerates variants that are missing or older than the source, so the script stays idempotent.
 
 `scripts/wrap-pictures.mjs` wraps every `<img>` in `src/` that references an asset in `variants.json` with `<picture>` + `<source type="image/webp" srcset="...">`. Idempotent: re-running detects already-wrapped images by scanning for the nearest unmatched `<picture>...</picture>` pair. Skips the site logo (`shared/logo*`) since both logo instances are hand-tuned in-place. The manifest still lives under `public/assets/images/variants.json` because that's where `optimize-images.mjs` writes it.
+
+## Gallery refresh
+
+`scripts/refresh-gallery.mjs` (invoked via `npm run refresh-gallery`) replaces the gallery image set end-to-end from a public Google Drive folder. The Drive URL is hardcoded at the top of the script. Pipeline: download via `gdown` into a temp dir → filter to image extensions → assign slot numbers (files whose names start with digits keep those numbers; unnumbered files are appended after the highest existing slot, in alphabetical order, with duplicate-slot conflicts erroring out) → convert all images to WebP via `sharp` into `public/assets/images/gallery-new/` → atomic swap via directory renames (original moves to `gallery-old/`, `gallery-new/` becomes `gallery/`, `gallery-old/` is removed) → rewrite the tile block in `src/gallery/index.html` and the four preview tiles in `src/index.html` between sentinel comments → `npm run optimize` → `node scripts/wrap-pictures.mjs` → `npm run build`. The temp download dir is always cleaned up in a `finally` block.
+
+The HTML rewrite uses sentinel comment pairs (`<!-- gallery:tiles:start/end -->` in `src/gallery/index.html`, `<!-- gallery:home-preview:start/end -->` in `src/index.html`). The comments are stripped by `html-minifier-terser` at build time, so they never appear in `public/`. Do not remove them from `src/`.
+
+The home-page preview always shows the first four slot assignments (typically `01.webp`–`04.webp`). The overlay tile's "+ N more" count is `assignments.length - 3` and is regenerated on each run. The script errors if fewer than four images are downloaded. All gallery assets are written as `NN.webp` — no more mixed `.png`/`.webp` in the tree.
 
 ## Making changes
 
