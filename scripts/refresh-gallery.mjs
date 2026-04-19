@@ -36,6 +36,40 @@ async function downloadDriveFolder() {
   return dest;
 }
 
+function filterImages(files) {
+  return files.filter((f) => IMAGE_EXTS.has(path.extname(f).toLowerCase()));
+}
+
+function assignSlots(imageFiles) {
+  const numbered = [];
+  const unnumbered = [];
+  for (const f of imageFiles) {
+    const base = path.basename(f);
+    const m = base.match(/^0*(\d+)/);
+    if (m) numbered.push({ slot: Number(m[1]), src: f });
+    else unnumbered.push(f);
+  }
+
+  const seen = new Map();
+  for (const { slot, src } of numbered) {
+    if (seen.has(slot)) {
+      die(
+        `two files claim slot ${slot}: ` +
+          `${path.basename(seen.get(slot))} and ${path.basename(src)}`,
+      );
+    }
+    seen.set(slot, src);
+  }
+
+  numbered.sort((a, b) => a.slot - b.slot);
+  unnumbered.sort((a, b) => path.basename(a).localeCompare(path.basename(b)));
+
+  let next = numbered.length ? Math.max(...numbered.map((n) => n.slot)) + 1 : 1;
+  const appended = unnumbered.map((src) => ({ slot: next++, src }));
+
+  return [...numbered, ...appended];
+}
+
 async function main() {
   console.log('refresh-gallery: starting');
   const tmpDir = await downloadDriveFolder();
@@ -43,8 +77,14 @@ async function main() {
   const files = entries
     .filter((e) => e.isFile())
     .map((e) => path.join(e.parentPath ?? tmpDir, e.name));
-  console.log(`refresh-gallery: downloaded ${files.length} file(s)`);
-  for (const f of files) console.log(`  ${path.relative(tmpDir, f)}`);
+  const images = filterImages(files);
+  if (images.length === 0) die('no image files found in Drive folder');
+  if (images.length < 4) die(`need at least 4 images, got ${images.length}`);
+  const assignments = assignSlots(images);
+  console.log(`refresh-gallery: assigned ${assignments.length} slots`);
+  for (const { slot, src } of assignments) {
+    console.log(`  ${String(slot).padStart(2, '0')} <- ${path.basename(src)}`);
+  }
 }
 
 main().catch((err) => die(err.stack || String(err)));
