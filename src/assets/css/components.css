@@ -1226,7 +1226,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 
 /* home-s11: grid section — handled via grid-container/inner-grid rules */
 #home-s11 .grid-container {
-  padding-bottom: 38%;
+  padding-bottom: 48%;
 }
 #home-s11 .inner-grid {
   top: 0%;
@@ -1412,7 +1412,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
     padding: 48px 30px;
   }
   .tablet-break #home-s11 .grid-container {
-    padding-bottom: 50%;
+    padding-bottom: 60%;
   }
   .tablet-break #home-s11 .inner-grid {
     grid-template-rows: repeat(52, 1fr);
