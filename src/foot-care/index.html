@@ -194,6 +194,15 @@
               });
             });
           });
+          document.querySelectorAll(".navigation-folder > span.navigation-item").forEach(
+            function (span) {
+              span.addEventListener("click", function () {
+                if (!b.classList.contains("nav-open")) return;
+                var first = span.parentElement.querySelector("ul a[href]");
+                if (first) window.location.href = first.href;
+              });
+            },
+          );
           document.addEventListener("click", function (e) {
             if (!b.classList.contains("nav-open")) return;
             var nav = document.querySelector("nav.full-screen-navigation");
@@ -257,7 +266,7 @@
                   <a class="no-a navigation-item" href="/" target="_self">Home</a>
                 </li>
                 <li id="" class="navigation-folder">
-                  <a class="no-a navigation-item" href="../my-business/" target="_self">About</a>
+                  <span class="no-a navigation-item" tabindex="0">About</span>
                   <ul>
                     <li id="my-business" class="">
                       <a class="no-a navigation-item" href="../my-business/" target="_self"
@@ -281,7 +290,7 @@
                   <a class="no-a navigation-item" href="../products/" target="_self">Products</a>
                 </li>
                 <li id="" class="navigation-folder">
-                  <a class="no-a navigation-item active" href="../manicures/" target="_self">Services Offered</a>
+                  <span class="no-a navigation-item active" tabindex="0">Services Offered</span>
                   <ul>
                     <li id="manicures" class="">
                       <a class="no-a navigation-item" href="../manicures/" target="_self"

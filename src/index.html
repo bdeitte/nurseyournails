@@ -180,6 +180,15 @@
               });
             });
           });
+          document.querySelectorAll(".navigation-folder > span.navigation-item").forEach(
+            function (span) {
+              span.addEventListener("click", function () {
+                if (!b.classList.contains("nav-open")) return;
+                var first = span.parentElement.querySelector("ul a[href]");
+                if (first) window.location.href = first.href;
+              });
+            },
+          );
           document.addEventListener("click", function (e) {
             if (!b.classList.contains("nav-open")) return;
             var nav = document.querySelector("nav.full-screen-navigation");
@@ -243,7 +252,7 @@
                   <a class="no-a navigation-item active" href="/" target="_self">Home</a>
                 </li>
                 <li id="" class="navigation-folder">
-                  <a class="no-a navigation-item" href="my-business/" target="_self">About</a>
+                  <span class="no-a navigation-item" tabindex="0">About</span>
                   <ul>
                     <li id="my-business" class="">
                       <a class="no-a navigation-item" href="my-business/" target="_self"
@@ -265,7 +274,7 @@
                   <a class="no-a navigation-item" href="products/" target="_self">Products</a>
                 </li>
                 <li id="" class="navigation-folder">
-                  <a class="no-a navigation-item" href="manicures/" target="_self">Services Offered</a>
+                  <span class="no-a navigation-item" tabindex="0">Services Offered</span>
                   <ul>
                     <li id="manicures" class="">
                       <a class="no-a navigation-item" href="manicures/" target="_self">Manicures</a>
@@ -406,7 +415,11 @@
                     <div class="grid-container">
                       <div class="inner-grid">
                         <div class="hierarchy v-container" id="home-s12"></div>
-                        <div class="video-hero" data-video-src="assets/video/nyn-introduction.mp4">
+                        <div
+                          class="video-hero"
+                          data-video-src="assets/video/nyn-introduction.mp4"
+                          data-video-title="NYN introduction"
+                        >
                           <picture
                             ><source
                               type="image/webp"
@@ -936,6 +949,13 @@
         document.querySelectorAll(".video-hero").forEach(function (hero) {
           var src = hero.getAttribute("data-video-src");
           if (!src) return;
+          var title = hero.getAttribute("data-video-title") || src.split("/").pop();
+          function track(name, extra) {
+            if (typeof gtag !== "function") return;
+            var params = { video_title: title, video_url: src, video_provider: "self" };
+            if (extra) for (var k in extra) params[k] = extra[k];
+            gtag("event", name, params);
+          }
           function play() {
             var video = document.createElement("video");
             video.src = src;
@@ -943,6 +963,26 @@
             video.autoplay = true;
             video.playsInline = true;
             video.preload = "auto";
+            var started = false;
+            var reached = { 25: false, 50: false, 75: false };
+            video.addEventListener("play", function () {
+              if (started) return;
+              started = true;
+              track("video_start");
+            });
+            video.addEventListener("timeupdate", function () {
+              if (!video.duration) return;
+              var pct = (video.currentTime / video.duration) * 100;
+              [25, 50, 75].forEach(function (t) {
+                if (!reached[t] && pct >= t) {
+                  reached[t] = true;
+                  track("video_progress", { video_percent: t });
+                }
+              });
+            });
+            video.addEventListener("ended", function () {
+              track("video_complete");
+            });
             hero.innerHTML = "";
             hero.appendChild(video);
             video.focus();

@@ -1452,6 +1452,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   }
   #home-s16 {
     grid-area: auto;
+    order: -1;
     font-size: 1.2em;
     text-align: center;
   }
