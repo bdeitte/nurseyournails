@@ -435,22 +435,33 @@
                     <div class="grid-container">
                       <div class="inner-grid">
                         <div class="hierarchy v-container" id="home-s12"></div>
-                        <picture
-                          ><source
-                            type="image/webp"
-                            srcset="
-                              assets/images/home/ann-portrait-400.webp   400w,
-                              assets/images/home/ann-portrait-800.webp   800w,
-                              assets/images/home/ann-portrait-1200.webp 1200w
-                            "
-                            sizes="100vw" />
-                          <img
-                            loading="lazy"
-                            src="assets/images/home/ann-portrait.jpg"
-                            alt="Nurse Your Nails"
-                            class="hierarchy v-image max-100 in-grid fixed-height"
-                            id="home-s13"
-                        /></picture>
+                        <div class="video-hero" data-video-src="assets/video/nyn-introduction.mp4">
+                          <picture
+                            ><source
+                              type="image/webp"
+                              srcset="
+                                assets/images/home/ann-portrait-400.webp 400w,
+                                assets/images/home/ann-portrait-800.webp 800w
+                              "
+                              sizes="100vw" />
+                            <img
+                              loading="lazy"
+                              src="assets/images/home/ann-portrait.jpg"
+                              alt="Nurse Your Nails"
+                              class="hierarchy v-image max-100 in-grid fixed-height"
+                              id="home-s13"
+                          /></picture>
+                          <button
+                            type="button"
+                            class="video-hero__play"
+                            aria-label="Play introduction video"
+                          >
+                            <svg aria-hidden="true" focusable="false" viewBox="0 0 64 64">
+                              <circle cx="32" cy="32" r="32" />
+                              <polygon points="26,20 26,44 46,32" />
+                            </svg>
+                          </button>
+                        </div>
                         <div class="hierarchy v-container" id="home-s14">
                           <div class="hierarchy v-text vp-1" id="home-s15">
                             <p>
