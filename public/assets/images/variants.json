@@ -404,12 +404,16 @@
   },
   "home/ann-portrait": {
     "source": "assets/images/home/ann-portrait.jpg",
-    "sourceWidth": 720,
-    "sourceHeight": 1280,
+    "sourceWidth": 1080,
+    "sourceHeight": 1920,
     "variants": [
       {
         "width": 400,
         "path": "assets/images/home/ann-portrait-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/home/ann-portrait-800.webp"
       }
     ]
   },
