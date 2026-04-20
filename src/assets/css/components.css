@@ -3350,7 +3350,7 @@ a.mobile-book-now {
     text-decoration: none;
   }
   /* Hide the nav-list CTA in the mobile overlay since it lives in the header */
-  .nav-list__cta {
+  .main-navigation > .nav-list > .nav-list__cta {
     display: none;
   }
 }
