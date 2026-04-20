@@ -1241,6 +1241,24 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   gap: 24px;
 }
 
+/* home-s16: title container at top-left of grid */
+#home-s16 {
+  grid-area: 7/1/33/19;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+/* home-s17: business name heading */
+#home-s17 {
+  grid-area: 20/2/33/19;
+  text-align: right;
+  font-size: 1.6em;
+  padding: 0;
+}
+
 /* home-s19: spacer section column */
 #home-s19 {
   gap: var(--space-xs);
@@ -1385,6 +1403,15 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
     align-items: flex-start;
     gap: var(--space-lg);
   }
+  #home-s16 {
+    grid-area: 1/29/32/65;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  #home-s17 {
+    text-align: center;
+  }
   #home-s23 {
     width: 100%;
     padding: var(--space-md);
@@ -1424,6 +1451,16 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   #home-s14 {
     grid-area: 36/1/44/25;
     flex-direction: column;
+  }
+  #home-s16 {
+    grid-area: 1/1/4/25;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  #home-s17 {
+    font-size: 1.2em;
+    text-align: center;
   }
   #home-s18 {
     display: none;
