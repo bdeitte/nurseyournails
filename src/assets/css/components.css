@@ -1421,24 +1421,37 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
     padding: 40px 20px 20px 20px;
   }
   .mobile-break #home-s11 .grid-container {
-    padding-bottom: 220%;
+    padding-bottom: 0;
+    height: auto;
   }
   .mobile-break #home-s11 .inner-grid {
-    grid-template-columns: repeat(24, 1fr);
-    grid-template-rows: repeat(43, 1fr);
+    position: static;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: auto;
   }
   #home-s12 {
-    grid-area: 8/1/34/24;
+    display: none;
   }
   .video-hero {
-    grid-area: 5/2/34/25;
+    grid-area: auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 500px 500px 0 0;
   }
   #home-s14 {
-    grid-area: 36/1/44/25;
+    grid-area: auto;
     flex-direction: column;
+    width: 100%;
+    height: auto;
+  }
+  #home-s15 {
+    height: auto;
+    max-height: none;
   }
   #home-s16 {
-    grid-area: 1/1/4/25;
+    grid-area: auto;
     font-size: 1.2em;
     text-align: center;
   }
