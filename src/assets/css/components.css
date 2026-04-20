@@ -1463,7 +1463,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
     padding: 40px 20px 20px 20px;
   }
   .mobile-break #home-s11 .grid-container {
-    padding-bottom: 165%;
+    padding-bottom: 220%;
   }
   .mobile-break #home-s11 .inner-grid {
     grid-template-columns: repeat(24, 1fr);
