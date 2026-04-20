@@ -1170,37 +1170,10 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 /* -------------------------------------------------------------------------
    Home page
    -------------------------------------------------------------------------
-   The home page has: a hero strip with images + Book Now, an intro grid
-   section with portrait + welcome text, a "Why Choose Me" section with
-   feature cards, a gallery preview strip, and a spacer section.
+   The home page has an intro grid section with portrait + welcome text, a
+   "Why Choose Me" section with feature cards, a gallery preview strip, and
+   a spacer section.
    ------------------------------------------------------------------------- */
-
-/* home-s02/s04/s06: hero column children — flex column with tiny gap, centered */
-#home-s02,
-#home-s04,
-#home-s06 {
-  gap: var(--space-xs);
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-/* hero images: 240×240 fixed on desktop */
-#home-s03,
-#home-s07 {
-  height: 240px;
-  width: 240px;
-}
-
-/* home-s04: Book Now button row height on mobile */
-@media (max-width: 767px) {
-  #home-s03 {
-    height: 243px;
-  }
-  #home-s04 {
-    height: 56px;
-  }
-}
 
 /* home-s08: intro section — white bg, auto height */
 #home-s08 {
@@ -3351,6 +3324,28 @@ body.nav-open nav.full-screen-navigation span.navigation-item {
 }
 .account-controls {
   margin-bottom: 2px;
+}
+
+/* ---- Header Book Now button ------------------------------------------- */
+.header-book-now {
+  margin-right: 12px;
+  padding: 8px 18px;
+  white-space: nowrap;
+  min-width: 0;
+  width: auto;
+  height: auto;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+.header-book-now p {
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .header-book-now {
+    margin-right: 8px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
 }
 
 /* ---- Section buffer --------------------------------------------------- */
