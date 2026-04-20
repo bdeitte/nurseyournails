@@ -1241,22 +1241,12 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   gap: 24px;
 }
 
-/* home-s16: title container at top-left of grid */
+/* home-s16: business name heading — placed bottom-left of the intro grid */
 #home-s16 {
-  grid-area: 7/1/33/19;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: center;
-  align-items: center;
-  padding: 0;
-}
-
-/* home-s17: business name heading */
-#home-s17 {
   grid-area: 20/2/33/19;
+  padding: 0;
   text-align: right;
   font-size: 1.6em;
-  padding: 0;
 }
 
 /* home-s19: spacer section column */
@@ -1405,11 +1395,6 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   }
   #home-s16 {
     grid-area: 1/29/32/65;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
-  #home-s17 {
     text-align: center;
   }
   #home-s23 {
@@ -1454,11 +1439,6 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   }
   #home-s16 {
     grid-area: 1/1/4/25;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-  }
-  #home-s17 {
     font-size: 1.2em;
     text-align: center;
   }
@@ -3327,18 +3307,52 @@ body.nav-open nav.full-screen-navigation span.navigation-item {
 }
 
 /* ---- Nav Book Now CTA ------------------------------------------------- */
-.nav-list__cta .navigation-item--cta {
+.main-navigation > .nav-list > .nav-list__cta > a.navigation-item--cta {
   background-color: var(--color-gold);
   color: var(--color-navy);
+  margin-top: 0;
   padding: 8px 18px;
   border-radius: 4px;
   white-space: nowrap;
   line-height: 1.2;
+  border-bottom: none;
 }
-.nav-list__cta .navigation-item--cta:hover,
-.nav-list__cta .navigation-item--cta:focus {
+.main-navigation > .nav-list > .nav-list__cta > a.navigation-item--cta:hover,
+.main-navigation > .nav-list > .nav-list__cta > a.navigation-item--cta:focus {
   background-color: var(--color-navy);
   color: var(--color-gold);
+}
+
+/* ---- Mobile header Book Now button ------------------------------------ */
+a.mobile-book-now {
+  display: none;
+}
+@media (max-width: 767px) {
+  .account-container a.mobile-book-now,
+  .account-container a.mobile-book-now:link,
+  .account-container a.mobile-book-now:visited {
+    display: inline-block;
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    text-decoration: none;
+    padding: 8px 14px;
+    margin-right: 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    font-weight: 400;
+  }
+  .account-container a.mobile-book-now:hover,
+  .account-container a.mobile-book-now:focus {
+    background-color: var(--color-navy);
+    color: var(--color-gold);
+    text-decoration: none;
+  }
+  /* Hide the nav-list CTA in the mobile overlay since it lives in the header */
+  .nav-list__cta {
+    display: none;
+  }
 }
 
 /* ---- Section buffer --------------------------------------------------- */
