@@ -24,6 +24,14 @@
     <link rel="icon" type="image/x-icon" href="assets/images/shared/favicon.jpg" />
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/shared/favicon.jpg" />
     <link rel="canonical" href="https://nurseyournails.com/" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/images/home/ann-portrait-800.webp"
+      imagesrcset="assets/images/home/ann-portrait-400.webp 400w, assets/images/home/ann-portrait-800.webp 800w"
+      imagesizes="100vw"
+      fetchpriority="high"
+    />
     <meta property="og:title" content="Nurse Your Nails | Nail &amp; Foot Care in Middleton, WI" />
     <meta
       property="og:image"
@@ -392,7 +400,8 @@
                               "
                               sizes="100vw" />
                             <img
-                              loading="lazy"
+                              fetchpriority="high"
+                              decoding="async"
                               src="assets/images/home/ann-portrait.jpg"
                               alt="Nurse Your Nails"
                               class="hierarchy v-image max-100 in-grid fixed-height"
