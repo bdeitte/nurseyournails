@@ -354,17 +354,6 @@
       }
     ]
   },
-  "gallery/13": {
-    "source": "assets/images/gallery/13.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/gallery/13-400.webp"
-      }
-    ]
-  },
   "gallery/14": {
     "source": "assets/images/gallery/14.webp",
     "sourceWidth": 602,
