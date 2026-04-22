@@ -186,15 +186,15 @@
               });
             });
           });
-          document.querySelectorAll(".navigation-folder > span.navigation-item").forEach(
-            function (span) {
+          document
+            .querySelectorAll(".navigation-folder > span.navigation-item")
+            .forEach(function (span) {
               span.addEventListener("click", function () {
                 if (!b.classList.contains("nav-open")) return;
                 var first = span.parentElement.querySelector("ul a[href]");
                 if (first) window.location.href = first.href;
               });
-            },
-          );
+            });
           document.addEventListener("click", function (e) {
             if (!b.classList.contains("nav-open")) return;
             var nav = document.querySelector("nav.full-screen-navigation");
