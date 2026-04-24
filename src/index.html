@@ -206,7 +206,8 @@
       id="home-popup"
       role="dialog"
       aria-modal="true"
-      aria-label="Announcement"
+      aria-labelledby="home-popup-title"
+      aria-describedby="home-popup-message"
       hidden
     >
       <div class="home-popup-backdrop" data-popup-close></div>
@@ -214,7 +215,20 @@
         <button type="button" class="home-popup-close" aria-label="Close" data-popup-close>
           &times;
         </button>
-        <picture><source type="image/webp" srcset="assets/images/home/popup-400.webp 400w, assets/images/home/popup-800.webp 800w" sizes="100vw"><img src="assets/images/home/popup.png" alt="I will be out for the second half of May. Last day for appointments for May is the 18th. My books are filling up, so book soon if you want to get in before June." class="home-popup-image" /></picture>
+        <h2 id="home-popup-title" class="u-visually-hidden">Scheduling announcement</h2>
+        <p id="home-popup-message" class="u-visually-hidden">
+          I will be out for the second half of May. Last day for appointments for May is the 18th.
+          My books are filling up, so book soon if you want to get in before June.
+        </p>
+        <picture
+          ><source
+            type="image/webp"
+            srcset="assets/images/home/popup-400.webp 400w, assets/images/home/popup-800.webp 800w"
+            sizes="100vw" /><img
+            src="assets/images/home/popup.png"
+            alt=""
+            class="home-popup-image"
+        /></picture>
       </div>
     </div>
     <script>
