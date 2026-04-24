@@ -3731,3 +3731,69 @@ a.mobile-book-now {
     height: 56px;
   }
 }
+
+.home-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.home-popup[hidden] {
+  display: none;
+}
+
+.home-popup-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.home-popup-content {
+  position: relative;
+  max-width: min(90vw, 720px);
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.home-popup-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.home-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #222;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.home-popup-close:hover,
+.home-popup-close:focus-visible {
+  background: #fff;
+  outline: none;
+}
+
+@media (max-width: 767px) {
+  .home-popup {
+    padding: 12px;
+  }
+}
