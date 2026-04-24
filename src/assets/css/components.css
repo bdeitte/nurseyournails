@@ -3774,13 +3774,21 @@ a.mobile-book-now {
   position: absolute;
   top: 8px;
   right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 36px;
   height: 36px;
+  padding: 0;
   border: none;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.92);
   color: #222;
-  font-size: 24px;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 22px;
   line-height: 1;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
