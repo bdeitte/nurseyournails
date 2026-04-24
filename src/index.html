@@ -214,25 +214,36 @@
         <button type="button" class="home-popup-close" aria-label="Close" data-popup-close>
           &times;
         </button>
-        <picture><source type="image/webp" srcset="assets/images/home/popup-400.webp 400w, assets/images/home/popup-800.webp 800w" sizes="100vw"><img src="assets/images/home/popup.png" alt="" class="home-popup-image" /></picture>
+        <picture><source type="image/webp" srcset="assets/images/home/popup-400.webp 400w, assets/images/home/popup-800.webp 800w" sizes="100vw"><img src="assets/images/home/popup.png" alt="I will be out for the second half of May. Last day for appointments for May is the 18th. My books are filling up, so book soon if you want to get in before June." class="home-popup-image" /></picture>
       </div>
     </div>
     <script>
       (function () {
         var popup = document.getElementById("home-popup");
         if (!popup) return;
+        var closeBtn = popup.querySelector(".home-popup-close");
+        var previouslyFocused = document.activeElement;
         function close() {
           popup.hidden = true;
           document.removeEventListener("keydown", onKey);
+          if (previouslyFocused && typeof previouslyFocused.focus === "function") {
+            previouslyFocused.focus();
+          }
         }
         function onKey(e) {
-          if (e.key === "Escape") close();
+          if (e.key === "Escape") {
+            close();
+          } else if (e.key === "Tab") {
+            e.preventDefault();
+            if (closeBtn) closeBtn.focus();
+          }
         }
         popup.addEventListener("click", function (e) {
           if (e.target.hasAttribute("data-popup-close")) close();
         });
         document.addEventListener("keydown", onKey);
         popup.hidden = false;
+        if (closeBtn) closeBtn.focus();
       })();
     </script>
     <div class="application">
