@@ -1212,13 +1212,9 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   column-gap: 0%;
 }
 
-/* home-s12: navy arch background overlay */
+/* home-s12: legacy arch background overlay — hidden */
 #home-s12 {
-  grid-area: 2/21/32/44;
-  flex-direction: column;
-  border-radius: 500px 500px 0 0;
-  opacity: 0.25;
-  background-color: var(--color-navy);
+  display: none;
 }
 
 /* home-s13: portrait image in grid */
@@ -1226,7 +1222,6 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   grid-area: 1/22/31/45;
   width: 100%;
   height: 100%;
-  border-radius: 500px 500px 0 0;
   overflow: hidden;
 }
 
@@ -1438,7 +1433,6 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
     grid-area: auto;
     width: 100%;
     aspect-ratio: 3 / 4;
-    border-radius: 500px 500px 0 0;
   }
   #home-s14 {
     grid-area: auto;
