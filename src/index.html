@@ -253,7 +253,7 @@
           }
         }
         popup.addEventListener("click", function (e) {
-          if (e.target.hasAttribute("data-popup-close")) close();
+          if (e.target.closest("[data-popup-close]")) close();
         });
         document.addEventListener("keydown", onKey);
         popup.hidden = false;
