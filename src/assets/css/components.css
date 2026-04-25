@@ -3790,6 +3790,11 @@ a.mobile-book-now {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+.home-popup-close > span {
+  display: block;
+  transform: translate(-0.5px, -1px);
+}
+
 .home-popup-close:hover,
 .home-popup-close:focus-visible {
   background: #fff;
