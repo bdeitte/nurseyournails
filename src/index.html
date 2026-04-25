@@ -213,7 +213,19 @@
       <div class="home-popup-backdrop" data-popup-close></div>
       <div class="home-popup-content">
         <button type="button" class="home-popup-close" aria-label="Close" data-popup-close>
-          <span aria-hidden="true">&times;</span>
+          <svg
+            class="home-popup-close__icon"
+            aria-hidden="true"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M6 6 L18 18 M18 6 L6 18"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            />
+          </svg>
         </button>
         <h2 id="home-popup-title" class="u-visually-hidden">Scheduling announcement</h2>
         <p id="home-popup-message" class="u-visually-hidden">
