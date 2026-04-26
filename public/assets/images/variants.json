@@ -436,21 +436,6 @@
       }
     ]
   },
-  "home/popup": {
-    "source": "assets/images/home/popup.png",
-    "sourceWidth": 1080,
-    "sourceHeight": 1080,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/home/popup-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/home/popup-800.webp"
-      }
-    ]
-  },
   "home/sanitation-mask": {
     "source": "assets/images/home/sanitation-mask.jpg",
     "sourceWidth": 1080,
