@@ -3196,10 +3196,12 @@ a.no-a {
    applies while the sheet is active. */
 body.nav-open nav.full-screen-navigation {
   flex-direction: column;
+  flex-wrap: nowrap;
   align-items: stretch;
   justify-content: flex-start;
   padding: 48px 20px 16px;
   background: #fff;
+  overflow-x: hidden;
   overflow-y: auto;
   gap: 0;
   text-align: left;
