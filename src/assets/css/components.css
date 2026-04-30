@@ -1067,16 +1067,14 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
    Cards use the shared service-card component. Only page-specific
    size overrides live here. */
 #manicures-s02,
-#manicures-s24,
-#manicures-s47 {
+#manicures-s24 {
   background-color: var(--color-white);
   padding: 0 var(--space-md);
 }
 
 @media (max-width: 767px) {
   #manicures-s02,
-  #manicures-s24,
-  #manicures-s47 {
+  #manicures-s24 {
     padding: 5px;
   }
 }
