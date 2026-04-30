@@ -617,12 +617,8 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
    fixed-height image, a centered heading, and a left-aligned description.
    ------------------------------------------------------------------------- */
 .v-col.service-card-grid {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: stretch;
-  align-content: flex-start;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 0;
   overflow: visible;
 }
@@ -633,7 +629,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   justify-content: flex-start;
   align-items: stretch;
   box-sizing: border-box;
-  width: 25%;
+  width: auto;
   padding: 0;
   overflow: visible;
 }
@@ -708,10 +704,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 @media (max-width: 1200px) {
   .v-col.service-card-grid {
     padding: 0;
-    gap: 14px;
-  }
-  .v-container.service-card {
-    width: 49%;
+    grid-template-columns: repeat(2, 1fr);
   }
   .service-card__title {
     font-size: 1.5em;
@@ -721,9 +714,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 @media (max-width: 767px) {
   .v-col.service-card-grid {
     padding: 0;
-  }
-  .v-container.service-card {
-    width: 100%;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1092,16 +1083,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 #foot-care-s02,
 #foot-care-s24 {
   background-color: var(--color-white);
-  padding: var(--space-md);
-}
-
-#foot-care-s30 {
-  height: 100%;
-}
-
-#foot-care-s45 {
-  height: 168px;
-  width: 235px;
+  padding: 0 var(--space-md);
 }
 
 @media (max-width: 767px) {
@@ -1118,7 +1100,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 #manicures-s24,
 #manicures-s47 {
   background-color: var(--color-white);
-  padding: var(--space-md);
+  padding: 0 var(--space-md);
 }
 
 #manicures-s02 {
@@ -1140,72 +1122,11 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   height: 224px;
 }
 
-#manicures-s56 {
-  height: 323px;
-}
-
-#manicures-s57 {
-  height: 36px;
-}
-
-#manicures-s61 {
-  height: 323px;
-}
-
-#manicures-s62 {
-  height: 59px;
-}
-
-#manicures-s63 {
-  height: 233px;
-}
-
-#manicures-s65 {
-  height: 295px;
-}
-
-#manicures-s68 {
-  height: 22px;
-}
-
-@media (max-width: 1200px) {
-  #manicures-s02 {
-    height: 1112px;
-  }
-  #manicures-s50 {
-    height: 304px;
-  }
-  #manicures-s55 {
-    height: 306px;
-  }
-  #manicures-s60 {
-    height: 334px;
-  }
-  #manicures-s65 {
-    height: 304px;
-  }
-}
-
 @media (max-width: 767px) {
   #manicures-s02,
   #manicures-s24,
   #manicures-s47 {
     padding: 5px;
-  }
-  #manicures-s02 {
-    height: auto;
-  }
-  #manicures-s55 {
-    height: 350px;
-  }
-  #manicures-s60 {
-    height: 330px;
-  }
-  #manicures-s62 {
-    height: 54px;
-  }
-  #manicures-s63 {
-    height: 237px;
   }
 }
 
