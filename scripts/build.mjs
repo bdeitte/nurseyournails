@@ -65,7 +65,7 @@ async function buildHtml() {
 }
 
 async function copyStatic() {
-  for (const name of ['robots.txt', 'sitemap.xml']) {
+  for (const name of ['robots.txt', 'sitemap.xml', '_redirects']) {
     await fs.copyFile(path.join(SRC, name), path.join(OUT, name));
   }
 }
