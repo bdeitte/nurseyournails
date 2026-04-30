@@ -424,8 +424,8 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 /* -------------------------------------------------------------------------
    Page title banner
    -------------------------------------------------------------------------
-   Shared across 6 pages (about-me, gallery, my-business, price-list,
-   products, reviews). Navy background with a gold-bordered black accent
+   Shared across 5 pages (about-me, gallery, my-business, products,
+   reviews). Navy background with a gold-bordered black accent
    bar on the right side. Responsive: shrinks padding and font on tablet/
    mobile, reduces the accent border width on mobile.
    ------------------------------------------------------------------------- */
@@ -524,8 +524,8 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 /* -------------------------------------------------------------------------
    Bottom border section
    -------------------------------------------------------------------------
-   Shared across 5 pages (about-me, gallery, my-business, price-list,
-   reviews). A section with a bottom border in slate and a column-layout
+   Shared across 4 pages (about-me, gallery, my-business, reviews). A
+   section with a bottom border in slate and a column-layout
    inner column. Targets stable #shared-s19/s20 IDs.
    ------------------------------------------------------------------------- */
 #shared-s19 {
@@ -910,40 +910,6 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   .mobile-break #about-me-s06 {
     width: 100%;
   }
-}
-
-/* price-list: service list panel overrides.
-   The service list uses legacy `.v-service-list` / `.v-service-item`
-   classes. These page-scoped rules set the panel
-   background to white and text to navy. */
-#price-list-s01 .service-panel {
-  background: var(--color-white);
-  border-color: #5a789e00;
-}
-
-#price-list-s01 .b-panel-container {
-  padding: 8px;
-}
-
-#price-list-s01 .service-title {
-  color: var(--color-navy);
-}
-
-#price-list-s01 .service-description {
-  color: var(--color-navy);
-}
-
-#price-list-s01 .service-pricing {
-  color: var(--color-navy);
-}
-
-#price-list-s01 .s-other:not(.promo-container) {
-  color: var(--color-navy);
-}
-
-#price-list-s01 hr {
-  border-color: #5a789e00;
-  opacity: 0.4;
 }
 
 /* my-business: main content section. Contains the split image+text
@@ -2976,9 +2942,6 @@ a.no-a {
 .right-to-left-align {
   justify-content: flex-end;
   text-align: right;
-}
-#price-list-s01 .title-pricing-row .vp-2 {
-  color: var(--color-black);
 }
 @media (max-width: 767px) {
   .title-pricing-row {
