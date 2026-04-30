@@ -619,6 +619,10 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 .v-col.service-card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-items: stretch;
+  justify-items: stretch;
+  align-content: start;
+  justify-content: stretch;
   gap: 0;
   overflow: visible;
 }
@@ -1101,25 +1105,6 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 #manicures-s47 {
   background-color: var(--color-white);
   padding: 0 var(--space-md);
-}
-
-#manicures-s02 {
-  height: 671px;
-}
-
-#manicures-s35 {
-  height: 100%;
-}
-
-#manicures-s45 {
-  flex-direction: row;
-  height: 247px;
-  width: 250px;
-}
-
-#manicures-s46 {
-  width: 226px;
-  height: 224px;
 }
 
 @media (max-width: 767px) {
