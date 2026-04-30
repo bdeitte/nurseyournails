@@ -663,6 +663,30 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   text-align: left;
 }
 
+/* Service card: title row (title + right-aligned price) + Book Now button.
+   Used on manicures and foot-care service cards. */
+.service-card__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm, 0.5rem);
+  width: 100%;
+}
+
+.service-card__price {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-navy);
+  white-space: nowrap;
+}
+
+.service-card__book {
+  margin-top: var(--space-md, 1rem);
+  width: 100%;
+  text-align: center;
+}
+
 @media (max-width: 1200px) {
   .v-col.service-card-grid {
     padding: 0;
