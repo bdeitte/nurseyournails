@@ -620,10 +620,10 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: stretch;
   align-content: flex-start;
-  justify-content: space-between;
-  gap: var(--space-xs);
+  justify-content: flex-start;
+  gap: 0;
   overflow: visible;
 }
 
@@ -632,7 +632,8 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  width: 24%;
+  box-sizing: border-box;
+  width: 25%;
   padding: 0;
   overflow: visible;
 }
@@ -646,12 +647,14 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 .v-container.service-card__info {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: stretch;
   width: 100%;
-  padding: var(--space-md) 0 0 0;
+  padding: var(--space-md);
   gap: var(--space-sm);
-  height: 30%;
+  height: auto;
   overflow: visible;
+  flex: 1 1 auto;
 }
 
 .service-card__title {
@@ -663,15 +666,41 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   text-align: left;
 }
 
-/* Service card: thick black border to visually separate cards from each
-   other, plus full-width Book Now button below the description. */
+/* Service card: thick black border so cards are visually distinct from
+   each other when butted up against each other in the grid. */
 .v-container.service-card {
   border: 3px solid var(--color-black, #000);
-  border-radius: 4px;
+}
+
+/* Title + price share a row. Title shrinks (flex 1 with min-width 0) so
+   the price always stays visible to the right, even when the title needs
+   to wrap onto a second line. */
+.service-card__title-row {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm, 0.5rem);
+  width: 100%;
+}
+
+.service-card__title-row .service-card__title {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  text-align: left;
+}
+
+.service-card__price {
+  flex: 0 0 auto;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-navy);
+  white-space: nowrap;
 }
 
 .service-card__book {
-  margin-top: var(--space-md, 1rem);
+  margin-top: auto;
   width: 100%;
   text-align: center;
 }
