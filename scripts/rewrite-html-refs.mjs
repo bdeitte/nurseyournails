@@ -16,7 +16,6 @@ const pages = [
   'public/gallery/index.html',
   'public/manicures/index.html',
   'public/my-business/index.html',
-  'public/new-client-special/index.html',
   'public/products/index.html',
   'public/reviews/index.html',
 ];

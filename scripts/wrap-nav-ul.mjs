@@ -13,7 +13,6 @@ const PAGES = [
   'gallery/index.html',
   'manicures/index.html',
   'my-business/index.html',
-  'new-client-special/index.html',
   'products/index.html',
   'reviews/index.html',
 ];

@@ -349,15 +349,9 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 /* -------------------------------------------------------------------------
    Hero
    -------------------------------------------------------------------------
-   Reusable hero component. The defaults below describe a flex-row navy
-   hero with overlaid text. The pilot page (new-client-special) uses an
-   image-background variant (`.hero--fixed` + page-scoped background-image
-   and fixed height), so several of the defaults below are overridden in
-   the page-scoped block further down. That deviation is deliberate: the
-   pilot's visual baseline is an image-backed hero with a centered white
-   card overlay, which is a different layout pattern than the flex-row
-   default. Later pages that need the default layout can use `.hero` +
-   `.hero__content` directly without overrides.
+   Reusable hero component. A flex-row navy hero with overlaid text;
+   pages that need a different layout can override at the page-scoped
+   level.
    ------------------------------------------------------------------------- */
 .hero {
   display: flex;
@@ -625,6 +619,10 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   justify-content: stretch;
   gap: 0;
   overflow: visible;
+  /* Outer top + left navy lines. Each card draws its right + bottom so
+     adjacent cards share a single 3px line instead of doubling up. */
+  border-top: 3px solid var(--color-navy);
+  border-left: 3px solid var(--color-navy);
 }
 
 .v-container.service-card {
@@ -666,10 +664,12 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   text-align: left;
 }
 
-/* Service card: thick navy border (matches the page footer) so cards are
-   visually distinct when butted up against each other in the grid. */
+/* Service card: only the right + bottom edges carry a 3px navy line.
+   The grid container draws the outer top + left edges, so adjacent cards
+   share a single 3px line at the boundary instead of stacking two. */
 .v-container.service-card {
-  border: 3px solid var(--color-navy);
+  border-right: 3px solid var(--color-navy);
+  border-bottom: 3px solid var(--color-navy);
 }
 
 /* Title + price share a row. Title shrinks (flex 1 with min-width 0) so
@@ -763,66 +763,6 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
    section ID. Keeps the component vocabulary small and the page-specific
    numbers easy to find.
    ========================================================================= */
-
-/* new-client-special: hero section. The pilot uses the image-background
-   hero variant, so the defaults from `.hero` above are reshaped here:
-   - Fixed 700px height + cover image replace the flex-row padding/gap
-     layout of the default hero.
-   - The content node (`.hero__content`) is re-centered as a white card
-     overlay instead of a left-aligned flex column.
-   Only values that differ from the component defaults live here. */
-#new-client-special-s02 {
-  height: 700px;
-  padding: 0;
-  background-image: url("../images/new-client-special/hero-1200.webp");
-  background-color: transparent;
-  gap: 0;
-}
-
-#new-client-special-s04 {
-  width: 50%;
-  height: 55%;
-  flex: 0 0 auto;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--color-white);
-  overflow: visible;
-}
-
-#new-client-special-s05 {
-  font-size: 3em;
-  color: var(--color-navy);
-}
-
-#new-client-special-s06 {
-  width: 90%;
-  font-size: 1.1em;
-  color: var(--color-navy);
-}
-
-@media (max-width: 1200px) {
-  #new-client-special-s04 {
-    width: 70%;
-  }
-  #new-client-special-s05 {
-    font-size: 3em;
-  }
-}
-
-@media (max-width: 767px) {
-  #new-client-special-s03 {
-    padding: 48px;
-  }
-  #new-client-special-s04 {
-    width: 100%;
-    height: auto;
-    padding: 40px 25px;
-  }
-  #new-client-special-s05 {
-    font-size: 2em;
-  }
-}
 
 /* about-me: family portrait section + bio card + bottom image.
    The bio card is a white column container that sits at ~783px wide on
@@ -1047,34 +987,18 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   }
 }
 
-/* foot-care: two service-card-grid sections with white background.
-   Cards use the shared service-card component. Only page-specific
-   size overrides live here. */
+/* foot-care and manicures: a single service-card-grid section per page,
+   white background, horizontal padding only. Cards use the shared
+   service-card component. */
 #foot-care-s02,
-#foot-care-s24 {
+#manicures-s02 {
   background-color: var(--color-white);
   padding: 0 var(--space-md);
 }
 
 @media (max-width: 767px) {
   .mobile-break #foot-care-s02,
-  .mobile-break #foot-care-s24 {
-    padding: 5px;
-  }
-}
-
-/* manicures: three service-card-grid sections with white background.
-   Cards use the shared service-card component. Only page-specific
-   size overrides live here. */
-#manicures-s02,
-#manicures-s24 {
-  background-color: var(--color-white);
-  padding: 0 var(--space-md);
-}
-
-@media (max-width: 767px) {
-  #manicures-s02,
-  #manicures-s24 {
+  #manicures-s02 {
     padding: 5px;
   }
 }

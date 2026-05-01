@@ -718,25 +718,6 @@
       }
     ]
   },
-  "new-client-special/hero": {
-    "source": "assets/images/new-client-special/hero.png",
-    "sourceWidth": 1945,
-    "sourceHeight": 1296,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/new-client-special/hero-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/new-client-special/hero-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/new-client-special/hero-1200.webp"
-      }
-    ]
-  },
   "products/cirque-colors": {
     "source": "assets/images/products/cirque-colors.png",
     "sourceWidth": 534,
