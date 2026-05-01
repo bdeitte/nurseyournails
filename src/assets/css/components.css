@@ -993,7 +993,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
 #foot-care-s02,
 #manicures-s02 {
   background-color: var(--color-white);
-  padding: 0 var(--space-md);
+  padding: 0 var(--space-md) var(--space-md);
 }
 
 @media (max-width: 767px) {
