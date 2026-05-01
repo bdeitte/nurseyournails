@@ -666,10 +666,10 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   text-align: left;
 }
 
-/* Service card: thick black border so cards are visually distinct from
-   each other when butted up against each other in the grid. */
+/* Service card: thick navy border (matches the page footer) so cards are
+   visually distinct when butted up against each other in the grid. */
 .v-container.service-card {
-  border: 3px solid var(--color-black, #000);
+  border: 3px solid var(--color-navy);
 }
 
 /* Title + price share a row. Title shrinks (flex 1 with min-width 0) so
