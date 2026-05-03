@@ -78,6 +78,21 @@
       }
     ]
   },
+  "foot-care/mobile-foot-care": {
+    "source": "assets/images/foot-care/mobile-foot-care.png",
+    "sourceWidth": 1062,
+    "sourceHeight": 774,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/foot-care/mobile-foot-care-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/foot-care/mobile-foot-care-800.webp"
+      }
+    ]
+  },
   "foot-care/mobile-pedicure": {
     "source": "assets/images/foot-care/mobile-pedicure.png",
     "sourceWidth": 1402,
