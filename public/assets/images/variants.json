@@ -78,10 +78,25 @@
       }
     ]
   },
-  "foot-care/mobile-foot-care": {
-    "source": "assets/images/foot-care/mobile-foot-care.png",
+  "foot-care/mobile-foot-care-polish": {
+    "source": "assets/images/foot-care/mobile-foot-care-polish.png",
     "sourceWidth": 1062,
     "sourceHeight": 774,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/foot-care/mobile-foot-care-polish-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/foot-care/mobile-foot-care-polish-800.webp"
+      }
+    ]
+  },
+  "foot-care/mobile-foot-care": {
+    "source": "assets/images/foot-care/mobile-foot-care.png",
+    "sourceWidth": 3581,
+    "sourceHeight": 2074,
     "variants": [
       {
         "width": 400,
@@ -90,6 +105,10 @@
       {
         "width": 800,
         "path": "assets/images/foot-care/mobile-foot-care-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/foot-care/mobile-foot-care-1200.webp"
       }
     ]
   },
