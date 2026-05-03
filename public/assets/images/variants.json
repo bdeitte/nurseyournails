@@ -80,8 +80,8 @@
   },
   "foot-care/mobile-pedicure": {
     "source": "assets/images/foot-care/mobile-pedicure.png",
-    "sourceWidth": 1062,
-    "sourceHeight": 774,
+    "sourceWidth": 1402,
+    "sourceHeight": 1122,
     "variants": [
       {
         "width": 400,
@@ -90,6 +90,10 @@
       {
         "width": 800,
         "path": "assets/images/foot-care/mobile-pedicure-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/foot-care/mobile-pedicure-1200.webp"
       }
     ]
   },
