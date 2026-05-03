@@ -716,9 +716,9 @@
     ]
   },
   "manicures/structured-gel-rebalance": {
-    "source": "assets/images/manicures/structured-gel-rebalance.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
+    "source": "assets/images/manicures/structured-gel-rebalance.jpeg",
+    "sourceWidth": 452,
+    "sourceHeight": 600,
     "variants": [
       {
         "width": 400,
