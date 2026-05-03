@@ -52,6 +52,9 @@ for (const rel of PAGES) {
     const lastClose = full.lastIndexOf('</picture>', offset);
     if (lastOpen > lastClose) return match;
     if (filename.startsWith('shared/logo')) return match;
+    // Source is only 452px wide, so the only generated variant is 400w — wrapping
+    // would force a smaller WebP than the JPEG fallback at tablet/desktop sizes.
+    if (filename.startsWith('manicures/structured-gel-rebalance')) return match;
 
     const wrapped = buildPicture(match, prefix, filename);
     if (wrapped !== match) wrapsInFile++;
