@@ -587,25 +587,6 @@
       }
     ]
   },
-  "manicures/gel-x-extensions": {
-    "source": "assets/images/manicures/gel-x-extensions.jpg",
-    "sourceWidth": 1204,
-    "sourceHeight": 1600,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/manicures/gel-x-extensions-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/manicures/gel-x-extensions-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/manicures/gel-x-extensions-1200.webp"
-      }
-    ]
-  },
   "manicures/hero": {
     "source": "assets/images/manicures/hero.png",
     "sourceWidth": 1584,
