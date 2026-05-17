@@ -373,47 +373,6 @@
       }
     ]
   },
-  "gallery/12": {
-    "source": "assets/images/gallery/12.webp",
-    "sourceWidth": 1600,
-    "sourceHeight": 2125,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/gallery/12-400.webp"
-      },
-      {
-        "width": 800,
-        "path": "assets/images/gallery/12-800.webp"
-      },
-      {
-        "width": 1200,
-        "path": "assets/images/gallery/12-1200.webp"
-      }
-    ]
-  },
-  "gallery/14": {
-    "source": "assets/images/gallery/14.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/gallery/14-400.webp"
-      }
-    ]
-  },
-  "gallery/15": {
-    "source": "assets/images/gallery/15.webp",
-    "sourceWidth": 602,
-    "sourceHeight": 800,
-    "variants": [
-      {
-        "width": 400,
-        "path": "assets/images/gallery/15-400.webp"
-      }
-    ]
-  },
   "gallery/16": {
     "source": "assets/images/gallery/16.webp",
     "sourceWidth": 1080,
@@ -426,6 +385,82 @@
       {
         "width": 800,
         "path": "assets/images/gallery/16-800.webp"
+      }
+    ]
+  },
+  "gallery/17": {
+    "source": "assets/images/gallery/17.webp",
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/17-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/gallery/17-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/gallery/17-1200.webp"
+      }
+    ]
+  },
+  "gallery/18": {
+    "source": "assets/images/gallery/18.webp",
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/18-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/gallery/18-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/gallery/18-1200.webp"
+      }
+    ]
+  },
+  "gallery/19": {
+    "source": "assets/images/gallery/19.webp",
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/19-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/gallery/19-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/gallery/19-1200.webp"
+      }
+    ]
+  },
+  "gallery/20": {
+    "source": "assets/images/gallery/20.webp",
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/20-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/gallery/20-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/gallery/20-1200.webp"
       }
     ]
   },
