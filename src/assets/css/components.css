@@ -715,7 +715,7 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   width: 100%;
 }
 
-.service-card__book-action {
+.v-button.service-card__book-action {
   width: 100%;
   text-align: center;
 }
