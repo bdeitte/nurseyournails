@@ -705,6 +705,21 @@ body.nav-open.nav-from-footer nav.full-screen-navigation {
   text-align: center;
 }
 
+/* Stacked Email + phone buttons used in place of a single Book Now on the
+   mobile-care cards. Pinned to the card bottom like .service-card__book. */
+.service-card__contact {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.service-card__book-action {
+  width: 100%;
+  text-align: center;
+}
+
 @media (max-width: 1200px) {
   .v-col.service-card-grid {
     padding: 0;
