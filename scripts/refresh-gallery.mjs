@@ -20,6 +20,29 @@ function run(cmd, args, opts = {}) {
   if (res.status !== 0) die(`${cmd} ${args.join(' ')} exited with ${res.status}`);
 }
 
+// Synchronous sleep so we can space out retries inside this spawnSync-based script.
+function sleepSync(ms) {
+  Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+// Like run(), but retries on non-zero exit. gdown downloads each Drive file from
+// an ephemeral googleusercontent.com host; a single transient DNS/network blip on
+// any one file otherwise aborts the whole refresh. Retrying recovers from that.
+function runWithRetry(cmd, args, { attempts = 3, delayMs = 3000, opts = {} } = {}) {
+  for (let attempt = 1; attempt <= attempts; attempt++) {
+    const res = spawnSync(cmd, args, { stdio: 'inherit', ...opts });
+    if (res.status === 0) return;
+    if (attempt < attempts) {
+      console.warn(
+        `refresh-gallery: ${cmd} exited with ${res.status} ` +
+          `(attempt ${attempt}/${attempts}); retrying in ${delayMs}ms`,
+      );
+      sleepSync(delayMs);
+    }
+  }
+  die(`${cmd} ${args.join(' ')} failed after ${attempts} attempts`);
+}
+
 function ensureGdownAvailable() {
   const res = spawnSync('pipx', ['--version'], { stdio: 'ignore' });
   if (res.status !== 0) {
@@ -30,7 +53,7 @@ function ensureGdownAvailable() {
 async function downloadDriveFolder(dest) {
   ensureGdownAvailable();
   console.log(`refresh-gallery: downloading to ${dest}`);
-  run('pipx', ['run', 'gdown', '--folder', DRIVE_URL, '-O', dest]);
+  runWithRetry('pipx', ['run', 'gdown', '--folder', '--continue', DRIVE_URL, '-O', dest]);
 }
 
 function filterImages(files) {
