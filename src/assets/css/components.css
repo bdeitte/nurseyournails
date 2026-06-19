@@ -2160,8 +2160,10 @@ v-heading {
 }
 #shared-s03 .footer-nav__link:not(:last-child)::after {
   content: "·";
+  display: inline-block;
   margin: 0 12px;
   color: var(--color-gold);
+  text-decoration: none;
 }
 #shared-s03 .footer-nav__link:hover,
 #shared-s03 .footer-nav__link:focus-visible {
