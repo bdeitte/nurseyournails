@@ -312,40 +312,6 @@
   }
 }
 
-/* Footer hamburger. Mirrors the header hamburger but sits beside
-   the business name in the footer. Shown at every breakpoint so the
-   persistent bottom-of-page nav trigger is always reachable. When it
-   opens the nav, the `.nav-from-footer` body class repositions the menu
-   as a bottom sheet so it rises upward from the trigger instead of
-   dropping down. */
-.footer-mobile-nav {
-  background: transparent;
-  border: 0;
-  color: var(--color-gold);
-  cursor: pointer;
-  display: flex;
-  padding: 0;
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-body.nav-open.nav-from-footer #page-wrapper {
-  z-index: 20;
-}
-body.nav-open.nav-from-footer nav.full-screen-navigation {
-  display: flex;
-  position: fixed;
-  top: auto;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  max-height: 70vh;
-  overflow-y: auto;
-  flex-wrap: nowrap;
-  border-top: 2px solid var(--color-gold);
-}
-
 /* -------------------------------------------------------------------------
    Hero
    -------------------------------------------------------------------------
@@ -2172,6 +2138,36 @@ v-heading {
   padding-bottom: 40px;
 }
 
+/* Always-visible footer site links. Replaces the old footer hamburger
+   trigger so every page is reachable from the bottom of the page without
+   having to discover the header menu. A centered wrapping row of gold
+   links with dot separators, matching the navy footer. */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  row-gap: 6px;
+  width: 100%;
+  margin-top: 6px;
+}
+/* ID-scoped so the footer's navy background wins over the site-wide
+   `.v-site a:not(.no-a)` link styling (black + underline). */
+#shared-s03 .footer-nav__link {
+  color: var(--color-gold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+#shared-s03 .footer-nav__link:not(:last-child)::after {
+  content: "·";
+  margin: 0 12px;
+  color: var(--color-gold);
+}
+#shared-s03 .footer-nav__link:hover,
+#shared-s03 .footer-nav__link:focus-visible {
+  text-decoration: underline;
+}
+
 /* ---- Social links ----------------------------------------------------- */
 .v-business-social-links {
   color: inherit;
@@ -3260,9 +3256,6 @@ a.mobile-book-now {
   .mobile-navigation {
     display: none;
   }
-  .footer-mobile-nav.mobile-navigation {
-    display: flex;
-  }
 }
 
 /* =========================================================================
@@ -3506,9 +3499,6 @@ a.mobile-book-now {
   .mobile-navigation,
   .mobile-navigation-menu {
     display: none;
-  }
-  .footer-mobile-nav.mobile-navigation {
-    display: flex;
   }
 }
 @media (max-width: 767px) {
