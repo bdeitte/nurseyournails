@@ -464,6 +464,63 @@
       }
     ]
   },
+  "gallery/21": {
+    "source": "assets/images/gallery/21.webp",
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/21-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/gallery/21-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/gallery/21-1200.webp"
+      }
+    ]
+  },
+  "gallery/22": {
+    "source": "assets/images/gallery/22.webp",
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/22-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/gallery/22-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/gallery/22-1200.webp"
+      }
+    ]
+  },
+  "gallery/23": {
+    "source": "assets/images/gallery/23.webp",
+    "sourceWidth": 1600,
+    "sourceHeight": 2125,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/gallery/23-400.webp"
+      },
+      {
+        "width": 800,
+        "path": "assets/images/gallery/23-800.webp"
+      },
+      {
+        "width": 1200,
+        "path": "assets/images/gallery/23-1200.webp"
+      }
+    ]
+  },
   "home/ann-portrait": {
     "source": "assets/images/home/ann-portrait.jpg",
     "sourceWidth": 1080,
