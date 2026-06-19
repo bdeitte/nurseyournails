@@ -308,7 +308,10 @@
     width: 193px;
   }
   .mobile-break #shared-s11 {
-    height: 5px;
+    display: none;
+  }
+  .mobile-break #shared-s10 {
+    margin-top: -20px;
   }
 }
 
