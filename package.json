@@ -23,10 +23,10 @@
     "browserslist": "^4.28.2",
     "eslint": "^10.5.0",
     "html-minifier-terser": "^7.2.0",
-    "lighthouse": "^12.8.2",
+    "lighthouse": "^13.4.1",
     "lightningcss": "^1.32.0",
     "prettier": "^3.8.4",
-    "sharp": "^0.34.5",
+    "sharp": "^0.35.3",
     "wrangler": "^4.103.0"
   }
 }
