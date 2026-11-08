@@ -1099,6 +1099,18 @@
   font-size: var(--fs-h3);
 }
 
+/* Cleanliness video below the intro text. preload="none" in the markup means
+   only the poster image loads until the visitor presses play. */
+.home-video {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  background-color: var(--color-black);
+}
+
 /* home-s25..s45: feature card rows — circular image + text */
 #home-s25,
 #home-s30,
@@ -1283,6 +1295,9 @@
   #home-s24 {
     height: 242px;
     width: 300px;
+  }
+  .home-video {
+    max-width: 300px;
   }
   #home-s25,
   #home-s30,
