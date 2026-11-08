@@ -456,6 +456,17 @@
       }
     ]
   },
+  "home/cleanliness-poster": {
+    "source": "assets/images/home/cleanliness-poster.webp",
+    "sourceWidth": 720,
+    "sourceHeight": 1280,
+    "variants": [
+      {
+        "width": 400,
+        "path": "assets/images/home/cleanliness-poster-400.webp"
+      }
+    ]
+  },
   "home/gel-application": {
     "source": "assets/images/home/gel-application.jpg",
     "sourceWidth": 1080,

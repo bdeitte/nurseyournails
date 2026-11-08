@@ -1090,23 +1090,36 @@
   gap: 24px;
 }
 
-/* home-s24: intro text block (fixed height on desktop) */
+/* Intro row: text on the left, cleanliness video on the right. Stacks on
+   mobile. */
+.home-intro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+  width: 100%;
+}
+
+/* home-s24: intro text block */
 #home-s24 {
-  width: 698px;
+  flex: 1 1 0;
+  min-width: 0;
   color: var(--color-white);
-  text-align: center;
-  height: 114px;
+  text-align: left;
   font-size: var(--fs-h3);
 }
 
-/* Cleanliness video below the intro text. preload="none" in the markup means
-   only the poster image loads until the visitor presses play. */
-.home-video {
-  display: block;
-  width: 100%;
-  max-width: 360px;
+/* Cleanliness video. Uses the shared .video-hero click-to-load player, so
+   nothing but the lazy poster loads until the visitor presses play. The
+   doubled class beats the hero-specific .video-hero grid/aspect rules. */
+.video-hero.home-video {
+  flex: none;
+  width: 360px;
+  max-width: 100%;
   height: auto;
   aspect-ratio: 9 / 16;
+  overflow: hidden;
   border-radius: 16px;
   background-color: var(--color-black);
 }
@@ -1229,9 +1242,11 @@
     padding: var(--space-md);
     justify-content: space-between;
   }
-  #home-s24 {
-    height: 155px;
-    width: 60%;
+  .home-intro {
+    gap: var(--space-lg);
+  }
+  .video-hero.home-video {
+    width: 300px;
   }
   #home-s27,
   #home-s32,
@@ -1292,12 +1307,14 @@
     flex-direction: column;
     gap: 24px;
   }
-  #home-s24 {
-    height: 242px;
-    width: 300px;
+  .home-intro {
+    flex-direction: column;
+    gap: var(--space-lg);
   }
-  .home-video {
-    max-width: 300px;
+  #home-s24 {
+    flex: none;
+    width: 300px;
+    text-align: center;
   }
   #home-s25,
   #home-s30,
