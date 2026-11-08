@@ -1090,23 +1090,20 @@
   gap: 24px;
 }
 
-/* Intro row: text on the left, cleanliness video on the right. Stacks on
-   mobile. */
+/* Intro text stacked above the cleanliness video */
 .home-intro {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: var(--space-xl);
   width: 100%;
 }
 
 /* home-s24: intro text block */
 #home-s24 {
-  flex: 1 1 0;
-  min-width: 0;
+  width: 698px;
   color: var(--color-white);
-  text-align: left;
+  text-align: center;
   font-size: var(--fs-h3);
 }
 
@@ -1242,11 +1239,8 @@
     padding: var(--space-md);
     justify-content: space-between;
   }
-  .home-intro {
-    gap: var(--space-lg);
-  }
-  .video-hero.home-video {
-    width: 300px;
+  #home-s24 {
+    width: 60%;
   }
   #home-s27,
   #home-s32,
@@ -1308,13 +1302,13 @@
     gap: 24px;
   }
   .home-intro {
-    flex-direction: column;
     gap: var(--space-lg);
   }
   #home-s24 {
-    flex: none;
     width: 300px;
-    text-align: center;
+  }
+  .video-hero.home-video {
+    width: 300px;
   }
   #home-s25,
   #home-s30,
