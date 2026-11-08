@@ -18,6 +18,3 @@ docs/superpowers/specs
 .env*
 !.env.example
 .claude/
-
-# Raw video source (compressed copy lives under public/assets/video/)
-NYN introduction.mp4
